@@ -11,16 +11,15 @@ public class SpawnPoint : MonoBehaviour {
     private Node node;
 
 	void Start () {
-        pos = transform.position;
-        //pos.y += 1;
+        pos = transform.localPosition;
 
         node = GetComponent <Node> ();
-
-        // @todo fix look rotation, first thing an enemy does, is rotate around?!
-
-        Vector3 nodePosition = node.transform.position;
-        //nodePosition.y += 1;
-        lookAt = Quaternion.LookRotation (nodePosition - pos);
+        int index = Random.Range (0, node.nextNodes.Length);
+        GameObject nextNode = node.nextNodes[index];
+        if (nextNode) {
+            Vector3 nodePosition = nextNode.transform.position;
+            lookAt = Quaternion.LookRotation (nodePosition - pos);
+        }
     }
 	
     public void SpawnEnemy (GameObject enemy) {

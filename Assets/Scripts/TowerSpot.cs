@@ -22,8 +22,6 @@ public class TowerSpot : MonoBehaviour {
 
             sm.UseEnergy (towerManager.selectedTowerType.GetComponent<Tower>().energy);
 
-            //Vector3 pos = transform.position;
-            //pos.y += 1;
             Instantiate(towerManager.selectedTowerType, transform.position, transform.rotation);
 
             // todo disable the script, or temporarily stop it from spawning another tower

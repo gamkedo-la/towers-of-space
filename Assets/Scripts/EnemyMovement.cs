@@ -41,7 +41,6 @@ public class EnemyMovement : MonoBehaviour {
                 hasNextWaypoint = true;
 
                 nextNodeWaypoint = nextNode.transform.position;
-                //nextNodeWaypoint.y += 1;
             }
         }
     }
