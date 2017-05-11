@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
         target = t;
     }
 	
-	// Update is called once per frame  //Test comment
+	// Update is called once per frame
 	void Update () {
         if (target == null) {
             Destroy (gameObject);
