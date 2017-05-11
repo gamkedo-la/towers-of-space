@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour {
     
     public GameObject bulletPrefab;
     public Transform barrel;
+    public Transform[] muzzles;
     public float range = 6f;
     public float fireCooldown = 1f;
     public float buildTime = 2f;
@@ -14,6 +15,7 @@ public class Tower : MonoBehaviour {
 
     float fireCooldownLeft = 0f;
     float buildTimeLeft;
+    int muzzleIndex = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -67,8 +69,12 @@ public class Tower : MonoBehaviour {
 	}
 
     void ShootAt(Enemy enemy) {
-        // @todo fire from barrel
-        GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, transform.position, transform.rotation);
+        Vector3 muzzlePosition = muzzles[muzzleIndex].position;
+        muzzleIndex++;
+        if (muzzles.Length <= muzzleIndex) {
+            muzzleIndex = 0;
+        }
+        GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, muzzlePosition, transform.rotation);
 
         bulletGO.GetComponent <Bullet>().SetTarget(enemy.transform);
     }

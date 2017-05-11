@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour {
                 if (wc.spawned < wc.num) {
                     // Spawn it!
                     wc.spawned++;
-                    transform.parent.GetComponent <SpawnPoint> ().SpawnEnemy (wc.enemyPrefab);
+                    transform.parent.parent.GetComponent <SpawnPoint> ().SpawnEnemy (wc.enemyPrefab);
 
                     didSpawn = true;
                     // Stop the loop because we need to wait before spawning the next enemy
