@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour {
     
     public GameObject bulletPrefab;
+    public Transform barrel;
     public float range = 6f;
     public float fireCooldown = 1f;
     public float buildTime = 2f;
@@ -13,11 +14,9 @@ public class Tower : MonoBehaviour {
 
     float fireCooldownLeft = 0f;
     float buildTimeLeft;
-    Transform turrentTransform;
 
 	// Use this for initialization
 	void Start () {
-        turrentTransform = transform.Find ("Barrel");
         buildTimeLeft = buildTime;
 	}
 	
@@ -58,7 +57,7 @@ public class Tower : MonoBehaviour {
         Vector3 direction = nearestEnemy.transform.position - this.transform.position;
 
         Quaternion rotation = Quaternion.LookRotation (direction);
-        turrentTransform.rotation = Quaternion.Euler (0, rotation.eulerAngles.y, 0);
+        barrel.rotation = Quaternion.Euler (0, rotation.eulerAngles.y, 0);
 
         fireCooldownLeft -= Time.deltaTime;
         if (fireCooldownLeft <= 0 && direction.magnitude <= range) {
