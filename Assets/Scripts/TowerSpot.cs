@@ -13,7 +13,7 @@ public class TowerSpot : MonoBehaviour {
 
         TowerManager towerManager = GameObject.FindObjectOfType<TowerManager>();
 
-        if (towerManager.selectedTowerType != null) {
+        if (towerManager.selectedTowerType != null && towerManager.isPaused != true) {
             ScoreManager sm = GameObject.FindObjectOfType<ScoreManager>();
             if (!sm.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy)) {
                 Debug.Log("Not enough energy!");

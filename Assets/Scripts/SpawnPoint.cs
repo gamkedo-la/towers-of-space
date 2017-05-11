@@ -25,5 +25,6 @@ public class SpawnPoint : MonoBehaviour {
     public void SpawnEnemy (GameObject enemy) {
         GameObject e = GameObject.Instantiate (enemy, pos, lookAt);
         e.GetComponent <EnemyMovement> ().SetSpawnNode(gameObject);
+        e.transform.SetParent(enemies);
 	}
 }
