@@ -10,25 +10,12 @@ public class TowerManager : MonoBehaviour
     public GameObject[] TowerTypes;
     public bool isPaused = false;
     public GameObject pausePanel;
+    public float gameTimeScale = 1.0f;
 
     public void SelectTowerType(GameObject prefab)
     {
         selectedTowerType = prefab;
     }
-
-    //Moved the buttons out into the editor so they can be more easily modified - Renaud Marshall
-    /*private void OnGUI()
-    {
-        if (GUI.Button(new Rect(145, 5, 100, 50), "Standard"))
-        {
-            selectedTowerType = TowerTypes[0];
-        }
-
-        if (GUI.Button(new Rect(285, 5, 100, 50), "Double Barrel"))
-        {
-            selectedTowerType = TowerTypes[1];
-        }
-    }*/
 
     public void ChangeTowerType(int towerTypeIndex)
     {
@@ -43,7 +30,7 @@ public class TowerManager : MonoBehaviour
         if (isPaused == true)
         {
             isPaused = false;
-            Time.timeScale = 1;
+            Time.timeScale = gameTimeScale;
             pausePanel.SetActive(false);
         }
         else
@@ -51,6 +38,33 @@ public class TowerManager : MonoBehaviour
             isPaused = true;
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+        }
+    }
+
+    public void SlowTime()
+    {
+        if (isPaused == false)
+        {
+            gameTimeScale = Mathf.Max(gameTimeScale / 2, 0.25f);
+            Time.timeScale = gameTimeScale;
+        }
+    }
+
+    public void ResetTimeScale()
+    {
+        if (isPaused == false)
+        {
+            gameTimeScale = 1.0f;
+            Time.timeScale = gameTimeScale;
+        }
+    }
+
+    public void SpeedUpTime()
+    {
+        if (isPaused == false)
+        {
+            gameTimeScale = Mathf.Min(gameTimeScale * 2, 4);
+            Time.timeScale = gameTimeScale;
         }
     }
 }
