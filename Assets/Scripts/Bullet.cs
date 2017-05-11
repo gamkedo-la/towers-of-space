@@ -16,13 +16,12 @@ public class Bullet : MonoBehaviour {
         target = t;
     }
 	
-	// Update is called once per frame
+	// Update is called once per frame  //Test comment
 	void Update () {
         if (target == null) {
             Destroy (gameObject);
             return;
         }
-
         Vector3 direction = target.position - transform.localPosition;
         float distanceThisFrame = speed * Time.deltaTime;
         if (direction.magnitude <= distanceThisFrame) {
