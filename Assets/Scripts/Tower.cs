@@ -69,13 +69,13 @@ public class Tower : MonoBehaviour {
 	}
 
     void ShootAt(Enemy enemy) {
-        Vector3 muzzlePosition = muzzles[muzzleIndex].position;
+        GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
+
+        bulletGO.GetComponent <Bullet>().SetTarget(enemy.transform);
+
         muzzleIndex++;
         if (muzzles.Length <= muzzleIndex) {
             muzzleIndex = 0;
         }
-        GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, muzzlePosition, transform.rotation);
-
-        bulletGO.GetComponent <Bullet>().SetTarget(enemy.transform);
     }
 }
