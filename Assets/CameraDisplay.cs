@@ -20,7 +20,12 @@ public class CameraDisplay : MonoBehaviour {
     public float translationSpeed = 0.15f; //Moving the camera forwards and backwards
     private float movementX;
     private float movementY;
+    private float movementZ;
     private float targetMovement;
+    private float targetMovementX; //These two are for when the player is holding translation lock
+    private float targetMovementY;
+
+    private float resetMove;
 
     // Use this for initialization
     void Start () {
@@ -50,17 +55,49 @@ public class CameraDisplay : MonoBehaviour {
             canvas.worldCamera = playerCamera;
         }
 
-        if (playerCamera.enabled) //Only triggers if not in overhead view
+
+        Vector3 angle = playerCamera.transform.rotation.eulerAngles * Mathf.Deg2Rad; //Calculates the proportions of Y and Z movements necessary to move forwards
+
+        if (playerCamera.enabled && !Input.GetKey(KeyCode.LeftShift)) //Only triggers if not in overhead view
         {
-            targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * (invert ? 1 : -1);          //Rotates the camera around by pressing left/right (or a,d).
+            Debug.Log(resetMove);
+            targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1);          //Rotates the camera around by pressing left/right (or a,d).
             playerCamera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
 
             targetMovement = Input.GetAxis("Vertical"); //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
-            Vector3 angle = playerCamera.transform.rotation.eulerAngles * Mathf.Deg2Rad;
-            movementX = Mathf.Cos(angle.x) * targetMovement * translationSpeed; //Which is actually the camera's local Z axis
-            movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed; 
-            playerCamera.transform.Translate(0, movementY, movementX);
+
+            movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed;
+            movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed;
+            playerCamera.transform.Translate(0, movementY, movementZ);
         }
 
-	}
+        else if (playerCamera.enabled && Input.GetKey(KeyCode.LeftShift))
+        {
+            targetMovementX = Input.GetAxis("Horizontal") * resetMove;
+            targetMovementY = Input.GetAxis("Vertical") * resetMove;
+
+            movementX = targetMovementX * translationSpeed;
+            movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed;
+            movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed; //Which is actually the camera's local Z axis
+
+            playerCamera.transform.Translate(movementX, movementY, movementZ);
+            
+        }
+
+        if (resetMove != 1)    //This section will be polished later. Basically the previous inputs for one mode are kept for the other, resulting in camera sliding when switching.
+        {                      //To counter this, I tried multiplying by an incremental float (resetMove) that could both nullify the slide and make the translation seamless. Will tweak the numbers to make it better
+            resetMove += 0.05f;
+            resetMove = Mathf.Clamp(resetMove, 0, 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift)) //Resets the resetMove on pressing/releasing Shift
+        {
+            resetMove = 0.05f;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            resetMove = 0.05f;
+        }
+
+    }
 }
