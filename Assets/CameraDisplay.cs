@@ -25,6 +25,13 @@ public class CameraDisplay : MonoBehaviour {
     private float targetMovementX; //These two are for when the player is holding translation lock
     private float targetMovementY;
 
+    private float fov; //Field of view, in degrees
+    private float minFov = 15f;
+    private float maxFov = 90f;
+    public float sensitivity = 15f; //Mouse scroll sensitivity
+    private float zoomSmoothTime = 0.3f;
+    private float currentZoomVelocity = 25;
+
     private float resetMove;
 
     // Use this for initialization
@@ -36,6 +43,8 @@ public class CameraDisplay : MonoBehaviour {
         playerCamera.enabled = true;  //Start at default position
         overheadCamera.enabled = false;
         canvas = GUILayout.GetComponent<Canvas>();
+
+        fov = playerCamera.fieldOfView;
 
     }
 	
@@ -60,14 +69,14 @@ public class CameraDisplay : MonoBehaviour {
 
         if (playerCamera.enabled && !Input.GetKey(KeyCode.LeftShift)) //Only triggers if not in overhead view
         {
-            Debug.Log(resetMove);
-            targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1);          //Rotates the camera around by pressing left/right (or a,d).
+
+            targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1) * Time.deltaTime;          //Rotates the camera around by pressing left/right (or a,d).
             playerCamera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
 
             targetMovement = Input.GetAxis("Vertical"); //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
 
-            movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed;
-            movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed;
+            movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
+            movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
             playerCamera.transform.Translate(0, movementY, movementZ);
         }
 
@@ -76,9 +85,9 @@ public class CameraDisplay : MonoBehaviour {
             targetMovementX = Input.GetAxis("Horizontal") * resetMove;
             targetMovementY = Input.GetAxis("Vertical") * resetMove;
 
-            movementX = targetMovementX * translationSpeed;
-            movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed;
-            movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed; //Which is actually the camera's local Z axis
+            movementX = targetMovementX * translationSpeed * Time.deltaTime;
+            movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed * Time.deltaTime;
+            movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed * Time.deltaTime; //Which is actually the camera's local Z axis
 
             playerCamera.transform.Translate(movementX, movementY, movementZ);
             
@@ -90,14 +99,16 @@ public class CameraDisplay : MonoBehaviour {
             resetMove = Mathf.Clamp(resetMove, 0, 1);
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) //Resets the resetMove on pressing/releasing Shift
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.LeftShift)) //Resets the resetMove on pressing/releasing Shift
         {
             resetMove = 0.05f;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            resetMove = 0.05f;
-        }
+
+        //Enables zooming with the scroll wheel
+        float targetFov = fov - (Input.GetAxis("Mouse ScrollWheel") * sensitivity);
+        fov = Mathf.SmoothDamp(fov, targetFov, ref currentZoomVelocity, zoomSmoothTime);
+        fov = Mathf.Clamp(fov, minFov, maxFov);
+        Camera.main.fieldOfView = fov;
 
     }
 }
