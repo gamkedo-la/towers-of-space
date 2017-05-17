@@ -67,5 +67,27 @@ public class TowerManager : MonoBehaviour
             Time.timeScale = gameTimeScale;
         }
     }
+
+    public void InstantiateTower(GameObject towerSpot)
+    {
+        if (selectedTowerType != null && isPaused != true)
+        {
+            ScoreManager sm = GameObject.FindObjectOfType<ScoreManager>();
+            if (!sm.HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
+            {
+                Debug.Log("Not enough energy!");
+                return;
+            }
+
+            sm.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
+
+            Instantiate(selectedTowerType, towerSpot.transform.position, towerSpot.transform.rotation);
+
+            // todo disable the script, or temporarily stop it from spawning another tower
+            //Destroy(transform.parent.gameObject);
+            //gameObject.SetActive (false);
+            towerSpot.GetComponent<TowerSpot>().hasTower = true;
+        }
+    }
 }
 

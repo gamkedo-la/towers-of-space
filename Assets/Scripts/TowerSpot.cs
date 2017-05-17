@@ -3,19 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerSpot : MonoBehaviour {
+    public GameObject popupButtonCanvas;
 
-    bool hasTower = false;
+    public bool hasTower = false;
     
     void OnMouseUp() {
         if (hasTower) {
             return;
         }
 
+        //popupButtonCanvas.SetActive(true);
+        //popupButtonCanvas.transform.position = Input.mousePosition;
+
         TowerManager towerManager = GameObject.FindObjectOfType<TowerManager>();
 
-        if (towerManager.selectedTowerType != null && towerManager.isPaused != true) {
+        towerManager.InstantiateTower(gameObject);
+        /*if (towerManager.selectedTowerType != null && towerManager.isPaused != true)
+        {
             ScoreManager sm = GameObject.FindObjectOfType<ScoreManager>();
-            if (!sm.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy)) {
+            if (!sm.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy))
+            {
                 Debug.Log("Not enough energy!");
                 return;
             }
@@ -28,7 +35,7 @@ public class TowerSpot : MonoBehaviour {
             //Destroy(transform.parent.gameObject);
             //gameObject.SetActive (false);
             hasTower = true;
-        }
+        }*/
     }
 
 }
