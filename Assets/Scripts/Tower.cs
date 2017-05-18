@@ -17,6 +17,8 @@ public class Tower : MonoBehaviour {
     float buildTimeLeft;
     int muzzleIndex = 0;
 
+    private static Transform projectileGroup; 
+
 	// Use this for initialization
 	void Start () {
         buildTimeLeft = buildTime;
@@ -70,6 +72,12 @@ public class Tower : MonoBehaviour {
 
     void ShootAt(Enemy enemy) {
         GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
+
+        if (projectileGroup == null)
+        {
+            projectileGroup = GameObject.Find("Projectiles").transform;
+        }
+        bulletGO.transform.SetParent(projectileGroup);
 
         bulletGO.GetComponent <Bullet>().SetTarget(enemy.transform);
 

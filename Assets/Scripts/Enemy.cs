@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
 
     public void ReachedGoal() {
         // @todo
-        GameObject.FindObjectOfType<ScoreManager>().LoseLife();
+        ScoreManager.instance.LoseLife(); //instance is the Score Manager
         Die ();
     }
 

@@ -20,14 +20,13 @@ public class TowerSpot : MonoBehaviour {
         towerManager.InstantiateTower(gameObject);
         /*if (towerManager.selectedTowerType != null && towerManager.isPaused != true)
         {
-            ScoreManager sm = GameObject.FindObjectOfType<ScoreManager>();
-            if (!sm.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy))
+            if (!ScoreManager.instance.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy))
             {
                 Debug.Log("Not enough energy!");
                 return;
             }
 
-            sm.UseEnergy (towerManager.selectedTowerType.GetComponent<Tower>().energy);
+            ScoreManager.instance.UseEnergy (towerManager.selectedTowerType.GetComponent<Tower>().energy);
 
             Instantiate(towerManager.selectedTowerType, transform.position, transform.rotation);
 

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour {
 
-    public Transform enemies;
+    
+    //public Transform enemies;
 
     private Vector3 pos;
     private Quaternion lookAt;
     private Node node;
+    private static Transform enemyGroup;
 
 	void Start () {
         pos = transform.localPosition;
@@ -25,6 +27,10 @@ public class SpawnPoint : MonoBehaviour {
     public void SpawnEnemy (GameObject enemy) {
         GameObject e = GameObject.Instantiate (enemy, pos, lookAt);
         e.GetComponent <EnemyMovement> ().SetSpawnNode(gameObject);
-        e.transform.SetParent(enemies);
+        if (enemyGroup == null)
+        {
+            enemyGroup = GameObject.Find("Enemies").transform;
+        }
+        e.transform.SetParent(enemyGroup);
 	}
 }

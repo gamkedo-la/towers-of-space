@@ -72,14 +72,14 @@ public class TowerManager : MonoBehaviour
     {
         if (selectedTowerType != null && isPaused != true)
         {
-            ScoreManager sm = GameObject.FindObjectOfType<ScoreManager>();
-            if (!sm.HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
+            
+            if (!ScoreManager.instance.HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
             {
                 Debug.Log("Not enough energy!");
                 return;
             }
 
-            sm.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
+            ScoreManager.instance.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
 
             Instantiate(selectedTowerType, towerSpot.transform.position, towerSpot.transform.rotation);
 

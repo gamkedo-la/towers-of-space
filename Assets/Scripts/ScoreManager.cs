@@ -6,11 +6,18 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
+    public static ScoreManager instance; //stays the same between scenes
+
     public int lives = 20;
     public int energy = 20;
 
     public Text livesText;
     public Text energyText;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void LoseLife(int l = 1) {
         lives -= l;
