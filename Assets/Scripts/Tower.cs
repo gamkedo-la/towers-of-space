@@ -79,7 +79,7 @@ public class Tower : MonoBehaviour {
         }
         bulletGO.transform.SetParent(projectileGroup);
 
-        bulletGO.GetComponent <Bullet>().SetTarget(enemy.transform);
+        bulletGO.GetComponent <ProjectileBase>().SetTarget(enemy.transform);
 
         muzzleIndex++;
         if (muzzles.Length <= muzzleIndex) {

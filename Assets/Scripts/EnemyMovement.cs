@@ -13,9 +13,34 @@ public class EnemyMovement : MonoBehaviour {
     public float speed = 1f;
     public float turnRate = 5f;
 
+    private float movementSpeed;
+
     private float timeToLerp;
     private float timeStartedLerping;
     private Quaternion facingBeforeLerping;
+
+    private IEnumerator slowMovementCoroutine;
+
+    void Awake() {
+        movementSpeed = speed;
+    }
+
+    public void SlowMovement(float speedModifier, float timeToSlowDown) {
+        if (slowMovementCoroutine != null) {
+            StopCoroutine(slowMovementCoroutine);
+        }
+
+        slowMovementCoroutine = DoSlowMovement(speedModifier, timeToSlowDown);
+        StartCoroutine(slowMovementCoroutine);
+    }
+
+    private IEnumerator DoSlowMovement(float speedModifier, float timeToSlowDown) {
+        movementSpeed = speed * speedModifier;
+
+        yield return new WaitForSeconds(timeToSlowDown);
+
+        movementSpeed = speed;
+    }
 
     public void SetSpawnNode(GameObject newSpawnNode) {
         spawnNode = newSpawnNode;
@@ -57,7 +82,7 @@ public class EnemyMovement : MonoBehaviour {
         }
 
         Vector3 direction = nextNodeWaypoint - transform.localPosition;
-        float distanceThisFrame = speed * Time.deltaTime;
+        float distanceThisFrame = movementSpeed * Time.deltaTime;
         if (direction.magnitude <= distanceThisFrame) {
             // Reached node
             hasNextWaypoint = false;
