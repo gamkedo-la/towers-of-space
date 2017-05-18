@@ -17,7 +17,7 @@ public class TowerSpot : MonoBehaviour {
 
        
 
-        TowerManager.instance.InstantiateTower(gameObject);
+        TowerManager.instance.DisplayTowerSelectionPopup(gameObject);
 
         /*if (towerManager.selectedTowerType != null && towerManager.isPaused != true)
         {

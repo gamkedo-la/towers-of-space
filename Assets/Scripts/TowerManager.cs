@@ -14,6 +14,7 @@ public class TowerManager : MonoBehaviour
     public float gameTimeScale = 1.0f;
     public GameObject towerPanel;
     public Transform panelPosition;
+    public GameObject towerSpotToModify;
 
     private void Awake()
     {
@@ -22,11 +23,9 @@ public class TowerManager : MonoBehaviour
 
     private void Update()
     {
-        if (panelPosition)
-        {
-            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
-        }
+
     }
+
     public void SelectTowerType(GameObject prefab)
     {
         selectedTowerType = prefab;
@@ -83,8 +82,34 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public void InstantiateTower(GameObject towerSpot)
+    public void DisplayTowerSelectionPopup(GameObject towerSpot)
     {
+        towerPanel.SetActive(true);
+        panelPosition = towerSpot.transform;
+        towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
+        towerSpotToModify = towerSpot;
+    }
+
+    public void InstantiateTower(string towerType)
+    {
+        switch (towerType)
+        {
+            case "Basic":
+                selectedTowerType = TowerTypes[0];
+                break;
+            case "Double":
+                selectedTowerType = TowerTypes[1];
+                break;
+            case "EMP":
+                selectedTowerType = TowerTypes[2];
+                break;
+            default:
+                selectedTowerType = null;
+                Debug.Log("No tower of name: " + towerType);
+                break;
+        }
+
+
         if (selectedTowerType != null && isPaused != true)
         {
             
@@ -96,15 +121,18 @@ public class TowerManager : MonoBehaviour
 
             ScoreManager.instance.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
 
-            Instantiate(selectedTowerType, towerSpot.transform.position, towerSpot.transform.rotation);
-            panelPosition = towerSpot.transform;
+            Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
+            towerPanel.SetActive(false);
 
-            
+
+
             // todo disable the script, or temporarily stop it from spawning another tower
             //Destroy(transform.parent.gameObject);
             //gameObject.SetActive (false);
-            towerSpot.GetComponent<TowerSpot>().hasTower = true;
+            towerSpotToModify.GetComponent<TowerSpot>().hasTower = true;
         }
+
+        towerSpotToModify = null;
     }
 }
 
