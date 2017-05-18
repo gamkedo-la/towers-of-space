@@ -15,9 +15,10 @@ public class TowerSpot : MonoBehaviour {
         //popupButtonCanvas.SetActive(true);
         //popupButtonCanvas.transform.position = Input.mousePosition;
 
-        TowerManager towerManager = GameObject.FindObjectOfType<TowerManager>();
+       
 
-        towerManager.InstantiateTower(gameObject);
+        TowerManager.instance.InstantiateTower(gameObject);
+
         /*if (towerManager.selectedTowerType != null && towerManager.isPaused != true)
         {
             if (!ScoreManager.instance.HasEnergy(towerManager.selectedTowerType.GetComponent<Tower>().energy))

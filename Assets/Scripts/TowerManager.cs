@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
+    public static TowerManager instance;
 
     public GameObject selectedTowerType;
 
@@ -11,7 +12,21 @@ public class TowerManager : MonoBehaviour
     public bool isPaused = false;
     public GameObject pausePanel;
     public float gameTimeScale = 1.0f;
+    public GameObject towerPanel;
+    public Transform panelPosition;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    private void Update()
+    {
+        if (panelPosition)
+        {
+            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
+        }
+    }
     public void SelectTowerType(GameObject prefab)
     {
         selectedTowerType = prefab;
@@ -82,7 +97,9 @@ public class TowerManager : MonoBehaviour
             ScoreManager.instance.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
 
             Instantiate(selectedTowerType, towerSpot.transform.position, towerSpot.transform.rotation);
+            panelPosition = towerSpot.transform;
 
+            
             // todo disable the script, or temporarily stop it from spawning another tower
             //Destroy(transform.parent.gameObject);
             //gameObject.SetActive (false);
