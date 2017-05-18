@@ -26,7 +26,7 @@ public class TowerManager : MonoBehaviour
 
     }
 
-    public void SelectTowerType(GameObject prefab)
+    /*public void SelectTowerType(GameObject prefab)
     {
         selectedTowerType = prefab;
     }
@@ -37,7 +37,7 @@ public class TowerManager : MonoBehaviour
         {
             selectedTowerType = TowerTypes[towerTypeIndex];
         }
-    }
+    }*/
 
     public void TogglePause()
     {
@@ -84,10 +84,13 @@ public class TowerManager : MonoBehaviour
 
     public void DisplayTowerSelectionPopup(GameObject towerSpot)
     {
-        towerPanel.SetActive(true);
-        panelPosition = towerSpot.transform;
-        towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
-        towerSpotToModify = towerSpot;
+        if (isPaused == false)
+        {
+            towerPanel.SetActive(true);
+            panelPosition = towerSpot.transform;
+            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
+            towerSpotToModify = towerSpot;
+        }
     }
 
     public void InstantiateTower(string towerType)
@@ -120,16 +123,10 @@ public class TowerManager : MonoBehaviour
             }
 
             ScoreManager.instance.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
-
             Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
-            towerPanel.SetActive(false);
-
-
-
-            // todo disable the script, or temporarily stop it from spawning another tower
-            //Destroy(transform.parent.gameObject);
-            //gameObject.SetActive (false);
             towerSpotToModify.GetComponent<TowerSpot>().hasTower = true;
+
+            towerPanel.SetActive(false);
         }
 
         towerSpotToModify = null;
