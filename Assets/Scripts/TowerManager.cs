@@ -26,7 +26,9 @@ public class TowerManager : MonoBehaviour
 
     private void Update()
     {
-        towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
+        if (panelPosition != null) {
+            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
+        }
     }
 
     /*public void SelectTowerType(GameObject prefab)
