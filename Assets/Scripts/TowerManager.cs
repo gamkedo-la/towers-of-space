@@ -16,14 +16,17 @@ public class TowerManager : MonoBehaviour
     public Transform panelPosition;
     public GameObject towerSpotToModify;
 
+    MenuVisibilityCtrl menuVisibilityCtrl;
+
     private void Awake()
     {
         instance = this;
+        menuVisibilityCtrl = towerPanel.GetComponent<MenuVisibilityCtrl>();
     }
 
     private void Update()
     {
-
+        towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
     }
 
     /*public void SelectTowerType(GameObject prefab)
@@ -84,7 +87,7 @@ public class TowerManager : MonoBehaviour
 
     public void DisplayTowerSelectionPopup(GameObject towerSpot)
     {
-        if (isPaused == false)
+        if (isPaused == false && towerPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
         {
             towerPanel.SetActive(true);
             panelPosition = towerSpot.transform;
@@ -127,6 +130,8 @@ public class TowerManager : MonoBehaviour
             towerSpotToModify.GetComponent<TowerSpot>().hasTower = true;
 
             towerPanel.SetActive(false);
+            menuVisibilityCtrl.hide();
+            
         }
 
         towerSpotToModify = null;
