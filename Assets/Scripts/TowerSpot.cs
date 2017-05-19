@@ -12,7 +12,7 @@ public class TowerSpot : MonoBehaviour {
             return;
         }
 
-        TowerManager.instance.DisplayTowerSelectionPopup(gameObject);
+        UIController.instance.DisplayTowerSelectionPopup(gameObject);
     }
 
 }
