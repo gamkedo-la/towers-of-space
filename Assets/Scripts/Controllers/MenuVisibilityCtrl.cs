@@ -27,6 +27,7 @@ public class MenuVisibilityCtrl : MonoBehaviour
         _invisibleBG = new GameObject("InvisibleBG");
 
         InvisibleBGCtrl tempInvisibleBGCtrl = _invisibleBG.AddComponent<InvisibleBGCtrl>();
+        //EventTrigger eventTrigger = _invisibleBG.AddComponent<EventTrigger>();
         tempInvisibleBGCtrl.setParentCtrl(this);
 
         Image tempImage = _invisibleBG.AddComponent<Image>();

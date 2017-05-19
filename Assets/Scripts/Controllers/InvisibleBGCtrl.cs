@@ -6,6 +6,7 @@ public class InvisibleBGCtrl : MonoBehaviour, IPointerClickHandler
     //Made by Unity user ben-rasooli
 
     MenuVisibilityCtrl _parentCtrl;
+    EventTrigger eventTrigger;
 
     public void setParentCtrl(MenuVisibilityCtrl ctrl)
     {
@@ -14,6 +15,6 @@ public class InvisibleBGCtrl : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        _parentCtrl.hide();
+            _parentCtrl.hide();
     }
 }

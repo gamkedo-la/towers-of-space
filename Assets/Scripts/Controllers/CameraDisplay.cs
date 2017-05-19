@@ -8,6 +8,7 @@ public class CameraDisplay : MonoBehaviour {
     public Camera OverheadCamera; //duplicate of minimap camera with no Minimap Target Texture
     private Camera playerCamera;  //These two are the camera components of the above cameras (not sure if they could be combined tbh)
     private Camera overheadCamera;
+    //private Camera activeCamera;
 
     public GameObject GUILayout; //aka the Canvas GameObject
     private Canvas canvas; //The Canvas component of the above
@@ -42,7 +43,7 @@ public class CameraDisplay : MonoBehaviour {
 
         playerCamera.enabled = true;  //Start at default position
         overheadCamera.enabled = false;
-        canvas = GUILayout.GetComponent<Canvas>();
+        //canvas = GUILayout.GetComponent<Canvas>();
 
         fov = playerCamera.fieldOfView;
 
@@ -55,13 +56,13 @@ public class CameraDisplay : MonoBehaviour {
         {
             playerCamera.enabled = false;
             overheadCamera.enabled = true;
-            canvas.worldCamera = overheadCamera;  //Moves the UI with the buttons (worldCamera switches the camera to which it's attached)
+            //canvas.worldCamera = overheadCamera;  //Moves the UI with the buttons (worldCamera switches the camera to which it's attached)
         }
         else
         {
             playerCamera.enabled = true;  //return to main camera
             overheadCamera.enabled = false;
-            canvas.worldCamera = playerCamera;
+            //canvas.worldCamera = playerCamera;
         }
 
 
@@ -69,28 +70,20 @@ public class CameraDisplay : MonoBehaviour {
 
         if (playerCamera.enabled && !Input.GetKey(KeyCode.LeftShift)) //Only triggers if not in overhead view
         {
-
-            targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1) * Time.deltaTime;          //Rotates the camera around by pressing left/right (or a,d).
-            playerCamera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
-
-            targetMovement = Input.GetAxis("Vertical"); //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
-
-            movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
-            movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
-            playerCamera.transform.Translate(0, movementY, movementZ);
+            CameraRotate(angle, playerCamera);
         }
 
         else if (playerCamera.enabled && Input.GetKey(KeyCode.LeftShift))
         {
-            targetMovementX = Input.GetAxis("Horizontal") * resetMove;
-            targetMovementY = Input.GetAxis("Vertical") * resetMove;
 
-            movementX = targetMovementX * translationSpeed * Time.deltaTime;
-            movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed * Time.deltaTime;
-            movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed * Time.deltaTime; //Which is actually the camera's local Z axis
-
-            playerCamera.transform.Translate(movementX, movementY, movementZ);
+            CameraTranslate(angle, playerCamera);
             
+        }
+        else if (overheadCamera.enabled && Input.GetKey(KeyCode.LeftShift))
+        {
+
+            CameraTranslate(angle, overheadCamera);
+
         }
 
         if (resetMove != 1)    //This section will be polished later. Basically the previous inputs for one mode are kept for the other, resulting in camera sliding when switching.
@@ -110,5 +103,28 @@ public class CameraDisplay : MonoBehaviour {
         fov = Mathf.Clamp(fov, minFov, maxFov);
         Camera.main.fieldOfView = fov;
 
+    }
+    void CameraTranslate(Vector3 angle, Camera camera)
+    {
+        targetMovementX = Input.GetAxis("Horizontal") * resetMove;
+        targetMovementY = Input.GetAxis("Vertical") * resetMove;
+
+        movementX = targetMovementX * translationSpeed * Time.deltaTime;
+        movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed * Time.deltaTime;
+        movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed * Time.deltaTime; //Which is actually the camera's local Z axis
+
+        camera.transform.Translate(movementX, movementY, movementZ);
+    }
+
+    void CameraRotate(Vector3 angle, Camera camera)
+    {
+        targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1) * Time.deltaTime;          //Rotates the camera around by pressing left/right (or a,d).
+        camera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
+
+        targetMovement = Input.GetAxis("Vertical"); //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
+
+        movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
+        movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
+        camera.transform.Translate(0, movementY, movementZ);
     }
 }

@@ -32,7 +32,8 @@ public class UIController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (towerPanel.activeSelf) {
+        if (towerPanel.activeSelf)
+        {
             towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
         }
     }
@@ -72,7 +73,6 @@ public class UIController : MonoBehaviour {
     {
         if (GameController.instance.isPaused == false && towerPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
         {
-            Debug.Log("enable tower panel");
             towerPanel.SetActive(true);
             panelPosition = towerSpot.transform;
             towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
