@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour {
 
     public void ReachedGoal() {
         // @todo
-        UIController.instance.LoseLife(); //instance is the Score Manager
+        GameController.instance.LoseLife(); //instance is the Score Manager
         Die ();
     }
 

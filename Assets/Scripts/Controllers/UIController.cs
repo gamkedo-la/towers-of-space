@@ -9,12 +9,17 @@ public class UIController : MonoBehaviour {
     public static UIController instance;
 
     public GameObject pausePanel;
-    public GameObject towerPanel;
-    public Transform panelPosition;
+    public GameObject creationPanel;
+    public GameObject optionsPanel;
+
+
+    public Transform creationPanelPosition;
+    public Transform optionsPanelPosition;
+
     public MenuVisibilityCtrl menuVisibilityCtrl;
 
-    public int lives = 20;
-    public int energy = 20;
+    //public int lives = 20;
+    //public int energy = 20;
     public Text livesText;
     public Text energyText;
 
@@ -22,7 +27,7 @@ public class UIController : MonoBehaviour {
     private void Awake()
     {
         instance = this;
-        menuVisibilityCtrl = towerPanel.GetComponent<MenuVisibilityCtrl>();
+        menuVisibilityCtrl = creationPanel.GetComponent<MenuVisibilityCtrl>();
     }
 
     void Start () {
@@ -32,51 +37,58 @@ public class UIController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (towerPanel.activeSelf)
+        if (creationPanel.activeSelf)
         {
-            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
+            creationPanel.transform.position = Camera.main.WorldToScreenPoint(creationPanelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
         }
     }
 
-    //This section is the old ScoreManager script (except for the Game Over, now in GameController
-    public void LoseLife(int l = 1)
+
+    public void DisplayTowerCreation(GameObject towerSpot)
     {
-        lives -= l;
-        if (lives <= 0)
+        if (GameController.instance.isPaused == false && creationPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
         {
-            GameOver();
-        }
-
-        livesText.text = "Lives: " + lives.ToString();
-    }
-
-    public bool HasEnergy(int e = 1)
-    {
-        return e <= energy;
-    }
-
-    public void UseEnergy(int e = 1)
-    {
-        energy -= e;
-
-        energyText.text = "Energy: " + energy.ToString();
-    }
-
-    public void GameOver()
-    {
-        Debug.Log("Game Over");
-        // TODO: Send the player to a game-over screen instead!
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void DisplayTowerSelectionPopup(GameObject towerSpot)
-    {
-        if (GameController.instance.isPaused == false && towerPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
-        {
-            towerPanel.SetActive(true);
-            panelPosition = towerSpot.transform;
-            towerPanel.transform.position = Camera.main.WorldToScreenPoint(panelPosition.position);
+            creationPanel.SetActive(true);
+            creationPanelPosition = towerSpot.transform;
+            creationPanel.transform.position = Camera.main.WorldToScreenPoint(creationPanelPosition.position);
             GameController.instance.towerSpotToModify = towerSpot;
+        }
+    }
+
+    public void DisplayTowerOptions(GameObject towerSpot)
+    {
+        if (GameController.instance.isPaused == false && optionsPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
+        {
+            optionsPanel.SetActive(true);
+            optionsPanelPosition = towerSpot.transform;
+            optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position);
+            GameController.instance.towerSpotToModify = towerSpot;
+        }
+    }
+    public void TextUpdate(string textToUpdate)
+    {
+        switch (textToUpdate)
+        {
+            case "Lives":
+                livesText.text = "Lives: " + GameController.instance.lives.ToString();
+                break;
+            case "Energy":
+                energyText.text = "Energy: " + GameController.instance.energy.ToString();
+                break;
+        }
+    }
+    public void ClosePanel(string panelToClose)
+    {
+        switch (panelToClose)
+        {
+            case "Creation":
+                creationPanel.GetComponent<MenuVisibilityCtrl>().hide();
+                creationPanel.SetActive(false); //Hides the panel
+                break;
+            case "Options":
+                optionsPanel.GetComponent<MenuVisibilityCtrl>().hide();
+                optionsPanel.SetActive(false); //Hides the panel
+                break;
         }
     }
 }

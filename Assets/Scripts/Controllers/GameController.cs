@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour {
     public float timeBeforeSpawning = 4f; //Related to enemy spawning
     public float timeBetweenEnemies = 0.25f;
 
+    public int lives = 20;
+    public int energy = 20;
+
     private void Awake()
     {
         instance = this;
@@ -76,13 +79,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void GameOver() //previously in ScoreManager
-    {
-        Debug.Log("Game Over");
-        // TODO: Send the player to a game-over screen instead!
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void InstantiateTower(string towerType)
     {
         switch (towerType)
@@ -106,21 +102,68 @@ public class GameController : MonoBehaviour {
         if (selectedTowerType != null && isPaused != true)
         {
 
-            if (!UIController.instance.HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
+            if (!HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
             {
                 Debug.Log("Not enough energy!");
                 return;
             }
 
-            UIController.instance.UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
-            Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
+            UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
             towerSpotToModify.GetComponent<TowerSpot>().hasTower = true;
+            GameObject tower = Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
+            tower.name = "Tower";
+            tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
-            UIController.instance.towerPanel.SetActive(false);
-            UIController.instance.menuVisibilityCtrl.hide();
+            UIController.instance.ClosePanel("Creation");
 
         }
 
         towerSpotToModify = null;
+    }
+
+    public void DestroyTower()
+    {
+        
+        Transform attachedTower = towerSpotToModify.transform.Find("Tower"); //Finds the child tower using the transform
+        if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
+        {
+            return;
+        }
+        energy += attachedTower.GetComponent<Tower>().energy; //Refunds energy
+        UIController.instance.TextUpdate("Energy"); //Updates it
+        Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
+        towerSpotToModify.GetComponent<TowerSpot>().hasTower = false;
+
+        UIController.instance.ClosePanel("Options");
+    }
+
+    public void LoseLife(int l = 1)
+    {
+        lives -= l;
+        if (lives <= 0)
+        {
+            GameOver();
+        }
+
+        UIController.instance.TextUpdate("Lives");
+    }
+
+    public bool HasEnergy(int e = 1)
+    {
+        return e <= energy;
+    }
+
+    public void UseEnergy(int e = 1)
+    {
+        energy -= e;
+
+        UIController.instance.TextUpdate("Energy");
+    }
+
+    public void GameOver() //previously in ScoreManager
+    {
+        Debug.Log("Game Over");
+        // TODO: Send the player to a game-over screen instead!
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

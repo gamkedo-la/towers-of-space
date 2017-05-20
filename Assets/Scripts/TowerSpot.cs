@@ -8,11 +8,16 @@ public class TowerSpot : MonoBehaviour {
     public bool hasTower = false;
     
     void OnMouseUp() {
-        if (hasTower) {
+        if (hasTower)
+        {
+            UIController.instance.DisplayTowerOptions(gameObject);
             return;
         }
 
-        UIController.instance.DisplayTowerSelectionPopup(gameObject);
+        else
+        {
+            UIController.instance.DisplayTowerCreation(gameObject);
+        }
     }
 
 }

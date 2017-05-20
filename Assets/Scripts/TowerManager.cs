@@ -87,7 +87,7 @@ public class TowerManager : MonoBehaviour
         }
     }
 
-    public void DisplayTowerSelectionPopup(GameObject towerSpot)
+    public void DisplayTowerCreation(GameObject towerSpot)
     {
         if (isPaused == false && towerPanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
         {
