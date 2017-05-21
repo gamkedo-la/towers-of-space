@@ -11,7 +11,6 @@ public class Tower : MonoBehaviour {
     public float range = 6f;
     public float fireCooldown = 1f;
     public float buildTime = 2f;
-    public bool useNewBuildAnimation = false;
     public float newAnimationScanWidth = 0.1f;
     private float towerHeight, scanStartY;
     const float platformHeight = -0.5f;
