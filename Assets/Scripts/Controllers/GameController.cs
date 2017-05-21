@@ -15,9 +15,6 @@ public class GameController : MonoBehaviour {
     public bool isPaused = false; //Related to time manipulation
     public float gameTimeScale = 1.0f;
 
-    public float timeBeforeSpawning = 4f; //Related to enemy spawning
-    public float timeBetweenEnemies = 0.25f;
-
     public int lives = 20;
     public int energy = 20;
     private int basicCount = 0;
@@ -29,17 +26,6 @@ public class GameController : MonoBehaviour {
     {
         instance = this;
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     public void TogglePause()
     {
@@ -150,7 +136,6 @@ public class GameController : MonoBehaviour {
             tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
             UIController.instance.ClosePanel("Creation");
-
         }
 
         towerSpotToModify = null;
@@ -168,8 +153,7 @@ public class GameController : MonoBehaviour {
             return;
         }
 
-        energy += currentCost; //Refunds energy
-        UIController.instance.TextUpdate("Energy"); //Updates it
+        AddEnergy(currentCost); //Refunds energy
 
         Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
 
@@ -186,7 +170,7 @@ public class GameController : MonoBehaviour {
             GameOver();
         }
 
-        UIController.instance.TextUpdate("Lives");
+        UIController.instance.UpdateLives(lives);
     }
 
     public bool HasEnergy(int e = 1)
@@ -198,7 +182,14 @@ public class GameController : MonoBehaviour {
     {
         energy -= e;
 
-        UIController.instance.TextUpdate("Energy");
+        UIController.instance.UpdateEnergy(energy); //Updates it
+    }
+
+    public void AddEnergy(int e)
+    {
+        energy += e;
+
+        UIController.instance.UpdateEnergy(energy); //Updates it
     }
 
     public void GameOver()
