@@ -89,7 +89,6 @@ public class GameController : MonoBehaviour {
         switch (towerType) //This code is ugly
         {
             case "Basic":
-                Debug.Log(basicCount + modIndex);
                 selectedTowerType = TowerTypes[0]; //Gets the GameObject
                 currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
                 if (basicCount + modIndex > currentTowerClass.costLadder.Length - 1)
@@ -109,8 +108,8 @@ public class GameController : MonoBehaviour {
                     basicCount += modCount;
                 }
                 break;
+
             case "Double":
-                Debug.Log(doubleCount + modIndex);
                 selectedTowerType = TowerTypes[1];
                 currentTowerClass = selectedTowerType.GetComponent<Tower>();
                 if (doubleCount + modIndex > currentTowerClass.costLadder.Length - 1)
@@ -130,8 +129,8 @@ public class GameController : MonoBehaviour {
                     doubleCount += modCount;
                 }
                 break;
+
             case "EMP":
-                Debug.Log(empCount + modIndex);
                 selectedTowerType = TowerTypes[2];
                 currentTowerClass = selectedTowerType.GetComponent<Tower>();
                 if (empCount + modIndex > currentTowerClass.costLadder.Length - 1)
