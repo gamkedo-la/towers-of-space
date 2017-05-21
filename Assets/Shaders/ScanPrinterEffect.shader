@@ -65,13 +65,13 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			viewDir = IN.viewDir;
 
-			float s = +sin((IN.worldPos.x * IN.worldPos.z) * 60 + _Time[3] + o.Normal) / 120;
+			float s = +sin((IN.worldPos.x * IN.worldPos.z) * 30 + _Time[3] * 3 + o.Normal) / 120;
 
 			if (IN.worldPos.y > _ConstructY + s + _ConstructGap) {
 				discard;
 			}
 
-			if (IN.worldPos.y < _ConstructY) {
+			if (IN.worldPos.y < s + _ConstructY) {
 				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 				o.Albedo = c.rgb;
 				o.Alpha = c.a;
