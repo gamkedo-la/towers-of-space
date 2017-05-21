@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
@@ -16,16 +17,18 @@ public class Tower : MonoBehaviour {
     const float platformHeight = -0.5f;
     private Material[] materials;
 
-    public int energy = 1;
+    public int[] costLadder; //Sequence of "ramping up" energy costs
 
     float fireCooldownLeft = 0f;
     float buildTimeLeft;
     int muzzleIndex = 0;
 
-    private static Transform projectileGroup; 
+    private static Transform projectileGroup;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    void Start ()
+    {
         buildTimeLeft = buildTime;
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         materials = new Material[renderers.Length];
@@ -36,6 +39,7 @@ public class Tower : MonoBehaviour {
             material.SetFloat("_ConstructY", -1);
             material.SetFloat("_ConstructGap", newAnimationScanWidth);
         }
+        //PrefabUtility.SetPropertyModifications(bulletPrefab, currentCostIndex);
 
         //Next two lines are a hack, will need fixing
         towerHeight = 1f; //total height of tower

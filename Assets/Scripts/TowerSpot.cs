@@ -6,11 +6,13 @@ public class TowerSpot : MonoBehaviour {
     public GameObject popupButtonCanvas;
 
     public bool hasTower = false;
+    public string currentType;
     
     void OnMouseUp() {
         if (hasTower)
         {
             UIController.instance.DisplayTowerOptions(gameObject);
+            
             return;
         }
 

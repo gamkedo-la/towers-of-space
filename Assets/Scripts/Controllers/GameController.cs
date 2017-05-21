@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour {
     public GameObject selectedTowerType; //Related to tower spawning
     public GameObject[] TowerTypes;
     public GameObject towerSpotToModify;
+    private Tower currentTowerClass; //This is the Tower component of the selected type, NOT the Tower object
 
     public bool isPaused = false; //Related to time manipulation
     public float gameTimeScale = 1.0f;
@@ -19,6 +20,10 @@ public class GameController : MonoBehaviour {
 
     public int lives = 20;
     public int energy = 20;
+    private int basicCount = 0;
+    private int doubleCount = 0;
+    private int empCount = 0;
+    private int currentCost;
 
     private void Awake()
     {
@@ -79,39 +84,69 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void InstantiateTower(string towerType)
+    public void TowerChange(string towerType, bool creating)
     {
+        int modCount; //Changes the tower count
+        int modIndex; //Changes the index from which we take the cost/refund
+
+        if (creating)
+        {
+            modCount = 1;
+            modIndex = 0;
+        }
+        else //implies destroying
+        {
+            modCount = -1;
+            modIndex = -1;
+        }
+
         switch (towerType)
         {
             case "Basic":
-                selectedTowerType = TowerTypes[0];
+                selectedTowerType = TowerTypes[0]; //Gets the GameObject
+                currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
+                currentCost = currentTowerClass.costLadder[basicCount + modIndex]; //Access the array based on the number of towers
+                basicCount += modCount; //Move up the ladder
                 break;
             case "Double":
                 selectedTowerType = TowerTypes[1];
+                currentTowerClass = selectedTowerType.GetComponent<Tower>();
+                currentCost = currentTowerClass.costLadder[doubleCount + modIndex];
+                doubleCount += modCount;
                 break;
             case "EMP":
                 selectedTowerType = TowerTypes[2];
+                currentTowerClass = selectedTowerType.GetComponent<Tower>();
+                currentCost = currentTowerClass.costLadder[empCount + modIndex];
+                empCount += modCount;
                 break;
             default:
                 selectedTowerType = null;
                 Debug.Log("No tower of name: " + towerType);
                 break;
         }
+    } //This function both gets the cost/refund and changes the number of towers depending on creation or destruction
 
+    public void InstantiateTower(string towerType)
+    {
+        TowerChange(towerType, true); //See comments in function
 
         if (selectedTowerType != null && isPaused != true)
         {
 
-            if (!HasEnergy(selectedTowerType.GetComponent<Tower>().energy))
+            if (!HasEnergy(currentCost))
             {
                 Debug.Log("Not enough energy!");
                 return;
             }
 
-            UseEnergy(selectedTowerType.GetComponent<Tower>().energy);
-            towerSpotToModify.GetComponent<TowerSpot>().hasTower = true;
+            UseEnergy(currentCost);
+
+            TowerSpot towerSpot = towerSpotToModify.GetComponent<TowerSpot>(); //This tells the spot what tower it holds, so it can share it when we click it later
+            towerSpot.currentType = towerType;
+            towerSpot.hasTower = true;
             GameObject tower = Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
-            tower.name = "Tower";
+            tower.name = "Tower"; //It's called Tower since there can only be one, and we can find it by name later
             tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
             UIController.instance.ClosePanel("Creation");
@@ -123,16 +158,22 @@ public class GameController : MonoBehaviour {
 
     public void DestroyTower()
     {
-        
-        Transform attachedTower = towerSpotToModify.transform.Find("Tower"); //Finds the child tower using the transform
+        string onSpot = towerSpotToModify.GetComponent<TowerSpot>().currentType; //Because this time, we can't get the type from a button, we have to read it from the component
+
+        TowerChange(onSpot, false); //Same function, but now we're destroying
+   
+        Transform attachedTower = towerSpotToModify.transform.Find("Tower"); //Finds the child tower Transform, using the transform
         if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
         {
             return;
         }
-        energy += attachedTower.GetComponent<Tower>().energy; //Refunds energy
+
+        energy += currentCost; //Refunds energy
         UIController.instance.TextUpdate("Energy"); //Updates it
+
         Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
-        towerSpotToModify.GetComponent<TowerSpot>().hasTower = false;
+
+        towerSpotToModify.GetComponent<TowerSpot>().hasTower = false; //No tower for you
 
         UIController.instance.ClosePanel("Options");
     }
@@ -160,7 +201,7 @@ public class GameController : MonoBehaviour {
         UIController.instance.TextUpdate("Energy");
     }
 
-    public void GameOver() //previously in ScoreManager
+    public void GameOver()
     {
         Debug.Log("Game Over");
         // TODO: Send the player to a game-over screen instead!
