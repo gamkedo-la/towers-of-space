@@ -43,7 +43,7 @@ public class Tower : MonoBehaviour {
         //PrefabUtility.SetPropertyModifications(bulletPrefab, currentCostIndex);
 
         //Next two lines are a hack, will need fixing
-        towerHeight = 1f; //total height of tower
+        towerHeight = 1.1f; //total height of tower
         scanStartY = platformHeight - newAnimationScanWidth; //lowest tower y - scan width
     }
 

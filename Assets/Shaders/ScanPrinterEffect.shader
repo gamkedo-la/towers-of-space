@@ -42,9 +42,11 @@
 
 		float _ConstructY;
 		float _ConstructGap;
+		//float _ConstructGapInv = 1 / _ConstructGap;
 		fixed4 _ConstructColor;
 		int building;
 		float3 viewDir;
+		float fade;
 
 		inline void LightingCustom_GI(SurfaceOutputStandard s, UnityGIInput data, inout UnityGI gi)
 		{
@@ -59,11 +61,12 @@
 			if (dot(s.Normal, viewDir) < 0)
 				return _ConstructColor;
 
-			return LightingStandard(s, lightDir, gi); // Unity5 PBR
+			return LightingStandard(s, lightDir, gi) * fade + _ConstructColor * (1 - fade); // Unity5 PBR
 		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			viewDir = IN.viewDir;
+			fade = 0;
 
 			float s = +sin((IN.worldPos.x * IN.worldPos.z) * 30 + _Time[3] * 3 + o.Normal) / 120;
 
@@ -72,6 +75,7 @@
 			}
 
 			if (IN.worldPos.y < s + _ConstructY) {
+				fade = clamp((_ConstructY - IN.worldPos.y + s) / _ConstructGap, 0, 1);
 				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 				o.Albedo = c.rgb;
 				o.Alpha = c.a;
