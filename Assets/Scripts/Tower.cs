@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour {
     public float buildTime = 2f;
     public float newAnimationScanWidth = 0.1f;
     private float towerHeight, scanStartY;
+    private bool building;
     const float platformHeight = -0.5f;
     private Material[] materials;
 
@@ -29,6 +30,7 @@ public class Tower : MonoBehaviour {
     void Start ()
     {
         buildTimeLeft = buildTime;
+        building = true;
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
         materials = new Material[renderers.Length];
         for(int i = 0; i < renderers.Length; i++) {
@@ -47,9 +49,15 @@ public class Tower : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        buildTimeLeft -= Time.deltaTime;
-        if(0 < buildTimeLeft) {
+        if(building) {
+            buildTimeLeft -= Time.deltaTime;
             float t = buildTimeLeft / buildTime;
+
+            if(buildTimeLeft < 0) {
+                building = false;
+                t = 0;
+            }
+
             foreach(Material material in materials) {
                 material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
             }
