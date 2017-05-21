@@ -25,20 +25,18 @@ public class Enemy : MonoBehaviour {
 
         if (health <= 0) {
             GiveLootEnergy();
-            Die ();
+            Die();
         }
     }
 
     public void ReachedGoal() {
         // @todo
         GameController.instance.LoseLife(); //instance is the Score Manager
-        Die ();
+        Die();
     }
 
-    public void GiveLootEnergy()
-    {
-        GameController.instance.energy += lootEnergy;
-        UIController.instance.TextUpdate("Energy");
+    public void GiveLootEnergy() {
+        GameController.instance.AddEnergy(lootEnergy);
     }
 
     public void Die() {

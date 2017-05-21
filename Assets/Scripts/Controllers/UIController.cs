@@ -12,14 +12,11 @@ public class UIController : MonoBehaviour {
     public GameObject creationPanel;
     public GameObject optionsPanel;
 
-
     public Transform creationPanelPosition;
     public Transform optionsPanelPosition;
 
     public MenuVisibilityCtrl menuVisibilityCtrl;
 
-    //public int lives = 20;
-    //public int energy = 20;
     public Text livesText;
     public Text energyText;
 
@@ -29,13 +26,9 @@ public class UIController : MonoBehaviour {
         instance = this;
         menuVisibilityCtrl = creationPanel.GetComponent<MenuVisibilityCtrl>();
     }
-
-    void Start () {
-		
-	}
 	
 	// Update is called once per frame
-	void Update ()
+	void Update()
     {
         if (creationPanel.activeSelf)
         {
@@ -67,21 +60,17 @@ public class UIController : MonoBehaviour {
             optionsPanelPosition = towerSpot.transform;
             optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position);
             GameController.instance.towerSpotToModify = towerSpot;
-
         }
     }
 
-    public void TextUpdate(string textToUpdate)
+    public void UpdateLives(int lives)
     {
-        switch (textToUpdate)
-        {
-            case "Lives":
-                livesText.text = "Lives: " + GameController.instance.lives.ToString();
-                break;
-            case "Energy":
-                energyText.text = "Energy: " + GameController.instance.energy.ToString();
-                break;
-        }
+        livesText.text = "Lives: " + GameController.instance.lives.ToString();
+    }
+
+    public void UpdateEnergy(int energy)
+    {
+        energyText.text = "Energy: " + GameController.instance.energy.ToString();
     }
 
     public void ClosePanel(string panelToClose)
