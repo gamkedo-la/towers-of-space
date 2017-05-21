@@ -86,25 +86,71 @@ public class GameController : MonoBehaviour {
             modIndex = -1;
         }
 
-        switch (towerType)
+        switch (towerType) //This code is ugly
         {
             case "Basic":
+                Debug.Log(basicCount + modIndex);
                 selectedTowerType = TowerTypes[0]; //Gets the GameObject
                 currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
-                currentCost = currentTowerClass.costLadder[basicCount + modIndex]; //Access the array based on the number of towers
-                basicCount += modCount; //Move up the ladder
+                if (basicCount + modIndex > currentTowerClass.costLadder.Length - 1)
+                {
+                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
+                }
+                else if (basicCount + modIndex < 0) //Added for safety! Might remove when feeling confident
+                {
+                    currentCost = currentTowerClass.costLadder[0];
+                }
+                else
+                {
+                    currentCost = currentTowerClass.costLadder[basicCount + modIndex];  //Access the array based on the number of towers
+                }
+                if (HasEnergy(currentCost) && creating || !creating)
+                {
+                    basicCount += modCount;
+                }
                 break;
             case "Double":
+                Debug.Log(doubleCount + modIndex);
                 selectedTowerType = TowerTypes[1];
                 currentTowerClass = selectedTowerType.GetComponent<Tower>();
-                currentCost = currentTowerClass.costLadder[doubleCount + modIndex];
-                doubleCount += modCount;
+                if (doubleCount + modIndex > currentTowerClass.costLadder.Length - 1)
+                {
+                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
+                }
+                else if (doubleCount + modIndex < 0)
+                {
+                    currentCost = currentTowerClass.costLadder[0];
+                }
+                else
+                {
+                    currentCost = currentTowerClass.costLadder[doubleCount + modIndex];
+                }
+                if (HasEnergy(currentCost) && creating || !creating)
+                {
+                    doubleCount += modCount;
+                }
                 break;
             case "EMP":
+                Debug.Log(empCount + modIndex);
                 selectedTowerType = TowerTypes[2];
                 currentTowerClass = selectedTowerType.GetComponent<Tower>();
-                currentCost = currentTowerClass.costLadder[empCount + modIndex];
-                empCount += modCount;
+                if (empCount + modIndex > currentTowerClass.costLadder.Length - 1)
+                {
+                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
+                }
+                else if (empCount + modIndex < 0)
+                {
+                    currentCost = currentTowerClass.costLadder[0];
+                }
+                else
+                {
+                    currentCost = currentTowerClass.costLadder[empCount + modIndex];
+                }
+
+                if (HasEnergy(currentCost) && creating || !creating)
+                {
+                    empCount += modCount;
+                }
                 break;
             default:
                 selectedTowerType = null;
@@ -119,13 +165,11 @@ public class GameController : MonoBehaviour {
 
         if (selectedTowerType != null && isPaused != true)
         {
-
             if (!HasEnergy(currentCost))
             {
                 Debug.Log("Not enough energy!");
                 return;
             }
-
             UseEnergy(currentCost);
 
             TowerSpot towerSpot = towerSpotToModify.GetComponent<TowerSpot>(); //This tells the spot what tower it holds, so it can share it when we click it later
