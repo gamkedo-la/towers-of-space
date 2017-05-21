@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
@@ -11,18 +12,21 @@ public class Tower : MonoBehaviour {
     public float fireCooldown = 1f;
     public float buildTime = 2f;
 
-    public int energy = 1;
+    public int[] costLadder; //Sequence of "ramping up" energy costs
 
     float fireCooldownLeft = 0f;
     float buildTimeLeft;
     int muzzleIndex = 0;
 
-    private static Transform projectileGroup; 
+    private static Transform projectileGroup;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+
+    void Start ()
+    {
         buildTimeLeft = buildTime;
-	}
+        //PrefabUtility.SetPropertyModifications(bulletPrefab, currentCostIndex);
+    }
 	
 	// Update is called once per frame
 	void Update () {

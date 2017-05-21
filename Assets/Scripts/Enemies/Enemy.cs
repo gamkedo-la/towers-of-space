@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour {
 
     public float health = 1f;
+    public int lootEnergy;
 
     float startHealth;
 
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour {
         slider.value = health / startHealth;
 
         if (health <= 0) {
+            GiveLootEnergy();
             Die ();
         }
     }
@@ -31,6 +33,12 @@ public class Enemy : MonoBehaviour {
         // @todo
         GameController.instance.LoseLife(); //instance is the Score Manager
         Die ();
+    }
+
+    public void GiveLootEnergy()
+    {
+        GameController.instance.energy += lootEnergy;
+        UIController.instance.TextUpdate("Energy");
     }
 
     public void Die() {

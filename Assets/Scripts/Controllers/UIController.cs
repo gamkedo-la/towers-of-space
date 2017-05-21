@@ -41,6 +41,10 @@ public class UIController : MonoBehaviour {
         {
             creationPanel.transform.position = Camera.main.WorldToScreenPoint(creationPanelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
         }
+        if (optionsPanel.activeSelf)
+        {
+            optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
+        }
     }
 
 
@@ -63,8 +67,10 @@ public class UIController : MonoBehaviour {
             optionsPanelPosition = towerSpot.transform;
             optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position);
             GameController.instance.towerSpotToModify = towerSpot;
+
         }
     }
+
     public void TextUpdate(string textToUpdate)
     {
         switch (textToUpdate)
@@ -77,6 +83,7 @@ public class UIController : MonoBehaviour {
                 break;
         }
     }
+
     public void ClosePanel(string panelToClose)
     {
         switch (panelToClose)
