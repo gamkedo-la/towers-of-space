@@ -10,6 +10,11 @@ public class Tower : MonoBehaviour {
     public float range = 6f;
     public float fireCooldown = 1f;
     public float buildTime = 2f;
+    public bool useNewBuildAnimation = false;
+    public float newAnimationScanWidth = 0.1f;
+    private float towerHeight, scanStartY;
+    const float platformHeight = -0.5f;
+    private Material[] materials;
 
     public int energy = 1;
 
@@ -22,21 +27,29 @@ public class Tower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         buildTimeLeft = buildTime;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        materials = new Material[renderers.Length];
+        for(int i = 0; i < renderers.Length; i++) {
+            materials[i] = renderers[i].material;
+        }
+        foreach(Material material in materials) {
+            material.SetFloat("_ConstructY", -1);
+            material.SetFloat("_ConstructGap", newAnimationScanWidth);
+        }
+
+        //Next two lines are a hack, will need fixing
+        towerHeight = 1f; //total height of tower
+        scanStartY = platformHeight - newAnimationScanWidth; //lowest tower y - scan width
+    }
+
+    // Update is called once per frame
+    void Update () {
         buildTimeLeft -= Time.deltaTime;
-        if (0 < buildTimeLeft) {
+        if(0 < buildTimeLeft) {
             float t = buildTimeLeft / buildTime;
-
-            Vector3 scale = transform.localScale;
-            scale.y = Mathf.Lerp (1, 0, t);
-            transform.localScale = scale;
-
-            Vector3 pos = transform.position;
-            pos.y = Mathf.Lerp (0, -0.5f, t);
-            transform.position = pos;
+            foreach(Material material in materials) {
+                material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
+            }
             return;
         }
 
