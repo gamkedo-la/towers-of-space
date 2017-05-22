@@ -7,6 +7,9 @@ public class MenuVisibilityCtrl : MonoBehaviour
 
     [SerializeField]
     bool shouldStartVisible;
+    [SerializeField]
+    bool onTowerSpot;
+    bool awake = false;
 
     GameObject _myGameObj;
     GameObject _invisibleBG;
@@ -19,6 +22,7 @@ public class MenuVisibilityCtrl : MonoBehaviour
         if (!shouldStartVisible)
         {
             hide();
+            awake = true; //To avoid a problem with trying to access the GameController before starting the game
         }
     }
 
@@ -27,7 +31,6 @@ public class MenuVisibilityCtrl : MonoBehaviour
         _invisibleBG = new GameObject("InvisibleBG");
 
         InvisibleBGCtrl tempInvisibleBGCtrl = _invisibleBG.AddComponent<InvisibleBGCtrl>();
-        //EventTrigger eventTrigger = _invisibleBG.AddComponent<EventTrigger>();
         tempInvisibleBGCtrl.setParentCtrl(this);
 
         Image tempImage = _invisibleBG.AddComponent<Image>();
@@ -51,5 +54,9 @@ public class MenuVisibilityCtrl : MonoBehaviour
     {
         _myGameObj.SetActive(false);
         _invisibleBG.SetActive(false);
+        if (onTowerSpot && awake)
+        {
+            GameController.instance.CloseCircle();
+        }
     }
 }
