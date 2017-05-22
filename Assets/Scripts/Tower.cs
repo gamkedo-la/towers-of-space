@@ -143,6 +143,6 @@ public class Tower : MonoBehaviour
 
     void OnMouseUp()
     {
-        parentSpot.clickedSpot();
+        parentSpot.ClickedSpot();
     }
 }
