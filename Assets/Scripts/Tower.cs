@@ -25,6 +25,8 @@ public class Tower : MonoBehaviour {
 
     private static Transform projectileGroup;
 
+    TowerSpot parentSpot; //Self-explanatory
+
     // Use this for initialization
 
     void Start ()
@@ -45,6 +47,9 @@ public class Tower : MonoBehaviour {
         //Next two lines are a hack, will need fixing
         towerHeight = 1.1f; //total height of tower
         scanStartY = platformHeight - newAnimationScanWidth; //lowest tower y - scan width
+
+
+        parentSpot = GetComponentInParent<TowerSpot>();
     }
 
     // Update is called once per frame
@@ -109,5 +114,10 @@ public class Tower : MonoBehaviour {
         if (muzzles.Length <= muzzleIndex) {
             muzzleIndex = 0;
         }
+    }
+
+    void OnMouseUp()
+    {
+        parentSpot.clickedSpot();
     }
 }

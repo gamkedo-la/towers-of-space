@@ -175,6 +175,9 @@ public class GameController : MonoBehaviour {
             towerSpot.currentType = towerType;
             towerSpot.hasTower = true;
             GameObject tower = Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
+            BoxCollider collider = tower.AddComponent<BoxCollider>();
+            collider.size = new Vector3 (0.8f, 0.7f, 1);
+            collider.center = new Vector3 (0, -0.18f, 0);
             tower.name = "Tower"; //It's called Tower since there can only be one, and we can find it by name later
             tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
