@@ -15,6 +15,6 @@ public class InvisibleBGCtrl : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-            _parentCtrl.hide();
+        _parentCtrl.hide();
     }
 }

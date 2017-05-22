@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     public static GameController instance;
 
@@ -176,8 +177,8 @@ public class GameController : MonoBehaviour {
             towerSpot.hasTower = true;
             GameObject tower = Instantiate(selectedTowerType, towerSpotToModify.transform.position, towerSpotToModify.transform.rotation);
             BoxCollider collider = tower.AddComponent<BoxCollider>();
-            collider.size = new Vector3 (0.8f, 0.7f, 1);
-            collider.center = new Vector3 (0, -0.18f, 0);
+            collider.size = new Vector3(0.8f, 0.7f, 1);
+            collider.center = new Vector3(0, -0.18f, 0);
             tower.name = "Tower"; //It's called Tower since there can only be one, and we can find it by name later
             tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
@@ -192,7 +193,7 @@ public class GameController : MonoBehaviour {
         string onSpot = towerSpotToModify.GetComponent<TowerSpot>().currentType; //Because this time, we can't get the type from a button, we have to read it from the component
 
         TowerChange(onSpot, false); //Same function, but now we're destroying
-   
+
         Transform attachedTower = towerSpotToModify.transform.Find("Tower"); //Finds the child tower Transform, using the transform
         if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
         {

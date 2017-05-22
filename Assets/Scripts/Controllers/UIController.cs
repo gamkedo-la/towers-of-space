@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour {
+public class UIController : MonoBehaviour
+{
 
     public static UIController instance;
 
@@ -26,9 +27,9 @@ public class UIController : MonoBehaviour {
         instance = this;
         menuVisibilityCtrl = creationPanel.GetComponent<MenuVisibilityCtrl>();
     }
-	
-	// Update is called once per frame
-	void Update()
+
+    // Update is called once per frame
+    void Update()
     {
         if (creationPanel.activeSelf)
         {

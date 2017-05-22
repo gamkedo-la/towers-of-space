@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraDisplay : MonoBehaviour {
+public class CameraDisplay : MonoBehaviour
+{
 
     public Camera PlayerCamera; //aka the main camera
     public Camera OverheadCamera; //duplicate of minimap camera with no Minimap Target Texture
@@ -36,7 +37,8 @@ public class CameraDisplay : MonoBehaviour {
     private float resetMove;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         playerCamera = PlayerCamera.GetComponent<Camera>();
         overheadCamera = OverheadCamera.GetComponent<Camera>();
@@ -48,9 +50,10 @@ public class CameraDisplay : MonoBehaviour {
         fov = playerCamera.fieldOfView;
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -77,7 +80,7 @@ public class CameraDisplay : MonoBehaviour {
         {
 
             CameraTranslate(angle, playerCamera);
-            
+
         }
         else if (overheadCamera.enabled && Input.GetKey(KeyCode.LeftShift))
         {

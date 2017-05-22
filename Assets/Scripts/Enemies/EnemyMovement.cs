@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour
+{
 
     GameObject spawnNode;
     public GameObject nextNode;
@@ -21,12 +22,15 @@ public class EnemyMovement : MonoBehaviour {
 
     private IEnumerator slowMovementCoroutine;
 
-    void Awake() {
+    void Awake()
+    {
         movementSpeed = speed;
     }
 
-    public void SlowMovement(float speedModifier, float timeToSlowDown) {
-        if (slowMovementCoroutine != null) {
+    public void SlowMovement(float speedModifier, float timeToSlowDown)
+    {
+        if (slowMovementCoroutine != null)
+        {
             StopCoroutine(slowMovementCoroutine);
         }
 
@@ -34,7 +38,8 @@ public class EnemyMovement : MonoBehaviour {
         StartCoroutine(slowMovementCoroutine);
     }
 
-    private IEnumerator DoSlowMovement(float speedModifier, float timeToSlowDown) {
+    private IEnumerator DoSlowMovement(float speedModifier, float timeToSlowDown)
+    {
         movementSpeed = speed * speedModifier;
 
         yield return new WaitForSeconds(timeToSlowDown);
@@ -42,60 +47,73 @@ public class EnemyMovement : MonoBehaviour {
         movementSpeed = speed;
     }
 
-    public void SetSpawnNode(GameObject newSpawnNode) {
+    public void SetSpawnNode(GameObject newSpawnNode)
+    {
         spawnNode = newSpawnNode;
     }
 
-    void SetNextNode() {
-        if (spawnNode == null) {
+    void SetNextNode()
+    {
+        if (spawnNode == null)
+        {
             return;
         }
 
         Node n;
-        if (nextNode == null) {
-            n = spawnNode.GetComponent <Node> ();
+        if (nextNode == null)
+        {
+            n = spawnNode.GetComponent<Node>();
         }
-        else {
-            n = nextNode.GetComponent <Node> ();
+        else
+        {
+            n = nextNode.GetComponent<Node>();
         }
-        if (n) {
-            int index = Random.Range (0, n.nextNodes.Length);
+        if (n)
+        {
+            int index = Random.Range(0, n.nextNodes.Length);
             nextNode = n.nextNodes[index];
 
-            if (nextNode) {
+            if (nextNode)
+            {
                 hasNextWaypoint = true;
 
                 nextNodeWaypoint = nextNode.transform.position;
             }
         }
     }
-	
-	// Update is called once per frame
-    void Update () {
-        if (!hasNextWaypoint) {
-            SetNextNode ();
 
-            if (!hasNextWaypoint) {
+    // Update is called once per frame
+    void Update()
+    {
+        if (!hasNextWaypoint)
+        {
+            SetNextNode();
+
+            if (!hasNextWaypoint)
+            {
                 // No more path nodes!
-                ReachedGoal ();
+                ReachedGoal();
             }
         }
 
         Vector3 direction = nextNodeWaypoint - transform.localPosition;
         float distanceThisFrame = movementSpeed * Time.deltaTime;
-        if (direction.magnitude <= distanceThisFrame) {
+        if (direction.magnitude <= distanceThisFrame)
+        {
             // Reached node
             hasNextWaypoint = false;
         }
-        else {
+        else
+        {
             // Move towards node
-            transform.Translate (direction.normalized * distanceThisFrame, Space.World);
-            Quaternion targetRotation = Quaternion.LookRotation (direction);
-            transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * turnRate);
+            transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnRate);
         }
-	}
+    }
 
-    void ReachedGoal() {
-        gameObject.GetComponent <Enemy> ().ReachedGoal ();
+    void ReachedGoal()
+    {
+        gameObject.GetComponent<Enemy>().ReachedGoal();
     }
 }
