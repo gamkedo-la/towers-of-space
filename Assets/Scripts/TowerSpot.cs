@@ -12,10 +12,10 @@ public class TowerSpot : MonoBehaviour
 
     void OnMouseUp()
     {
-        clickedSpot();
+        ClickedSpot();
     }
 
-    public void clickedSpot()
+    public void ClickedSpot()
     {
         if (hasTower && !EventSystem.current.IsPointerOverGameObject()) //Must have have tower && not be clicking a button at the same time
         {

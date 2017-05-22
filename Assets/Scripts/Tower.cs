@@ -51,15 +51,16 @@ public class Tower : MonoBehaviour
         towerHeight = 1.1f; //total height of tower
         scanStartY = platformHeight - newAnimationScanWidth; //lowest tower y - scan width
 
-
         parentSpot = GetComponentInParent<TowerSpot>();
+
+        StartCoroutine("BuildTower");
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator BuildTower()
     {
-        if (building)
+        while (buildTimeLeft > 0)
         {
+            Debug.Log("corouting buidltower");
             buildTimeLeft -= Time.deltaTime;
             float t = buildTimeLeft / buildTime;
 
@@ -73,6 +74,17 @@ public class Tower : MonoBehaviour
             {
                 material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
             }
+
+            yield return null;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (building)
+        {
+            // Don't do anything while still building.
             return;
         }
 
