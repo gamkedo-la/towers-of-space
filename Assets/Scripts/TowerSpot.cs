@@ -28,12 +28,13 @@ public class TowerSpot : MonoBehaviour
 
     public void ClickedSpot()
     {
-
         if (!EventSystem.current.IsPointerOverGameObject()) //Ignores click if user also clicked a button at the same time
         {
             if (childTower != null)
             {
-                childTower.line.enabled = true; //Activates the range circle
+                childTower.Selected();
+                // childTower.line.enabled = true; //Activates the range circle
+                // childTower.selectionCirclePrefab.SetActive(true);
             }
             if (hasTower)
             {
@@ -43,6 +44,16 @@ public class TowerSpot : MonoBehaviour
             {
                 UIController.instance.DisplayTowerCreation(gameObject);
             }
+        }
+    }
+
+    public void CloseCircle()
+    {
+        if (childTower != null)
+        {
+            childTower.Deselected();
+            // childTower.line.enabled = false; //Deactivates the range circle
+            // childTower.selectionCirclePrefab.SetActive(false);
         }
     }
 }

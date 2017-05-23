@@ -17,6 +17,8 @@ public class Tower : MonoBehaviour
     private bool building;
     const float platformHeight = -0.5f;
     private Material[] materials;
+    public GameObject selectionCirclePrefab;
+    private GameObject selectionCircle;
 
     public int[] costLadder; //Sequence of "ramping up" energy costs
 
@@ -27,15 +29,6 @@ public class Tower : MonoBehaviour
     private static Transform projectileGroup;
 
     TowerSpot parentSpot; //Self-explanatory
-
-    //Used for drawing the range circle
-    [Range(0, 50)]
-    public int segments = 50;
-    //[Range(0, 5)]
-    public float xradius;
-    //[Range(0, 5)]
-    public float yradius;
-    public LineRenderer line;
 
     // Use this for initialization
 
@@ -64,21 +57,18 @@ public class Tower : MonoBehaviour
 
         StartCoroutine("BuildTower");
 
-        //Used for drawing the range circle
-        line = gameObject.GetComponent<LineRenderer>();
-        line.positionCount = (segments + 1);
-        line.useWorldSpace = false;
-        xradius = range;
-        yradius = range;
-        line.enabled = false;
-        RangeCircle();
+        selectionCircle = Instantiate(selectionCirclePrefab);
+        selectionCircle.transform.SetParent(transform, false);
+        selectionCircle.SetActive(false);
+        Projector p = selectionCircle.GetComponent<Projector>();
+        // Why 0.6f? No clue.. seemed to approximate the line radius
+        p.orthographicSize = range + 0.6f;
     }
 
     private IEnumerator BuildTower()
     {
         while (buildTimeLeft > 0)
         {
-            Debug.Log("corouting buidltower");
             buildTimeLeft -= Time.deltaTime;
             float t = buildTimeLeft / buildTime;
 
@@ -159,23 +149,14 @@ public class Tower : MonoBehaviour
         }
     }
 
-    void RangeCircle()
+    public void Selected()
     {
-        float x;
-        //float y; Uncomment if needed
-        float z;
+        selectionCircle.SetActive(true);
+    }
 
-        float angle = 20f;
-
-        for (int i = 0; i < (segments + 1); i++)
-        {
-            x = Mathf.Sin(Mathf.Deg2Rad * angle) * xradius;
-            z = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
-
-            line.SetPosition(i, new Vector3(x, 0, z));
-
-            angle += (360f / segments);
-        }
+    public void Deselected()
+    {
+        selectionCircle.SetActive(false);
     }
 
     void OnMouseUp()

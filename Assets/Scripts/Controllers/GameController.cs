@@ -205,14 +205,16 @@ public class GameController : MonoBehaviour
 
         UIController.instance.ClosePanel("Options");
     }
+
     public void CloseCircle() //I wanted to give this to the UIController, but it isn't aware of the currently selected spot...
     {
         TowerSpot towerSpot = towerSpotToModify.GetComponent<TowerSpot>();
-        if (towerSpot.childTower != null)
+        if (towerSpot)
         {
-            towerSpot.childTower.line.enabled = false;
+            towerSpot.CloseCircle();
         }
     }
+
     public void LoseLife(int l = 1)
     {
         lives -= l;
