@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="75">
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1743288011" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1743298012" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1743308013" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1743328014" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1743338014" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1743368016" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1743388017" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1743398018" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Effects\Factory Effects.wwu" DateLow="1743418019" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Events\Default Work Unit.wwu" DateLow="1743448021" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1743458021" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1743468022" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1743488023" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1743498023" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1743518025" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1743538026" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1743558027" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Queries\Factory Queries.wwu" DateLow="1743568027" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1743588029" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1743598029" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\States\Default Work Unit.wwu" DateLow="1743618030" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1743628031" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.Misha.wsettings" DateLow="1155467580" DateHigh="30594126"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.wproj" DateLow="1743678034" DateHigh="30594073"/>
+	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1743638031" DateHigh="30594073"/>
 	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space_WwiseIntegrationTemp\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2818176043" DateHigh="30594069"/>
 	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space_WwiseIntegrationTemp\towers-of-space_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="2818586067" DateHigh="30594069"/>
 	<ValidationCacheItem File="C:\Users\Misha\Documents\GitHub\towers-of-space_WwiseIntegrationTemp\towers-of-space_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="2818716074" DateHigh="30594069"/>
