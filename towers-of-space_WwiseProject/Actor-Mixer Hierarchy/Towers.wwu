@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}" SchemaVersion="75">
+	<AudioObjects>
+		<WorkUnit Name="Towers" ID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="SingleTower" ID="{3F404288-1DCA-4AE0-B1EE-6CFC907AE51A}" ShortID="362261657">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{9EB2AC39-4084-4A90-B4F2-3790AFD7EC26}"/>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{6683D6D8-4FDC-45FE-85A4-7D4B68806F00}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="sfx_laserSingle_01" ID="{15F560C4-39BF-4668-984B-0D94D142ADD1}" ShortID="399562708" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>36</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{31DD3118-51A2-4464-918F-3F807707B697}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_laserSingle_01" ID="{52C3EAB7-5376-448D-B6AA-4883DF9C7F89}" ShortID="843892571">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>sfx_laserSingle_01.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_laserSingle_01" ID="{52C3EAB7-5376-448D-B6AA-4883DF9C7F89}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

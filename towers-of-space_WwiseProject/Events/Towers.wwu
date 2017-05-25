@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" SchemaVersion="75">
+	<Events>
+		<WorkUnit Name="Towers" ID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_singleTower_laser" ID="{D0C961E9-17AD-4C3B-9FA0-2F5D5B77E45A}">
+					<ChildrenList>
+						<Action Name="Play" ID="{DD0BDE55-AE2F-4BF1-AD04-5C5A97F8FAA4}" ShortID="643967885" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{02C8D862-F53A-4D40-939C-E630C76C76E5}" Global="false">
+									<ObjectRef Name="sfx_laserSingle_01" ID="{15F560C4-39BF-4668-984B-0D94D142ADD1}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

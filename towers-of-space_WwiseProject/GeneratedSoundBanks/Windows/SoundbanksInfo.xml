@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -20,6 +20,15 @@
 			<ObjectPath>\SoundBanks\Default Work Unit\General_SoundBank</ObjectPath>
 			<ShortName>General_SoundBank</ShortName>
 			<Path>General_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="731684285" Name="Play_singleTower_laser" ObjectPath="\Events\Towers\Play_singleTower_laser"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="843892571" Language="SFX">
+					<ShortName>sfx_laserSingle_01.wav</ShortName>
+					<Path>SFX/sfx_laserSingle_01_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
 		</SoundBank>
 	</SoundBanks>
 </SoundBanksInfo>
