@@ -228,7 +228,7 @@ public partial class AkUtilities
 #if UNITY_EDITOR_WIN
         command = wwiseCli;
         arguments = "";
-#elif UNITY_EDITOR_OSX
+#elif UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
         command = "/bin/sh";
         arguments = "\"" + wwiseCli + "\"";
 #endif

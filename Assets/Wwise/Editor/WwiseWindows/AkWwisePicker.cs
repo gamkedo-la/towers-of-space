@@ -88,7 +88,7 @@ class AkWwisePicker : EditorWindow
 
 #if UNITY_EDITOR_WIN
                 errorMessage = "Access to Wwise is required to generate the SoundBanks. Please select the Wwise Windows Installation Path from the Edit > Wwise Settings... menu.";
-#elif UNITY_EDITOR_OSX
+#elif UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
 				errorMessage = "Access to Wwise is required to generate the SoundBanks. Please select the Wwise Application from the Edit > Wwise Settings... menu.";
 #endif
 
