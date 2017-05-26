@@ -12,7 +12,16 @@ public class Bullet : ProjectileBase
     {
         if (radius == 0)
         {
-            target.GetComponent<Enemy>().TakeDamage(damage);
+            Enemy enemy = target.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+            Tower tower = target.GetComponent<Tower>();
+            if (tower != null)
+            {
+                tower.TakeDamage(damage);
+            }
         }
         else
         {
@@ -24,6 +33,11 @@ public class Bullet : ProjectileBase
                 if (enemy != null)
                 {
                     enemy.GetComponent<Enemy>().TakeDamage(damage);
+                }
+                Tower tower = collider.GetComponent<Tower>();
+                if (tower != null)
+                {
+                    enemy.GetComponent<Tower>().TakeDamage(damage);
                 }
             }
         }

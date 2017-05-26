@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
+    public float health = 8f;
+    float startHealth;
+    Slider slider;
 
     public GameObject bulletPrefab;
     public Transform barrel;
@@ -34,6 +38,13 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
+        if (projectileGroup == null)
+        {
+            projectileGroup = GameObject.Find("Projectiles").transform;
+        }
+        slider = transform.FindChild("TowerCanvas").FindChild("Slider").GetComponent<Slider>();
+        startHealth = health;
+
         buildTimeLeft = buildTime;
         building = true;
         Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
@@ -87,6 +98,25 @@ public class Tower : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        slider.value = health / startHealth;
+
+        if (health <= 0)
+        {
+            // @todo convert to rubble
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        // @todo particles/explosion
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -134,10 +164,6 @@ public class Tower : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
 
-        if (projectileGroup == null)
-        {
-            projectileGroup = GameObject.Find("Projectiles").transform;
-        }
         bulletGO.transform.SetParent(projectileGroup);
 
         bulletGO.GetComponent<ProjectileBase>().SetTarget(enemy.transform);
