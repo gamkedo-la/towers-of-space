@@ -64,11 +64,6 @@ public class EnemyAttack : MonoBehaviour
     void ShootAt(Tower enemy)
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
-
-        if (projectileGroup == null)
-        {
-            projectileGroup = GameObject.Find("Projectiles").transform;
-        }
         bulletGO.transform.SetParent(projectileGroup);
 
         bulletGO.GetComponent<ProjectileBase>().SetTarget(enemy.transform);
