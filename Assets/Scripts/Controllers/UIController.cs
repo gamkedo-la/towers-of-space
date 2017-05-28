@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
 
     public Text livesText;
     public Text energyText;
+	public Image spawnBar;
 
     // Use this for initialization
     private void Awake()
@@ -73,6 +74,10 @@ public class UIController : MonoBehaviour
     {
         energyText.text = "Energy: " + GameController.instance.energy.ToString();
     }
+
+	public void UpdateSpawnBar(float progress){
+		spawnBar.transform.localScale = new Vector3(progress, 1f, 1f) ;
+	}
 
     public void ClosePanel(string panelToClose)
     {

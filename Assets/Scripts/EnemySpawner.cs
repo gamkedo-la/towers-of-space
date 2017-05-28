@@ -18,11 +18,11 @@ public class EnemySpawner : MonoBehaviour
 
     public WaveComponent[] waveComponents;
 
-    float spawnCDremaining = .5f;
+    float spawnCDremaining = 0f;
 
     void OnEnable()
     {
-        spawnCDremaining = timeBeforeSpawning;
+        //spawnCDremaining = timeBeforeSpawning;
     }
 
     void Update()
@@ -54,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (transform.parent.childCount > 1)
                 {
-                    transform.parent.GetChild(1).gameObject.SetActive(true);
+                    //transform.parent.GetChild(1).gameObject.SetActive(true);
                 }
 
                 Destroy(gameObject);
