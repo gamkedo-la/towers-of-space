@@ -76,6 +76,7 @@ public class UIController : MonoBehaviour
     }
 
 	public void UpdateSpawnBar(float progress){
+		progress = Mathf.Clamp (progress, 0f, 1f);
 		spawnBar.transform.localScale = new Vector3(progress, 1f, 1f) ;
 	}
 
