@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     private int basicCount = 0;
     private int doubleCount = 0;
     private int empCount = 0;
+    private int plasmaCount = 0;
     private int currentCost;
 
     private void Awake()
@@ -152,6 +153,29 @@ public class GameController : MonoBehaviour
                     empCount += modCount;
                 }
                 break;
+
+            case "Plasma":
+                selectedTowerType = TowerTypes[3];
+                currentTowerClass = selectedTowerType.GetComponent<Tower>();
+                if (plasmaCount + modIndex > currentTowerClass.costLadder.Length - 1)
+                {
+                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
+                }
+                else if (plasmaCount + modIndex < 0)
+                {
+                    currentCost = currentTowerClass.costLadder[0];
+                }
+                else
+                {
+                    currentCost = currentTowerClass.costLadder[plasmaCount + modIndex];
+                }
+
+                if (HasEnergy(currentCost) && creating || !creating)
+                {
+                    plasmaCount += modCount;
+                }
+                break;
+
             default:
                 selectedTowerType = null;
                 Debug.Log("No tower of name: " + towerType);

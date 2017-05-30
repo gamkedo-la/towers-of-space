@@ -41,5 +41,7 @@ public class Bullet : ProjectileBase
                 }
             }
         }
+
+        Destroy (gameObject);
     }
 }

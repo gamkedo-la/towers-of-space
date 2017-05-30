@@ -12,6 +12,8 @@ public class EMP : ProjectileBase
     {
         // todo spawn particles
         target.GetComponent<EnemyMovement>().SlowMovement(speedModifier, timeToSlowDown);
+
+        Destroy (gameObject);
     }
 
 }
