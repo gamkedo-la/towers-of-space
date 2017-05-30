@@ -14,7 +14,7 @@ public class LaserBuilderEffect : MonoBehaviour {
         lasers = GetComponentsInChildren<LineRenderer>();
         active = false;
 
-        begin();
+        end();
     }
 
     void Update() {
