@@ -1,6 +1,6 @@
 ﻿Shader "Custom/ScanPrinterEffect" {
 	Properties {
-		_Color ("Color", Color) = (1,1,1,1)
+		_LeadingEdgeColor ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
@@ -15,9 +15,9 @@
 
 		CGPROGRAM
 		#include "UnityPBSLighting.cginc"
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Custom fullforwardshadows
-
+		// Custom lighting model, and auto generate custom shadow pass
+		#pragma surface surf Custom addshadow
+		
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
 
@@ -31,7 +31,7 @@
 
 		half _Glossiness;
 		half _Metallic;
-		fixed4 _Color;
+		fixed4 _LeadingEdgeColor;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -55,11 +55,11 @@
 
 		inline half4 LightingCustom(SurfaceOutputStandard s, half3 lightDir, UnityGI gi)
 		{
-			if (building)
-				return _ConstructColor; // Unlit
-
 			if (dot(s.Normal, viewDir) < 0)
-				return _ConstructColor;
+				return _LeadingEdgeColor;
+
+			if (building)
+				return _LeadingEdgeColor * (1 - fade) + _ConstructColor * fade; // Unlit
 
 			return LightingStandard(s, lightDir, gi) * fade + _ConstructColor * (1 - fade); // Unity5 PBR
 		}
@@ -76,14 +76,15 @@
 
 			if (IN.worldPos.y < s + _ConstructY) {
 				fade = clamp((_ConstructY - IN.worldPos.y + s) / _ConstructGap, 0, 1);
-				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
+				fixed4 c = tex2D(_MainTex, IN.uv_MainTex);// * _LeadingEdgeColor;
 				o.Albedo = c.rgb;
 				o.Alpha = c.a;
 				building = 0;
 			}
 			else {
-				o.Albedo = _ConstructColor.rgb;
-				o.Alpha = _ConstructColor.a;
+				fade = clamp((_ConstructY - IN.worldPos.y + s + _ConstructGap) / _ConstructGap, 0, 1);
+				o.Albedo = _LeadingEdgeColor.rgb;
+				o.Alpha = _LeadingEdgeColor.a;
 				building = 1;
 			}
 

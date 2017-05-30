@@ -79,6 +79,9 @@ public class Tower : MonoBehaviour
 
     private IEnumerator BuildTower()
     {
+        LaserBuilderEffect laserEffect = parentSpot.GetComponent<LaserBuilderEffect>();
+        laserEffect.begin();
+
         while (buildTimeLeft > 0)
         {
             buildTimeLeft -= Time.deltaTime;
@@ -95,8 +98,11 @@ public class Tower : MonoBehaviour
                 material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
             }
 
+            laserEffect.setHeight(t);
             yield return null;
         }
+
+        laserEffect.end();
     }
 
     public void TakeDamage(float damage)
