@@ -115,6 +115,7 @@ public class Tower : MonoBehaviour
     public void Die()
     {
         // @todo particles/explosion
+        parentSpot.hasTower = false;
         Destroy(gameObject);
     }
 
