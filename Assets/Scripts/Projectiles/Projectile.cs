@@ -28,9 +28,9 @@ abstract public class ProjectileBase : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag(Tags.Enemy) || other.gameObject.CompareTag(Tags.Tower)) {
+        if (target.gameObject == other.gameObject)
+        {
             DoProjectileHit();
-            Destroy (gameObject);
         }
     }
 
