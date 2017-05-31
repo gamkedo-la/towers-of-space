@@ -204,6 +204,7 @@ public class GameController : MonoBehaviour
             tower.transform.SetParent(towerSpotToModify.transform); //Sets the tower as a child of the platform so that it can be accessed later
 
             UIController.instance.ClosePanel("Creation");
+            Debug.Log("Game Controller - CC");
         }
 
         towerSpotToModify = null;
@@ -211,21 +212,23 @@ public class GameController : MonoBehaviour
 
     public void DestroyTower()
     {
-        string onSpot = towerSpotToModify.GetComponent<TowerSpot>().currentType; //Because this time, we can't get the type from a button, we have to read it from the component
+        TowerSpot currentTowerSpot = towerSpotToModify.GetComponent<TowerSpot>();
+
+        string onSpot = currentTowerSpot.currentType; //Because this time, we can't get the type from a button, we have to read it from the component
 
         TowerChange(onSpot, false); //Same function, but now we're destroying
 
-        Transform attachedTower = towerSpotToModify.transform.Find("Tower"); //Finds the child tower Transform, using the transform
+        Transform attachedTower = currentTowerSpot.transform.Find("Tower"); //Finds the child tower Transform, using the transform
         if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
         {
             return;
         }
-
+        
         AddEnergy(currentCost); //Refunds energy
 
         Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
 
-        towerSpotToModify.GetComponent<TowerSpot>().hasTower = false; //No tower for you
+        //currentTowerSpot.DestroyTower(); //No tower for you
 
         UIController.instance.ClosePanel("Options");
     }

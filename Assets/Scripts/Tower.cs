@@ -80,7 +80,7 @@ public class Tower : MonoBehaviour
     private IEnumerator BuildTower()
     {
         LaserBuilderEffect laserEffect = parentSpot.GetComponent<LaserBuilderEffect>();
-        laserEffect.begin();
+        laserEffect.beginConstruction();
 
         while (buildTimeLeft > 0)
         {
@@ -98,11 +98,11 @@ public class Tower : MonoBehaviour
                 material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
             }
 
-            laserEffect.setHeight(t);
+            laserEffect.setHeight(1 - t);
             yield return null;
         }
 
-        laserEffect.end();
+        laserEffect.endConstruction(true);
     }
 
     public void TakeDamage(float damage)
@@ -121,8 +121,19 @@ public class Tower : MonoBehaviour
     public void Die()
     {
         // @todo particles/explosion
-        parentSpot.hasTower = false;
         Destroy(gameObject);
+    }
+
+    void OnDestroy() {
+        parentSpot.DestroyTower();
+
+        // Animate/place laser emitter
+        if (building) {
+            parentSpot.GetComponent<LaserBuilderEffect>().endConstruction(false);
+        }
+        else {
+            parentSpot.GetComponent<LaserBuilderEffect>().reset();
+        }
     }
 
     // Update is called once per frame

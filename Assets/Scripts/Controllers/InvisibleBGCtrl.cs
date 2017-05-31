@@ -15,6 +15,10 @@ public class InvisibleBGCtrl : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        //Land the laser projector when the menu closes
+        GameController.instance.towerSpotToModify.GetComponent<LaserBuilderEffect>().land();
+
+        //Hide the menu
         _parentCtrl.hide();
     }
 }
