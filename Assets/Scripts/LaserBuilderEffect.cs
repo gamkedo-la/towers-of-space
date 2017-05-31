@@ -38,14 +38,14 @@ public class LaserBuilderEffect : MonoBehaviour {
             setLaserPosition((circularizedPosition / 2f + 0.5f) * maxPosition);
 
             sweepTimer += Time.deltaTime;
-            if(sweepTimer > sweepTime) {
+            if (sweepTimer > sweepTime) {
                 sweepTimer = sweepTimer % sweepTime - sweepTime;
             }
         }
 
         if (state == State.Takeoff) {
             flightAnimationTimer += Time.deltaTime;
-            if(flightAnimationTimer > flightAnimationTime) {
+            if (flightAnimationTimer > flightAnimationTime) {
                 state = State.Hovering;
                 flightAnimationTimer = flightAnimationTime;
             }
@@ -61,7 +61,7 @@ public class LaserBuilderEffect : MonoBehaviour {
 
             setEmitterPosition(landingCurve, flightAnimationTimer / flightAnimationTime);
         }
-        else if(state == State.Hovering) {
+        else if (state == State.Hovering) {
 
         }
     }
@@ -89,31 +89,30 @@ public class LaserBuilderEffect : MonoBehaviour {
     }
 
     public void takeoff() {
-        if (state == State.Takeoff) {
-            return;
-        }
-        else if(state == State.Landing) {
-            flightAnimationTimer = flightAnimationTime * findAnimationCurveTimeByValue(takeoffCurve, landingCurve.Evaluate(flightAnimationTimer/flightAnimationTime), 100); 
-        }
-        else {
-            flightAnimationTimer = 0;
-        }
-
-        state = State.Takeoff;
+        beginFlightPath(State.Takeoff);
     }
 
     public void land() {
-        if(state == State.Landing) {
+        beginFlightPath(State.Landing);
+    }
+
+    private void beginFlightPath(State flightPlan) {
+        if (state == flightPlan) { // Already executing this plan, so do nothing
             return;
         }
-        else if (state == State.Takeoff) {
-            flightAnimationTimer = flightAnimationTime * findAnimationCurveTimeByValue(landingCurve, takeoffCurve.Evaluate(flightAnimationTimer / flightAnimationTime), 100);
+        else if (state == State.Takeoff || state == State.Landing) { // Going in the opposite direction
+            float t = flightAnimationTimer / flightAnimationTime;
+            AnimationCurve path = (state == State.Takeoff) ? takeoffCurve : landingCurve; // Path to follow
+            float position = (state == State.Takeoff) ? landingCurve.Evaluate(t) : takeoffCurve.Evaluate(t); // Local height of emitter
+
+            // Set animation time based on height
+            flightAnimationTimer = flightAnimationTime * findAnimationCurveTimeByValue(path, position, 100); 
         }
-        else {
+        else { //Fresh animation from the start
             flightAnimationTimer = 0;
         }
 
-        state = State.Landing;
+        state = flightPlan;
     }
 
     public void vanish() {
