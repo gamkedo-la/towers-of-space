@@ -10,11 +10,11 @@ public class TowerSpot : MonoBehaviour
     public bool hasTower = false;
     public bool towerChecked = false; //This is to tell the spot to look for the tower that was built on it
     public Tower childTower;
-    public LaserBuilderEffect laserBuilder;
+    private LaserBuilderEffect laserEmitter;
     public string currentType;
 
     private void Start() {
-        laserBuilder = GetComponent<LaserBuilderEffect>();
+        laserEmitter = GetComponent<LaserBuilderEffect>();
     }
 
     private void LateUpdate() //Late because we want to do it after construction/destruction/upgrade
@@ -47,7 +47,7 @@ public class TowerSpot : MonoBehaviour
             }
             else if (!hasTower)
             {
-                laserBuilder.takeoff();
+                laserEmitter.takeoff();
                 UIController.instance.DisplayTowerCreation(gameObject);
             }
         }
@@ -66,5 +66,11 @@ public class TowerSpot : MonoBehaviour
     public void DestroyTower() {
         hasTower = false;
         childTower = null; // Reference to tower must be nulled manually for GC
+    }
+
+    public void LandEmitter() {
+        if (!hasTower) {
+            laserEmitter.land();
+        }
     }
 }

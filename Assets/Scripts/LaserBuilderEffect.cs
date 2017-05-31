@@ -8,12 +8,11 @@ public class LaserBuilderEffect : MonoBehaviour {
         Takeoff,
         Hovering,
         Landing,
-        Building,
         Hiding
     }
 
     private State state;
-    //private bool hovering; // later effect to add
+    private bool building; // later effect to add
     [SerializeField] private float maxPosition = 0.46f;
     [SerializeField] private float sweepTime = 1f;
     [SerializeField] private float flightAnimationTime = 0.5f;
@@ -33,7 +32,7 @@ public class LaserBuilderEffect : MonoBehaviour {
     }
 
     void Update() {
-        if (state == State.Building) {
+        if (building) {
             float circularizedPosition = Mathf.Sin(sweepTimer / sweepTime * Mathf.PI);
             setLaserPosition((circularizedPosition / 2f + 0.5f) * maxPosition);
 
@@ -42,7 +41,8 @@ public class LaserBuilderEffect : MonoBehaviour {
                 sweepTimer = sweepTimer % sweepTime - sweepTime;
             }
         }
-        else if (state == State.Takeoff) {
+
+        if (state == State.Takeoff) {
             setEmitterPosition(takeoffCurve, flightAnimationTimer / flightAnimationTime);
 
             flightAnimationTimer += Time.deltaTime;
@@ -56,7 +56,7 @@ public class LaserBuilderEffect : MonoBehaviour {
 
             flightAnimationTimer += Time.deltaTime;
             if (flightAnimationTimer > flightAnimationTime) {
-                state = State.Hovering;
+                state = State.Idle;
                 flightAnimationTimer = flightAnimationTime;
             }
         }
@@ -66,7 +66,7 @@ public class LaserBuilderEffect : MonoBehaviour {
     }
 
     public void beginConstruction() {
-        state = State.Building;
+        building = true;
         sweepTimer = 0;
         laserHeight = 0;
 
@@ -76,6 +76,8 @@ public class LaserBuilderEffect : MonoBehaviour {
     }
 
     public void endConstruction(bool constructionComplete) {
+        building = false;
+
         if (constructionComplete) {
             vanish();
         }
