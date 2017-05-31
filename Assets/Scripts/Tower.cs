@@ -100,7 +100,7 @@ public class Tower : MonoBehaviour
                 material.SetFloat("_ConstructY", scanStartY - (t * (towerHeight + scanWidth * 2)) + towerHeight + (scanWidth * 2 * towerHeight));
             }
 
-            if((1 - t) * (towerHeight + scanWidth * 2) < 1) {
+            if((1 - t) * (towerHeight + scanWidth * 2) < towerHeight) {
                 laserEffect.setHeight(Mathf.Clamp((1 - t) * (towerHeight + scanWidth * 2), 0, towerHeight));
             }
             else {

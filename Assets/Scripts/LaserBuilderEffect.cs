@@ -136,19 +136,19 @@ public class LaserBuilderEffect : MonoBehaviour {
 
     private void setLaserPosition(float laserPosition) {
         float laserDirection;
+        float xRatio, zRatio;
+        float laserY = laserHeight - 1.5f + (flightPosition.localPosition.y - laserEmitter.localPosition.y);
 
         for (int i = 0; i < lasers.Length; i++){
             laserDirection = ((float)i / lasers.Length) * 2 * Mathf.PI;
+            xRatio = Mathf.Sin(laserDirection) * laserWidth;
+            zRatio = Mathf.Cos(laserDirection) * laserWidth;
 
             if (i % 2 == 0) {
-                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * laserPosition * laserWidth,
-                                                     laserHeight - 1.5f + (flightPosition.localPosition.y - laserEmitter.localPosition.y),
-                                                     Mathf.Cos(laserDirection) * laserPosition * laserWidth));
+                lasers[i].SetPosition(1, new Vector3(xRatio * laserPosition, laserY, zRatio * laserPosition));
             }
             else {
-                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * (maxPosition - laserPosition) * laserWidth,
-                                                     laserHeight - 1.5f + (flightPosition.localPosition.y - laserEmitter.localPosition.y),
-                                                     Mathf.Cos(laserDirection) * (maxPosition - laserPosition) * laserWidth));
+                lasers[i].SetPosition(1, new Vector3(xRatio * (maxPosition - laserPosition), laserY, zRatio * (maxPosition - laserPosition)));
             }
         }
     }
