@@ -19,6 +19,7 @@ public class LaserBuilderEffect : MonoBehaviour {
     private float sweepTimer;
     private float flightAnimationTimer;
     private float laserHeight;
+    private float laserWidth;
     [SerializeField] private Transform laserEmitter;
     [SerializeField] private Transform landingPosition;
     [SerializeField] private Transform flightPosition;
@@ -43,22 +44,22 @@ public class LaserBuilderEffect : MonoBehaviour {
         }
 
         if (state == State.Takeoff) {
-            setEmitterPosition(takeoffCurve, flightAnimationTimer / flightAnimationTime);
-
             flightAnimationTimer += Time.deltaTime;
             if(flightAnimationTimer > flightAnimationTime) {
                 state = State.Hovering;
                 flightAnimationTimer = flightAnimationTime;
             }
+
+            setEmitterPosition(takeoffCurve, flightAnimationTimer / flightAnimationTime);
         }
         else if (state == State.Landing) {
-            setEmitterPosition(landingCurve, flightAnimationTimer / flightAnimationTime);
-
             flightAnimationTimer += Time.deltaTime;
             if (flightAnimationTimer > flightAnimationTime) {
                 state = State.Idle;
                 flightAnimationTimer = flightAnimationTime;
             }
+
+            setEmitterPosition(landingCurve, flightAnimationTimer / flightAnimationTime);
         }
         else if(state == State.Hovering) {
 
@@ -78,10 +79,7 @@ public class LaserBuilderEffect : MonoBehaviour {
     public void endConstruction(bool constructionComplete) {
         building = false;
 
-        if (constructionComplete) {
-            vanish();
-        }
-        else {
+        if (!constructionComplete) {
             land();
         }
 
@@ -91,16 +89,34 @@ public class LaserBuilderEffect : MonoBehaviour {
     }
 
     public void takeoff() {
+        if (state == State.Takeoff) {
+            return;
+        }
+        else if(state == State.Landing) {
+            flightAnimationTimer = flightAnimationTime * findAnimationCurveTimeByValue(takeoffCurve, landingCurve.Evaluate(flightAnimationTimer/flightAnimationTime), 100); 
+        }
+        else {
+            flightAnimationTimer = 0;
+        }
+
         state = State.Takeoff;
-        flightAnimationTimer = 0;
     }
 
     public void land() {
+        if(state == State.Landing) {
+            return;
+        }
+        else if (state == State.Takeoff) {
+            flightAnimationTimer = flightAnimationTime * findAnimationCurveTimeByValue(landingCurve, takeoffCurve.Evaluate(flightAnimationTimer / flightAnimationTime), 100);
+        }
+        else {
+            flightAnimationTimer = 0;
+        }
+
         state = State.Landing;
-        flightAnimationTimer = 0;
     }
 
-    private void vanish() {
+    public void vanish() {
         //state = State.Hiding;
         reset(); //Change to add hiding animation
     }
@@ -114,25 +130,52 @@ public class LaserBuilderEffect : MonoBehaviour {
         laserHeight = heightIn;
     }
 
+    public void setWidth(float widthIn) {
+        laserWidth = widthIn;
+    }
+
     private void setLaserPosition(float laserPosition) {
         float laserDirection;
+
         for (int i = 0; i < lasers.Length; i++){
             laserDirection = ((float)i / lasers.Length) * 2 * Mathf.PI;
 
             if (i % 2 == 0) {
-                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * laserPosition,
+                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * laserPosition * laserWidth,
                                                      laserHeight - 1.5f + (flightPosition.localPosition.y - laserEmitter.localPosition.y),
-                                                     Mathf.Cos(laserDirection) * laserPosition));
+                                                     Mathf.Cos(laserDirection) * laserPosition * laserWidth));
             }
             else {
-                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * (maxPosition - laserPosition),
+                lasers[i].SetPosition(1, new Vector3(Mathf.Sin(laserDirection) * (maxPosition - laserPosition) * laserWidth,
                                                      laserHeight - 1.5f + (flightPosition.localPosition.y - laserEmitter.localPosition.y),
-                                                     Mathf.Cos(laserDirection) * (maxPosition - laserPosition)));
+                                                     Mathf.Cos(laserDirection) * (maxPosition - laserPosition) * laserWidth));
             }
         }
     }
 
     private void setEmitterPosition(AnimationCurve curve, float t) {
         laserEmitter.localPosition = Vector3.LerpUnclamped(landingPosition.localPosition, flightPosition.localPosition, curve.Evaluate(t));
+    }
+
+
+    /// <summary>
+    /// Finds the first instance of a target value in an animation curve.
+    /// </summary>
+    /// <param name="targetCurve">Curve to search.</param>
+    /// <param name="targetValue">Value to find in curve.</param>
+    /// <param name="steps">Search granularity.</param>
+    /// <returns>Returns a float that indicates the time at which the value first occurs or 0 on failure.</returns>
+    private float findAnimationCurveTimeByValue(AnimationCurve targetCurve, float targetValue, int steps) {
+        float marginOfError = (1f / steps) * 2f;
+
+        for (int i = 0; i <= steps; i++) {
+            float valueToCheck = targetCurve.Evaluate((float)i / steps);
+            //Debug.Log(valueToCheck);
+            if (valueToCheck > targetValue - marginOfError && valueToCheck < targetValue + marginOfError) {
+                return (float)i / steps;
+            }
+        }
+        Debug.Log("Failed to find animation value - Params: " + targetCurve.ToString() + ", " + targetValue);
+        return 0;
     }
 }

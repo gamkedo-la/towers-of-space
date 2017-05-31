@@ -17,7 +17,7 @@ public class Tower : MonoBehaviour
     public float range = 6f;
     public float fireCooldown = 1f;
     public float buildTime = 2f;
-    public float newAnimationScanWidth = 0.1f;
+    public float scanWidth = 0.1f;
     private float towerHeight, scanStartY;
     private bool building;
     const float platformHeight = -0.5f;
@@ -25,10 +25,12 @@ public class Tower : MonoBehaviour
     public GameObject selectionCirclePrefab;
     private GameObject selectionCircle;
 
+    public AnimationCurve widthOverHeight;
+
     public int[] costLadder; //Sequence of "ramping up" energy costs
 
     float fireCooldownLeft = 0f;
-    float buildTimeLeft;
+    public float buildTimeLeft;
     int muzzleIndex = 0;
 
     private static Transform projectileGroup;
@@ -57,13 +59,13 @@ public class Tower : MonoBehaviour
         foreach (Material material in materials)
         {
             material.SetFloat("_ConstructY", -1);
-            material.SetFloat("_ConstructGap", newAnimationScanWidth);
+            material.SetFloat("_ConstructGap", scanWidth);
         }
         //PrefabUtility.SetPropertyModifications(bulletPrefab, currentCostIndex);
 
         //Next two lines are a hack, will need fixing
-        towerHeight = 1.1f; //total height of tower
-        scanStartY = platformHeight - newAnimationScanWidth; //lowest tower y - scan width
+        towerHeight = GetComponent<BoxCollider>().size.y; //total height of tower
+        scanStartY = platformHeight; //lowest tower y - scan width
 
         parentSpot = GetComponentInParent<TowerSpot>();
 
@@ -95,14 +97,20 @@ public class Tower : MonoBehaviour
 
             foreach (Material material in materials)
             {
-                material.SetFloat("_ConstructY", scanStartY - (t * towerHeight - towerHeight));
+                material.SetFloat("_ConstructY", scanStartY - (t * (towerHeight + scanWidth * 2)) + towerHeight + (scanWidth * 2 * towerHeight));
             }
 
-            laserEffect.setHeight(1 - t);
+            if((1 - t) * (towerHeight + scanWidth * 2) < 1) {
+                laserEffect.setHeight(Mathf.Clamp((1 - t) * (towerHeight + scanWidth * 2), 0, towerHeight));
+            }
+            else {
+                laserEffect.endConstruction(true);
+            }
+            laserEffect.setWidth(widthOverHeight.Evaluate(1 - t));
             yield return null;
         }
 
-        laserEffect.endConstruction(true);
+        laserEffect.vanish();
     }
 
     public void TakeDamage(float damage)
