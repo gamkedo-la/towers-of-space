@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameController : MonoBehaviour
 {
 
@@ -18,11 +19,8 @@ public class GameController : MonoBehaviour
 
     public int lives = 20;
     public int energy = 20;
-    private int basicCount = 0;
-    private int doubleCount = 0;
-    private int empCount = 0;
-    private int plasmaCount = 0;
     private int currentCost;
+
 
     private void Awake()
     {
@@ -72,7 +70,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void TowerChange(string towerType, bool creating)
     {
         int modCount; //Changes the tower count
         int modIndex; //Changes the index from which we take the cost/refund
@@ -185,7 +182,6 @@ public class GameController : MonoBehaviour
 
     public void InstantiateTower(string towerType)
     {
-        TowerChange(towerType, true); //See comments in function
 
         if (selectedTowerType != null && isPaused != true)
         {
@@ -216,8 +212,6 @@ public class GameController : MonoBehaviour
 
         string onSpot = currentTowerSpot.currentType; //Because this time, we can't get the type from a button, we have to read it from the component
 
-        TowerChange(onSpot, false); //Same function, but now we're destroying
-
         Transform attachedTower = currentTowerSpot.transform.Find("Tower"); //Finds the child tower Transform, using the transform
         if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
         {
@@ -227,8 +221,6 @@ public class GameController : MonoBehaviour
         AddEnergy(currentCost); //Refunds energy
 
         Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
-
-        //currentTowerSpot.DestroyTower(); //No tower for you
 
         UIController.instance.ClosePanel("Options");
     }
