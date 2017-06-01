@@ -12,6 +12,9 @@ public class UIController : MonoBehaviour
     public GameObject pausePanel;
     public GameObject creationPanel;
     public GameObject optionsPanel;
+    public GameObject levelSelectPanel;
+    public GameObject creditsPanel;
+    public GameObject howToPlayPanel;
 
     public Transform creationPanelPosition;
     public Transform optionsPanelPosition;
@@ -21,6 +24,10 @@ public class UIController : MonoBehaviour
     public Text livesText;
     public Text energyText;
 	public Image spawnBar;
+
+    public bool isLevelSelectPanelOpen = false;
+    public bool isCreditsPanelOpen = false;
+    public bool isHowToPlayPanelOpen = false;
 
     // Use this for initialization
     private void Awake()
@@ -91,6 +98,25 @@ public class UIController : MonoBehaviour
             case "Options":
                 optionsPanel.GetComponent<MenuVisibilityCtrl>().hide();
                 optionsPanel.SetActive(false); //Hides the panel
+                break;
+        }
+    }
+
+    public void TogglePanel(string panelToToggle)
+    {
+        switch (panelToToggle)
+        {
+            case "Credits":
+                isCreditsPanelOpen = !isCreditsPanelOpen;
+                creditsPanel.SetActive(isCreditsPanelOpen);
+                break;
+            case "HowToPlay":
+                isHowToPlayPanelOpen = !isHowToPlayPanelOpen;
+                howToPlayPanel.SetActive(isHowToPlayPanelOpen);
+                break;
+            case "LevelSelect":
+                isLevelSelectPanelOpen = !isLevelSelectPanelOpen;
+                levelSelectPanel.SetActive(isLevelSelectPanelOpen);
                 break;
         }
     }
