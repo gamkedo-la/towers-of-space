@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameController : MonoBehaviour
 {
 
@@ -18,11 +19,23 @@ public class GameController : MonoBehaviour
 
     public int lives = 20;
     public int energy = 20;
-    private int basicCount = 0;
-    private int doubleCount = 0;
-    private int empCount = 0;
-    private int plasmaCount = 0;
+
     private int currentCost;
+
+    public enum TowerTypeEnum
+    {
+        Basic,
+        Double,
+        EMP,
+        Plasma
+    }
+
+    private int[] towerCounts = new int[System.Enum.GetNames(typeof(TowerTypeEnum)).Length]; //Ensures that the tower counts match the number of towers
+
+
+
+
+
 
     private void Awake()
     {
@@ -72,7 +85,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void TowerChange(string towerType, bool creating)
+    public void TowerChange(TowerTypeEnum towerTypeEnum, bool creating)  //This function both gets the cost/refund and changes the number of towers depending on creation or destruction
     {
         int modCount; //Changes the tower count
         int modIndex; //Changes the index from which we take the cost/refund
@@ -87,105 +100,35 @@ public class GameController : MonoBehaviour
             modCount = -1;
             modIndex = -1;
         }
+        int index = (int)towerTypeEnum; //Gets the corresponding int of the enum value
+        int currentCount = towerCounts[index];
+        selectedTowerType = TowerTypes[index]; //Gets the GameObject
+        currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
 
-        switch (towerType) //This code is ugly
+
+        if (currentCount + modIndex > currentTowerClass.costLadder.Length - 1)
         {
-            case "Basic":
-                selectedTowerType = TowerTypes[0]; //Gets the GameObject
-                currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
-                if (basicCount + modIndex > currentTowerClass.costLadder.Length - 1)
-                {
-                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
-                }
-                else if (basicCount + modIndex < 0) //Added for safety! Might remove when feeling confident
-                {
-                    currentCost = currentTowerClass.costLadder[0];
-                }
-                else
-                {
-                    currentCost = currentTowerClass.costLadder[basicCount + modIndex];  //Access the array based on the number of towers
-                }
-                if (HasEnergy(currentCost) && creating || !creating)
-                {
-                    basicCount += modCount;
-                }
-                break;
-
-            case "Double":
-                selectedTowerType = TowerTypes[1];
-                currentTowerClass = selectedTowerType.GetComponent<Tower>();
-                if (doubleCount + modIndex > currentTowerClass.costLadder.Length - 1)
-                {
-                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
-                }
-                else if (doubleCount + modIndex < 0)
-                {
-                    currentCost = currentTowerClass.costLadder[0];
-                }
-                else
-                {
-                    currentCost = currentTowerClass.costLadder[doubleCount + modIndex];
-                }
-                if (HasEnergy(currentCost) && creating || !creating)
-                {
-                    doubleCount += modCount;
-                }
-                break;
-
-            case "EMP":
-                selectedTowerType = TowerTypes[2];
-                currentTowerClass = selectedTowerType.GetComponent<Tower>();
-                if (empCount + modIndex > currentTowerClass.costLadder.Length - 1)
-                {
-                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
-                }
-                else if (empCount + modIndex < 0)
-                {
-                    currentCost = currentTowerClass.costLadder[0];
-                }
-                else
-                {
-                    currentCost = currentTowerClass.costLadder[empCount + modIndex];
-                }
-
-                if (HasEnergy(currentCost) && creating || !creating)
-                {
-                    empCount += modCount;
-                }
-                break;
-
-            case "Plasma":
-                selectedTowerType = TowerTypes[3];
-                currentTowerClass = selectedTowerType.GetComponent<Tower>();
-                if (plasmaCount + modIndex > currentTowerClass.costLadder.Length - 1)
-                {
-                    currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
-                }
-                else if (plasmaCount + modIndex < 0)
-                {
-                    currentCost = currentTowerClass.costLadder[0];
-                }
-                else
-                {
-                    currentCost = currentTowerClass.costLadder[plasmaCount + modIndex];
-                }
-
-                if (HasEnergy(currentCost) && creating || !creating)
-                {
-                    plasmaCount += modCount;
-                }
-                break;
-
-            default:
-                selectedTowerType = null;
-                Debug.Log("No tower of name: " + towerType);
-                break;
+            currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
         }
-    } //This function both gets the cost/refund and changes the number of towers depending on creation or destruction
+        else if (currentCount + modIndex < 0) //Added for safety! Might remove when feeling confident
+        {
+            currentCost = currentTowerClass.costLadder[0];
+        }
+        else
+        {
+            currentCost = currentTowerClass.costLadder[currentCount + modIndex];  //Access the array based on the number of towers
+        }
+        if (HasEnergy(currentCost) && creating || !creating)
+        {
+            currentCount += modCount;
+        }
+        towerCounts[index] = currentCount; //Updates the tower count
+    }
 
     public void InstantiateTower(string towerType)
     {
-        TowerChange(towerType, true); //See comments in function
+        TowerTypeEnum towerTypeEnum = (TowerTypeEnum)System.Enum.Parse(typeof(TowerTypeEnum), towerType); //Uses the button's string to find the corresponding enum value 
+        TowerChange(towerTypeEnum, true); //Now takes the enum as argument to remove the previous big "switch" 
 
         if (selectedTowerType != null && isPaused != true)
         {
@@ -215,8 +158,8 @@ public class GameController : MonoBehaviour
         TowerSpot currentTowerSpot = towerSpotToModify.GetComponent<TowerSpot>();
 
         string onSpot = currentTowerSpot.currentType; //Because this time, we can't get the type from a button, we have to read it from the component
-
-        TowerChange(onSpot, false); //Same function, but now we're destroying
+        TowerTypeEnum onSpotEnum = (TowerTypeEnum)System.Enum.Parse(typeof(TowerTypeEnum), onSpot); //Finds the enum value using the given string
+        TowerChange(onSpotEnum, false); //Same function, but now we're destroying
 
         Transform attachedTower = currentTowerSpot.transform.Find("Tower"); //Finds the child tower Transform, using the transform
         if (attachedTower == null) //Sometimes doesn't catch the tower, will remove when other problems are fixed
@@ -227,8 +170,6 @@ public class GameController : MonoBehaviour
         AddEnergy(currentCost); //Refunds energy
 
         Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
-
-        //currentTowerSpot.DestroyTower(); //No tower for you
 
         UIController.instance.ClosePanel("Options");
     }
