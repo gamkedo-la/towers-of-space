@@ -219,6 +219,10 @@ public class Tower : MonoBehaviour
 
     public void Selected()
     {
+        if (rubbleGO.active)
+        {
+            return;
+        }
         selectionCircle.SetActive(true);
     }
 
