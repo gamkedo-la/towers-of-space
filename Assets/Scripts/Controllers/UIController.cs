@@ -12,12 +12,14 @@ public class UIController : MonoBehaviour
     public GameObject pausePanel;
     public GameObject creationPanel;
     public GameObject optionsPanel;
+    public GameObject rubblePanel;
     public GameObject levelSelectPanel;
     public GameObject creditsPanel;
     public GameObject howToPlayPanel;
 
     public Transform creationPanelPosition;
     public Transform optionsPanelPosition;
+    public Transform rubblePanelPosition;
 
     public MenuVisibilityCtrl menuVisibilityCtrl;
 
@@ -47,6 +49,10 @@ public class UIController : MonoBehaviour
         {
             optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
         }
+        if (rubblePanel.activeSelf)
+        {
+            rubblePanel.transform.position = Camera.main.WorldToScreenPoint(rubblePanelPosition.position); //The transform is moving around before clicking a button and its annoying! But it doesn't bug...
+        }
     }
 
 
@@ -68,6 +74,17 @@ public class UIController : MonoBehaviour
             optionsPanel.SetActive(true);
             optionsPanelPosition = towerSpot.transform;
             optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position);
+            GameController.instance.towerSpotToModify = towerSpot;
+        }
+    }
+
+    public void DisplayRubbleOptions(GameObject towerSpot)
+    {
+        if (GameController.instance.isPaused == false && rubblePanel.activeSelf == false) //Added a check to make it so we don't switch the panel when we click a button, however that means that we need to deactivate before changing panels
+        {
+            rubblePanel.SetActive(true);
+            rubblePanelPosition = towerSpot.transform;
+            rubblePanel.transform.position = Camera.main.WorldToScreenPoint(rubblePanelPosition.position);
             GameController.instance.towerSpotToModify = towerSpot;
         }
     }
@@ -98,6 +115,10 @@ public class UIController : MonoBehaviour
             case "Options":
                 optionsPanel.GetComponent<MenuVisibilityCtrl>().hide();
                 optionsPanel.SetActive(false); //Hides the panel
+                break;
+            case "Rubble":
+                rubblePanel.GetComponent<MenuVisibilityCtrl>().hide();
+                rubblePanel.SetActive(false); //Hides the panel
                 break;
         }
     }

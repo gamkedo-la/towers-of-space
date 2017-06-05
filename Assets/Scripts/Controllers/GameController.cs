@@ -32,11 +32,6 @@ public class GameController : MonoBehaviour
 
     private int[] towerCounts = new int[System.Enum.GetNames(typeof(TowerTypeEnum)).Length]; //Ensures that the tower counts match the number of towers
 
-
-
-
-
-
     private void Awake()
     {
         instance = this;
@@ -153,11 +148,22 @@ public class GameController : MonoBehaviour
         towerSpotToModify = null;
     }
 
-    public void DestroyTower()
+    public void RemoveTower()
     {
         TowerSpot currentTowerSpot = towerSpotToModify.GetComponent<TowerSpot>();
+        RefundTower(currentTowerSpot); //Because this time, we can't get the type from a button, we have to read it from the component
 
-        string onSpot = currentTowerSpot.currentType; //Because this time, we can't get the type from a button, we have to read it from the component
+        //Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
+        currentTowerSpot.RemoveTower();
+
+        UIController.instance.ClosePanel("Options");
+        Debug.Log("remove tower gamecontroller");
+    }
+
+    public void RefundTower(TowerSpot currentTowerSpot)
+    {
+        string onSpot = currentTowerSpot.currentType;
+
         TowerTypeEnum onSpotEnum = (TowerTypeEnum)System.Enum.Parse(typeof(TowerTypeEnum), onSpot); //Finds the enum value using the given string
         TowerChange(onSpotEnum, false); //Same function, but now we're destroying
 
@@ -168,10 +174,15 @@ public class GameController : MonoBehaviour
         }
         
         AddEnergy(currentCost); //Refunds energy
+    }
 
-        Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
+    public void ClearRubble()
+    {
+        TowerSpot currentTowerSpot = towerSpotToModify.GetComponent<TowerSpot>();
+        currentTowerSpot.ClearRubble();
+        UIController.instance.ClosePanel("Rubble");
 
-        UIController.instance.ClosePanel("Options");
+        Debug.Log("clear rubble gamecontroller");
     }
 
     public void CloseCircle() //I wanted to give this to the UIController, but it isn't aware of the currently selected spot...
@@ -218,5 +229,12 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over");
         // TODO: Send the player to a game-over screen instead!
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+public GameObject debugTank;
+    public void DebugSpawnEnemy()
+    {
+		SpawnPoint[] spawnPoints = Resources.FindObjectsOfTypeAll<SpawnPoint>();
+        spawnPoints[0].SpawnEnemy(debugTank);
     }
 }

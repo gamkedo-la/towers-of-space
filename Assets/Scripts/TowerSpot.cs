@@ -7,6 +7,7 @@ public class TowerSpot : MonoBehaviour
 {
     public GameObject popupButtonCanvas;
 
+    private bool hasRubble = false;
     public bool hasTower = false;
     public bool towerChecked = false; //This is to tell the spot to look for the tower that was built on it
     public Tower childTower;
@@ -19,10 +20,10 @@ public class TowerSpot : MonoBehaviour
 
     private void LateUpdate() //Late because we want to do it after construction/destruction/upgrade
     {
-        if (towerChecked != hasTower)
+        if (towerChecked != (hasTower || hasRubble))
         {
             childTower = GetComponentInChildren<Tower>(); //Will return to null when destroying
-            towerChecked = hasTower; //So that we don't get the component every frame
+            towerChecked = (hasTower || hasRubble); //So that we don't get the component every frame
         }
     }
 
@@ -38,14 +39,15 @@ public class TowerSpot : MonoBehaviour
             if (childTower != null)
             {
                 childTower.Selected();
-                // childTower.line.enabled = true; //Activates the range circle
-                // childTower.selectionCirclePrefab.SetActive(true);
             }
             if (hasTower)
             {
                 UIController.instance.DisplayTowerOptions(gameObject);
             }
-            else if (!hasTower)
+            else if (hasRubble) {
+                UIController.instance.DisplayRubbleOptions(gameObject);
+            }
+            else if (!hasTower && !hasRubble)
             {
                 laserEmitter.takeoff();
                 UIController.instance.DisplayTowerCreation(gameObject);
@@ -58,18 +60,29 @@ public class TowerSpot : MonoBehaviour
         if (childTower != null)
         {
             childTower.Deselected();
-            // childTower.line.enabled = false; //Deactivates the range circle
-            // childTower.selectionCirclePrefab.SetActive(false);
         }
     }
 
     public void DestroyTower() {
+        GameController.instance.RefundTower(this);
         hasTower = false;
+        hasRubble = true;
+    }
+
+    public void RemoveTower() {
+        hasTower = false;
+        hasRubble = false;
+        Destroy(childTower.gameObject);
         childTower = null; // Reference to tower must be nulled manually for GC
+        laserEmitter.reset();
+    }
+
+    public void ClearRubble() {
+        RemoveTower();
     }
 
     public void LandEmitter() {
-        if (!hasTower) {
+        if (!hasTower && !hasRubble) {
             laserEmitter.land();
         }
     }

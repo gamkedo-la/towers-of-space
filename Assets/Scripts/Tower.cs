@@ -11,6 +11,9 @@ public class Tower : MonoBehaviour
     float startHealth;
     Slider slider;
 
+    public GameObject towerGO;
+    public GameObject rubbleGO;
+
     public GameObject bulletPrefab;
     public Transform barrel;
     public Transform[] muzzles;
@@ -45,7 +48,7 @@ public class Tower : MonoBehaviour
         {
             projectileGroup = GameObject.Find("Projectiles").transform;
         }
-        slider = transform.FindChild("TowerCanvas").FindChild("Slider").GetComponent<Slider>();
+        slider = towerGO.transform.FindChild("TowerCanvas").FindChild("Slider").GetComponent<Slider>();
         startHealth = health;
 
         buildTimeLeft = buildTime;
@@ -126,21 +129,26 @@ public class Tower : MonoBehaviour
         }
     }
 
+    public bool IsDestroyed()
+    {
+        return rubbleGO.active;
+    }
+
     public void Die()
     {
         // @todo particles/explosion
-        Destroy(gameObject);
+        parentSpot.DestroyTower();
+        Debug.Log("die tower");
+        rubbleGO.SetActive(true);
+        towerGO.SetActive(false);
     }
 
     void OnDestroy() {
-        parentSpot.DestroyTower();
-
+        Debug.Log("ondestroy tower");
         // Animate/place laser emitter
         if (building) {
+            Debug.Log("endconstruction");
             parentSpot.GetComponent<LaserBuilderEffect>().endConstruction(false);
-        }
-        else {
-            parentSpot.GetComponent<LaserBuilderEffect>().reset();
         }
     }
 
@@ -150,6 +158,12 @@ public class Tower : MonoBehaviour
         if (building)
         {
             // Don't do anything while still building.
+            return;
+        }
+
+        if (IsDestroyed())
+        {
+            // Don't do anything while destroyed.
             return;
         }
 

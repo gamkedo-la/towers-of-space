@@ -35,6 +35,11 @@ public class EnemyAttack : MonoBehaviour
 
         foreach (Tower enemy in enemies)
         {
+            if (enemy.IsDestroyed())
+            {
+                continue;
+            }
+
             float d = Vector3.Distance(transform.position, enemy.transform.position);
             if (nearestEnemy == null || d < dist)
             {
