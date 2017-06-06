@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
@@ -131,7 +131,7 @@ public class Tower : MonoBehaviour
 
     public bool IsDestroyed()
     {
-        return rubbleGO.active;
+        return rubbleGO.activeInHierarchy;
     }
 
     public void Die()
@@ -219,7 +219,7 @@ public class Tower : MonoBehaviour
 
     public void Selected()
     {
-        if (rubbleGO.active)
+        if (rubbleGO.activeInHierarchy)
         {
             return;
         }
