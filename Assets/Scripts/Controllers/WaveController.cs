@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class WaveController : MonoBehaviour {
 	SpawnPoint[] spawnPoints;
 	// Use this for initialization
 	void Start () {
-		spawnPoints = Resources.FindObjectsOfTypeAll<SpawnPoint>();
+		spawnPoints = FindObjectsOfType<SpawnPoint>( );
 		//queueNextWave ();
 	}
 	
