@@ -14,6 +14,9 @@ public class TowerSpot : MonoBehaviour
     private LaserBuilderEffect laserEmitter;
     public string currentType;
 
+    public float autoClearTime = 5f;
+    private IEnumerator autoClearCoroutine;
+
     private void Start() {
         laserEmitter = GetComponent<LaserBuilderEffect>();
     }
@@ -62,11 +65,19 @@ public class TowerSpot : MonoBehaviour
             childTower.Deselected();
         }
     }
+    private IEnumerator AutoClearRubble()
+    {
+        yield return new WaitForSeconds(autoClearTime);
+        RemoveTower();
+    }
 
     public void DestroyTower() {
         GameController.instance.RefundTower(this);
         hasTower = false;
         hasRubble = true;
+
+        autoClearCoroutine = AutoClearRubble();
+        StartCoroutine(autoClearCoroutine);
     }
 
     public void RemoveTower() {
@@ -75,6 +86,11 @@ public class TowerSpot : MonoBehaviour
         Destroy(childTower.gameObject);
         childTower = null; // Reference to tower must be nulled manually for GC
         laserEmitter.reset();
+        if (autoClearCoroutine != null)
+        {
+            StopCoroutine(autoClearCoroutine);
+            autoClearCoroutine = null;
+        }
     }
 
     public void ClearRubble() {
