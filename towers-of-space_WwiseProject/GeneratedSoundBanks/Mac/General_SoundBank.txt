@@ -1,6 +1,10 @@
 Event	ID	Name			Wwise Object Path	Notes
-	731684285	Play_singleTower_laser			\Towers\Play_singleTower_laser	
+	2111735307	Play_EMP_shot			\Towers\Play_EMP_shot	
+	4159316657	Play_doubleLaser_shot			\Towers\Play_doubleLaser_shot	
+	4185646314	Play_Laser_shot			\Towers\Play_Laser_shot	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	843892571	sfx_laserSingle_01	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_laserSingle_01_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\SingleTower\sfx_laserSingle_01		161028
+	443561458	sfx_DoubleLaser_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_DoubleLaser_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\DoubleTower\sfx_DoubleLaser_shot		116084
+	718885009	sfx_EMP_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_EMP_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\EMPTower\sfx_EMP_shot		278424
+	1017088473	sfx_Laser_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_SingleLaser_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\SingleTower\sfx_Laser_shot		116084
 

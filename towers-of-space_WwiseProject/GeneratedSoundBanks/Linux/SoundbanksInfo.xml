@@ -21,12 +21,22 @@
 			<ShortName>General_SoundBank</ShortName>
 			<Path>General_SoundBank.bnk</Path>
 			<IncludedEvents>
-				<Event Id="731684285" Name="Play_singleTower_laser" ObjectPath="\Events\Towers\Play_singleTower_laser"/>
+				<Event Id="4159316657" Name="Play_doubleLaser_shot" ObjectPath="\Events\Towers\Play_doubleLaser_shot"/>
+				<Event Id="2111735307" Name="Play_EMP_shot" ObjectPath="\Events\Towers\Play_EMP_shot"/>
+				<Event Id="4185646314" Name="Play_Laser_shot" ObjectPath="\Events\Towers\Play_Laser_shot"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
-				<File Id="843892571" Language="SFX">
-					<ShortName>sfx_laserSingle_01.wav</ShortName>
-					<Path>SFX/sfx_laserSingle_01_9E69E797.wem</Path>
+				<File Id="443561458" Language="SFX">
+					<ShortName>sfx_DoubleLaser_shot.wav</ShortName>
+					<Path>SFX/sfx_DoubleLaser_shot_9E69E797.wem</Path>
+				</File>
+				<File Id="718885009" Language="SFX">
+					<ShortName>sfx_EMP_shot.wav</ShortName>
+					<Path>SFX/sfx_EMP_shot_9E69E797.wem</Path>
+				</File>
+				<File Id="1017088473" Language="SFX">
+					<ShortName>sfx_SingleLaser_shot.wav</ShortName>
+					<Path>SFX/sfx_SingleLaser_shot_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

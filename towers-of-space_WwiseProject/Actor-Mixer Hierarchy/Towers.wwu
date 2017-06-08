@@ -22,26 +22,84 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="sfx_laserSingle_01" ID="{15F560C4-39BF-4668-984B-0D94D142ADD1}" ShortID="399562708" Type="SoundFX">
+						<Sound Name="sfx_Laser_shot" ID="{2AD1E20A-BB03-4E8E-9FF4-CE37DD25F37D}" ShortID="336804778" Type="SoundFX">
 							<PropertyList>
-								<Property Name="Highpass" Type="int16">
+								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>36</Value>
+										<Value>-3</Value>
 									</ValueList>
 								</Property>
-								<Property Name="Pitch" Type="int32">
-									<ModifierList>
-										<ModifierInfo>
-											<Modifier Name="" ID="{31DD3118-51A2-4464-918F-3F807707B697}">
-												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="100"/>
-													<Property Name="Min" Type="Real64" Value="-100"/>
-												</PropertyList>
-											</Modifier>
-										</ModifierInfo>
-									</ModifierList>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_SingleLaser_shot" ID="{6BC12656-7A3A-4AF5-9C8A-76A87841233E}" ShortID="1017088473">
+									<Language>SFX</Language>
+									<AudioFile>sfx_SingleLaser_shot.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_SingleLaser_shot" ID="{6BC12656-7A3A-4AF5-9C8A-76A87841233E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="DoubleTower" ID="{D1396455-1783-48A8-93FF-22AEE936F98C}" ShortID="977802390">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="sfx_DoubleLaser_shot" ID="{1292CA47-101B-403A-AE4C-2112FF285807}" ShortID="505846367" Type="SoundFX">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
 								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_DoubleLaser_shot" ID="{7AC3CB39-C101-484C-AC95-D05DA4CD0110}" ShortID="443561458">
+									<Language>SFX</Language>
+									<AudioFile>sfx_DoubleLaser_shot.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_DoubleLaser_shot" ID="{7AC3CB39-C101-484C-AC95-D05DA4CD0110}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="EMPTower" ID="{ECC9515A-8105-4CEF-9B8D-8D53A96D98B0}" ShortID="9698810">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="sfx_EMP_shot" ID="{6609850C-3CD0-4067-B4B0-340A4C5D9CF2}" ShortID="950605452" Type="SoundFX">
+							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-5</Value>
@@ -57,19 +115,26 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="sfx_laserSingle_01" ID="{52C3EAB7-5376-448D-B6AA-4883DF9C7F89}" ShortID="843892571">
-									<PropertyList>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
+								<AudioFileSource Name="sfx_EMP_shot" ID="{9B84D0DB-5C22-469D-9484-8A8FB66529DD}" ShortID="718885009">
 									<Language>SFX</Language>
-									<AudioFile>sfx_laserSingle_01.wav</AudioFile>
+									<AudioFile>sfx_EMP_shot.wav</AudioFile>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="sfx_laserSingle_01" ID="{52C3EAB7-5376-448D-B6AA-4883DF9C7F89}" Platform="Linked"/>
+								<ActiveSource Name="sfx_EMP_shot" ID="{9B84D0DB-5C22-469D-9484-8A8FB66529DD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="PlasmaTower" ID="{A3B846AD-28F0-4EA4-9101-23D9C7106BFD}" ShortID="113226714">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
