@@ -192,6 +192,7 @@ public class Tower : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(direction);
         barrel.rotation = Quaternion.Euler(0, rotation.eulerAngles.y, 0);
+        rubbleGO.transform.rotation = barrel.rotation;
 
         fireCooldownLeft -= Time.deltaTime;
         if (fireCooldownLeft <= 0 && direction.magnitude <= range)
