@@ -24,6 +24,7 @@
 				<Event Id="4159316657" Name="Play_doubleLaser_shot" ObjectPath="\Events\Towers\Play_doubleLaser_shot"/>
 				<Event Id="2111735307" Name="Play_EMP_shot" ObjectPath="\Events\Towers\Play_EMP_shot"/>
 				<Event Id="4185646314" Name="Play_Laser_shot" ObjectPath="\Events\Towers\Play_Laser_shot"/>
+				<Event Id="557932600" Name="Play_Level_Music" ObjectPath="\Events\Music\Play_Level_Music"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="443561458" Language="SFX">

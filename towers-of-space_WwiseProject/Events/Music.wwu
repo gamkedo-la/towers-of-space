@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" SchemaVersion="75">
+	<Events>
+		<WorkUnit Name="Music" ID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Level_Music" ID="{9CEFEC25-4DA9-4CAB-8002-BEF4B9712C67}">
+					<ChildrenList>
+						<Action Name="Play" ID="{FAFB6931-F493-4465-AA18-5DBE1C10CE75}" ShortID="520504454" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{D82ED542-F2AD-4286-AAEB-07850876F659}" Global="false">
+									<ObjectRef Name="Level Music" ID="{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}" WorkUnitID="{E5912DD3-B8D5-4D06-901C-2A4E5EA44129}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

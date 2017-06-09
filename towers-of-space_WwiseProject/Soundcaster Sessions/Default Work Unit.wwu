@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{05D79E4A-BD42-4B2F-AC9B-7F3DC8CC4A82}" SchemaVersion="75">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{05D79E4A-BD42-4B2F-AC9B-7F3DC8CC4A82}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{05D79E4A-BD42-4B2F-AC9B-7F3DC8CC4A82}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Dedrick Session" ID="{4FE8D093-D1EF-426D-8980-F5D9C0442C19}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Play_Level_Music" ID="{9CEFEC25-4DA9-4CAB-8002-BEF4B9712C67}" WorkUnitID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_Laser_shot" ID="{D0C961E9-17AD-4C3B-9FA0-2F5D5B77E45A}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_doubleLaser_shot" ID="{E32D9D6B-EEC2-4DD1-AD15-B442E09242E1}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_EMP_shot" ID="{B6860FF5-18F4-40F6-87F1-33E254D25C76}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

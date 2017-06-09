@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{3F990393-F2D3-4EFF-90CD-85DBB33FE612}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="Z:\Volumes\Data\ALL SESSIONS\Game Audio Sessions\Towers of Space SFX\Bounced Files"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Desktop"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>
@@ -24,15 +24,19 @@
 				<Property Name="GenerateSoundBanks\SelectedPlatforms" Type="string" Value="EuoV9CPKIE6TavEORzALzDTi7kJEQtlLp2wEsDpbD/JbWM0/wHyBSLhnSpdUP6Wy"/>
 				<Property Name="GenerateSoundBanks\SelectedSoundBanks" Type="string" Value="Vcn4YxSwyE+T+VDFDZ0bkg=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
+				<Property Name="Interactive Music\{58E99882-60E3-4F5B-8326-A8434A3431C0} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwPx5xR9wRdxRAAAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
 				<Property Name="Mixing Desk\LastSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="MonitoringManager\WatchMgr\GameSyncWatches" Type="string" Value=""/>
 				<Property Name="MonitoringManager\WatchMgr\Watches" Type="string" Value=""/>
 				<Property Name="MonitoringManager\WatchMgr\WatchesVersion" Type="int32" Value="5"/>
+				<Property Name="Music Transition List\{1B38A978-74A0-4F84-91D0-FB6679057457}\Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{7821589F-74EE-4B79-B1E5-17C7EBF1160B}\Expand States" Type="string" Value=""/>
+				<Property Name="Music Transition List\{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}\Expand States" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_10_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_11_1" Type="string" Value=""/>
-				<Property Name="ProjectExplorer\Expanded_12_1" Type="string" Value=""/>
+				<Property Name="ProjectExplorer\Expanded_12_1" Type="string" Value="vnzl64mxPEOPsm0OzJo8NdMtkeXVuAZNkBwqTl6kQSmCmOlY42BbT4MmqENKNDHA"/>
 				<Property Name="ProjectExplorer\Expanded_13_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_14_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_15_1" Type="string" Value=""/>
@@ -93,6 +97,7 @@
 						<Value Platform="Linux"></Value>
 					</ValueList>
 				</Property>
+				<Property Name="Soundcaster\PreviousSession" Type="string" Value="{4FE8D093-D1EF-426D-8980-F5D9C0442C19}"/>
 			</PropertyList>
 		</UserProjectSettings>
 	</UserProjectSettingsInfo>

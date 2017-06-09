@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	557932600	Play_Level_Music			\Music\Play_Level_Music	
 	2111735307	Play_EMP_shot			\Towers\Play_EMP_shot	
 	4159316657	Play_doubleLaser_shot			\Towers\Play_doubleLaser_shot	
 	4185646314	Play_Laser_shot			\Towers\Play_Laser_shot	

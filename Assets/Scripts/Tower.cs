@@ -214,7 +214,6 @@ public class Tower : MonoBehaviour
         {
             muzzleIndex = 0;
         }
-		AkSoundEngine.PostEvent ("Play_Laser_shot", gameObject);
     }
 
     public void Selected()
