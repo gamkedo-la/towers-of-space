@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using UnityEngine.Assertions;
 
 public class EnemySpawner : MonoBehaviour
 {
-
     public float timeBeforeSpawning = 4f;
     public float timeBetweenEnemies = 0.25f;
+
+	[SerializeField] private SpawnPoint spawnPoint;
 
     [System.Serializable]
     public class WaveComponent
@@ -22,7 +24,8 @@ public class EnemySpawner : MonoBehaviour
 
     void OnEnable()
     {
-        //spawnCDremaining = timeBeforeSpawning;
+		//spawnCDremaining = timeBeforeSpawning;
+		Assert.IsNotNull( spawnPoint );
     }
 
     void Update()
@@ -41,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     // Spawn it!
                     wc.spawned++;
-                    transform.parent.parent.GetComponent<SpawnPoint>().SpawnEnemy(wc.enemyPrefab);
+                    spawnPoint.SpawnEnemy(wc.enemyPrefab);
 
                     didSpawn = true;
                     // Stop the loop because we need to wait before spawning the next enemy

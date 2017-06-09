@@ -26,7 +26,7 @@ public class WaveController : MonoBehaviour {
 		string msg = "Queing next wave \n";
 		foreach (SpawnPoint spawnPoint in spawnPoints) {			
 			msg += "Spawn Point: " + spawnPoint.name + "\n";
-			EnemySpawner[] spawners = spawnPoint.GetComponentsInChildren<EnemySpawner>(true);
+			EnemySpawner[] spawners = spawnPoint.Waves.GetComponentsInChildren<EnemySpawner>(true);
 
 			foreach (EnemySpawner spawner in spawners) {
 				if (!spawner.gameObject.activeSelf) {

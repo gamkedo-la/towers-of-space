@@ -1,12 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class SpawnPoint : MonoBehaviour
 {
-
-
-    //public Transform enemies;
+	public GameObject Waves;
 
     private Vector3 pos;
     private Quaternion lookAt;
@@ -15,6 +14,8 @@ public class SpawnPoint : MonoBehaviour
 
     void Start()
     {
+		Assert.IsNotNull( Waves );
+
         pos = transform.localPosition;
 
         node = GetComponent<Node>();
