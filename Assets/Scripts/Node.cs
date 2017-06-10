@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class Node : MonoBehaviour
 {
-
     public GameObject[] nextNodes;
 
     void Start()
