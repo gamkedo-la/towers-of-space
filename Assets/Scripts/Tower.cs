@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour
     public GameObject rubbleGO;
 
     public GameObject bulletPrefab;
+	public GameObject explosionPrefab;
+
     public Transform barrel;
     public Transform[] muzzles;
     public float range = 6f;
@@ -134,11 +136,20 @@ public class Tower : MonoBehaviour
         return rubbleGO.activeInHierarchy;
     }
 
-    public void Die()
+	public void Explode()
+	{
+		if (explosionPrefab) // was a prefab set in inspector?
+		{
+			//Debug.Log("creating explosionPrefab");
+			GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+		}
+	}
+
+	public void Die()
     {
-        // @todo particles/explosion
+		Debug.Log("die tower");
+		Explode();
         parentSpot.DestroyTower();
-        Debug.Log("die tower");
         rubbleGO.SetActive(true);
         towerGO.SetActive(false);
     }
