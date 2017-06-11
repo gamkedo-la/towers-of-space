@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
 
     Slider slider;
 
+	public GameObject explosionPrefab;
+
     void Start()
     {
         slider = transform.FindChild("EnemyCanvas").FindChild("Slider").GetComponent<Slider>();
@@ -44,9 +46,19 @@ public class Enemy : MonoBehaviour
         GameController.instance.AddEnergy(lootEnergy);
     }
 
+	public void Explode()
+	{
+		if (explosionPrefab) // was a prefab set in inspector?
+		{
+			//Debug.Log("creating explosionPrefab");
+			//GameObject explosion = 
+			Instantiate(explosionPrefab, transform.position, transform.rotation);
+		}
+	}
+
     public void Die()
     {
-        // @todo particles/explosion
+		Explode();
         Destroy(gameObject);
     }
 }

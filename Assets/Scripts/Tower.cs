@@ -141,7 +141,8 @@ public class Tower : MonoBehaviour
 		if (explosionPrefab) // was a prefab set in inspector?
 		{
 			//Debug.Log("creating explosionPrefab");
-			GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+			//GameObject explosion = 
+			Instantiate(explosionPrefab, transform.position, transform.rotation);
 		}
 	}
 
