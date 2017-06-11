@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     {
         // @todo
         GameController.instance.LoseLife(); //instance is the Score Manager
-        Die();
+        Destroy(gameObject);
     }
 
     public void GiveLootEnergy()
