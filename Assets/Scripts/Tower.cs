@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour
 
     public GameObject bulletPrefab;
 	public GameObject explosionPrefab;
+	public GameObject muzzleflashPrefab;
 
     public Transform barrel;
     public Transform[] muzzles;
@@ -141,8 +142,8 @@ public class Tower : MonoBehaviour
 		if (explosionPrefab) // was a prefab set in inspector?
 		{
 			//Debug.Log("creating explosionPrefab");
-			//GameObject explosion = 
-			Instantiate(explosionPrefab, transform.position, transform.rotation);
+			GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+			Destroy(explosion,5); // FIXME: reuse pool
 		}
 	}
 
@@ -218,7 +219,13 @@ public class Tower : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
 
-        bulletGO.transform.SetParent(projectileGroup);
+		if (muzzleflashPrefab)
+		{
+			GameObject muzzy = Instantiate(muzzleflashPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
+			Destroy(muzzy,1); // FIXME: reuse pool
+		}
+
+		bulletGO.transform.SetParent(projectileGroup);
 
         bulletGO.GetComponent<ProjectileBase>().SetTarget(enemy.transform);
 

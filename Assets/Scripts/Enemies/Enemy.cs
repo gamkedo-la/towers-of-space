@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
 
 	public GameObject explosionPrefab;
 
+
+
     void Start()
     {
         slider = transform.FindChild("EnemyCanvas").FindChild("Slider").GetComponent<Slider>();

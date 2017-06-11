@@ -15,7 +15,9 @@ public class EnemyAttack : MonoBehaviour
 
     private static Transform projectileGroup;
 
-    // Use this for initialization
+	public GameObject muzzleflashPrefab;
+
+	// Use this for initialization
     void Start()
     {
         if (projectileGroup == null)
@@ -70,10 +72,15 @@ public class EnemyAttack : MonoBehaviour
     {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
         bulletGO.transform.SetParent(projectileGroup);
-
         bulletGO.GetComponent<ProjectileBase>().SetTarget(enemy.transform);
 
-        muzzleIndex++;
+		if (muzzleflashPrefab)
+		{
+			GameObject muzzy = Instantiate(muzzleflashPrefab, muzzles[muzzleIndex].position, muzzles[muzzleIndex].rotation);
+			Destroy(muzzy,3); // FIXME: reuse pool
+		}
+
+		muzzleIndex++;
         if (muzzles.Length <= muzzleIndex)
         {
             muzzleIndex = 0;
