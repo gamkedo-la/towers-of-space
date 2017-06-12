@@ -5,8 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="General_SoundBank" ID="{63F8C955-B014-4FC8-93F9-50C50D9D1B92}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Towers" ID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Towers" ID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Music" ID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" WorkUnitID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Music" ID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}" WorkUnitID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -8,7 +8,7 @@
 						<Action Name="Play" ID="{FAFB6931-F493-4465-AA18-5DBE1C10CE75}" ShortID="520504454" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{D82ED542-F2AD-4286-AAEB-07850876F659}" Global="false">
-									<ObjectRef Name="Level Music" ID="{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}" WorkUnitID="{E5912DD3-B8D5-4D06-901C-2A4E5EA44129}"/>
+									<ObjectRef Name="Level Music" ID="{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}" WorkUnitID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}"/>
 								</Element>
 							</ElementList>
 						</Action>

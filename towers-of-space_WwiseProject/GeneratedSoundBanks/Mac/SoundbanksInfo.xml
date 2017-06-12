@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/</ProjectRoot>
-		<SourceFilesRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/.cache/Mac/</SourceFilesRoot>
-		<SoundBanksRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Mac/</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -29,15 +29,19 @@
 			<IncludedMemoryFiles>
 				<File Id="443561458" Language="SFX">
 					<ShortName>sfx_DoubleLaser_shot.wav</ShortName>
-					<Path>SFX/sfx_DoubleLaser_shot_9E69E797.wem</Path>
+					<Path>SFX\sfx_DoubleLaser_shot_9E69E797.wem</Path>
+				</File>
+				<File Id="537159404" Language="SFX">
+					<ShortName>towers.wav</ShortName>
+					<Path>SFX\towers_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="718885009" Language="SFX">
 					<ShortName>sfx_EMP_shot.wav</ShortName>
-					<Path>SFX/sfx_EMP_shot_9E69E797.wem</Path>
+					<Path>SFX\sfx_EMP_shot_9E69E797.wem</Path>
 				</File>
 				<File Id="1017088473" Language="SFX">
 					<ShortName>sfx_SingleLaser_shot.wav</ShortName>
-					<Path>SFX/sfx_SingleLaser_shot_9E69E797.wem</Path>
+					<Path>SFX\sfx_SingleLaser_shot_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>
