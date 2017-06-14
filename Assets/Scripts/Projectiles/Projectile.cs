@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,6 +28,9 @@ abstract public class ProjectileBase : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
+		if ( target == null )
+			Destroy( gameObject );
+
         if (target.gameObject == other.gameObject)
         {
             DoProjectileHit();
