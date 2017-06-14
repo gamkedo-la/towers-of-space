@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,6 +25,7 @@ public class UIController : MonoBehaviour
 
     public Text livesText;
     public Text energyText;
+	public Text deconstructsText;
 	public Image spawnBar;
 
     public bool isLevelSelectPanelOpen = false;
@@ -75,6 +76,7 @@ public class UIController : MonoBehaviour
             optionsPanelPosition = towerSpot.transform;
             optionsPanel.transform.position = Camera.main.WorldToScreenPoint(optionsPanelPosition.position);
             GameController.instance.towerSpotToModify = towerSpot;
+			optionsPanel.GetComponent<CanDeconstruct>( ).TryCanDeconstruct( );
         }
     }
 
@@ -98,6 +100,11 @@ public class UIController : MonoBehaviour
     {
         energyText.text = "Energy: " + GameController.instance.energy.ToString();
     }
+
+	public void UpdateDeconstructs( int deconstructs )
+	{
+		deconstructsText.text = "Tower Deconstructs Available: " + deconstructs.ToString( );
+	}
 
 	public void UpdateSpawnBar(float progress){
 		progress = Mathf.Clamp (progress, 0f, 1f);

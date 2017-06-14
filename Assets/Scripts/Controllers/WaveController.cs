@@ -37,6 +37,7 @@ public class WaveController : MonoBehaviour {
 					}
 					msg += "  Activating Wave: " + spawner.name + "\n";
 					spawner.gameObject.SetActive (true);
+					GameController.instance.RefoundDeconstructs( );
 					break;
 				}
 			}

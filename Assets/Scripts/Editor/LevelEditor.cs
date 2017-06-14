@@ -7,7 +7,7 @@ public class LevelEditor : MonoBehaviour
 {
 	private static Node parentNode;
 
-	[MenuItem( "GameObject/Connect Nodes _c" )]
+	[MenuItem( "GameObject/Connect Nodes #c" )]
 	public static void ConnectNodes( )
 	{
 		parentNode = null;

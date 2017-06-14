@@ -19,10 +19,12 @@ public class GameController : MonoBehaviour
 
     public int lives = 20;
     public int energy = 20;
+	public int deconstructs = 2;
 
-    private int currentCost;
+	private int currentCost;
+	private int currentDeconstructsAvailable;
 
-    public enum TowerTypeEnum
+	public enum TowerTypeEnum
     {
         Basic,
         Double,
@@ -35,8 +37,12 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+		currentDeconstructsAvailable = deconstructs;
+
 		UIController.instance.UpdateEnergy( energy );
 		UIController.instance.UpdateLives( lives );
+		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
 	}
 
     public void TogglePause()
@@ -150,7 +156,18 @@ public class GameController : MonoBehaviour
         towerSpotToModify = null;
     }
 
-    public void RemoveTower()
+	public bool CanDeconstructTower()
+	{
+		return currentDeconstructsAvailable > 0 ? true : false;
+	}
+
+	public void RefoundDeconstructs( )
+	{
+		currentDeconstructsAvailable = deconstructs;
+		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
+	}
+
+	public void RemoveTower()
     {
         TowerSpot currentTowerSpot = towerSpotToModify.GetComponent<TowerSpot>();
         RefundTower(currentTowerSpot); //Because this time, we can't get the type from a button, we have to read it from the component
@@ -176,7 +193,11 @@ public class GameController : MonoBehaviour
         }
         
         AddEnergy(currentCost); //Refunds energy
-    }
+
+		currentDeconstructsAvailable--;
+		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
+
+	}
 
     public void ClearRubble()
     {
