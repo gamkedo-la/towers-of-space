@@ -34,7 +34,9 @@ public class Dot : ProjectileBase
                 break;
             }
 
-            enemy.TakeDamage(damagePerTick);
+			ExplodeFX(enemy.transform.position,enemy.transform.rotation); 
+
+			enemy.TakeDamage(damagePerTick);
             totalTime -= timePerTick;
 
             yield return new WaitForSeconds(timePerTick);

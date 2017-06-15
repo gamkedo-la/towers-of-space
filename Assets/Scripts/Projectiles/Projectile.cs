@@ -9,6 +9,18 @@ abstract public class ProjectileBase : MonoBehaviour {
 
     protected Transform target;
 
+	public void ExplodeFX(Vector3 pos, Quaternion rot)
+	{
+		if (explosionPrefab) // was a prefab set in inspector?
+		{
+			Debug.Log("a projectile explodes!");
+			GameObject explosion = Instantiate(explosionPrefab, pos, rot);
+			Destroy(explosion,5); // FIXME: reuse pool
+		}
+	}
+
+	public GameObject explosionPrefab; // optional
+
     public void SetTarget(Transform t) {
         target = t;
     }

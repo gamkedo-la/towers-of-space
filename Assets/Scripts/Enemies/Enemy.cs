@@ -8,14 +8,9 @@ public class Enemy : MonoBehaviour
 
     public float health = 1f;
     public int lootEnergy;
-
     float startHealth;
-
     Slider slider;
-
 	public GameObject explosionPrefab;
-
-
 
     void Start()
     {
@@ -53,8 +48,8 @@ public class Enemy : MonoBehaviour
 		if (explosionPrefab) // was a prefab set in inspector?
 		{
 			//Debug.Log("creating explosionPrefab");
-			//GameObject explosion = 
-			Instantiate(explosionPrefab, transform.position, transform.rotation);
+			GameObject explosion = Instantiate(explosionPrefab, gameObject.transform.position, gameObject.transform.rotation);
+			Destroy(explosion,5); // FIXME: reuse pool
 		}
 	}
 

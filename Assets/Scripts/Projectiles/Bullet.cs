@@ -16,11 +16,13 @@ public class Bullet : ProjectileBase
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+				ExplodeFX(enemy.transform.position,enemy.transform.rotation); 
             }
             Tower tower = target.GetComponent<Tower>();
             if (tower != null)
             {
                 tower.TakeDamage(damage);
+				ExplodeFX(tower.transform.position,tower.transform.rotation); 
             }
         }
         else
@@ -33,11 +35,13 @@ public class Bullet : ProjectileBase
                 if (enemy != null)
                 {
                     enemy.GetComponent<Enemy>().TakeDamage(damage);
+					ExplodeFX(enemy.transform.position,enemy.transform.rotation); 
                 }
                 Tower tower = collider.GetComponent<Tower>();
                 if (tower != null)
                 {
                     enemy.GetComponent<Tower>().TakeDamage(damage);
+					ExplodeFX(tower.transform.position,tower.transform.rotation); 
                 }
             }
         }
