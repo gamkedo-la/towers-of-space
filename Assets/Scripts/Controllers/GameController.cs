@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     {
         instance = this;
 
-		currentDeconstructsAvailable = deconstructs;
+		currentDeconstructsAvailable = 0;
 
 		UIController.instance.UpdateEnergy( energy );
 		UIController.instance.UpdateLives( lives );
