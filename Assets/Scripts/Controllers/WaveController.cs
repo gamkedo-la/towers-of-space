@@ -9,7 +9,7 @@ public class WaveController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnPoints = FindObjectsOfType<SpawnPoint>( );
-		//queueNextWave ();
+		queueFirstWave ();
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,21 @@ public class WaveController : MonoBehaviour {
 			queueNextWave ();
 		}
 		UIController.instance.UpdateSpawnBar (timeLeft / timeBeforeWave);
+	}
+	void queueFirstWave(){
+		UIController.instance.nextWave.Clear();
+
+		foreach (SpawnPoint spawnPoint in spawnPoints) {
+			EnemySpawner[] spawners = spawnPoint.Waves.GetComponentsInChildren<EnemySpawner>(true);
+			foreach (EnemySpawner spawner in spawners) {
+				Debug.Log ("loading next wave into UI");
+				foreach(EnemySpawner.WaveComponent wave in spawner.waveComponents){
+					Debug.Log (wave.enemyPrefab.name);
+					UIController.instance.nextWave.Add(wave);
+				}
+				break;
+			}
+		}
 	}
 
 	void queueNextWave () {
