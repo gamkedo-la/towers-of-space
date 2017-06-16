@@ -24,12 +24,14 @@ public class WaveController : MonoBehaviour {
 	void queueNextWave () {
 		timeBeforeWave = 0f;
 		string msg = "Queing next wave \n";
+		bool isSpawned;
+		UIController.instance.nextWave.Clear();
 		foreach (SpawnPoint spawnPoint in spawnPoints) {			
 			msg += "Spawn Point: " + spawnPoint.name + "\n";
 			EnemySpawner[] spawners = spawnPoint.Waves.GetComponentsInChildren<EnemySpawner>(true);
-
+			isSpawned = false;
 			foreach (EnemySpawner spawner in spawners) {
-				if (!spawner.gameObject.activeSelf) {
+				if (!spawner.gameObject.activeSelf && !isSpawned) {
 					
 					if(timeBeforeWave < spawner.timeBeforeSpawning){
 						timeBeforeWave = spawner.timeBeforeSpawning;
@@ -38,6 +40,13 @@ public class WaveController : MonoBehaviour {
 					msg += "  Activating Wave: " + spawner.name + "\n";
 					spawner.gameObject.SetActive (true);
 					GameController.instance.RefoundDeconstructs( );
+					isSpawned = true;
+				} else {
+					Debug.Log ("loading next wave into UI");
+					foreach(EnemySpawner.WaveComponent wave in spawner.waveComponents){
+						Debug.Log (wave.enemyPrefab.name);
+						UIController.instance.nextWave.Add(wave);
+					}
 					break;
 				}
 			}

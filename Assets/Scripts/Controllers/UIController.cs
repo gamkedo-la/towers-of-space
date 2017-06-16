@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour
     public Text energyText;
 	public Text deconstructsText;
 	public Image spawnBar;
+	public List<EnemySpawner.WaveComponent> nextWave;
 
     public bool isLevelSelectPanelOpen = false;
     public bool isCreditsPanelOpen = false;
