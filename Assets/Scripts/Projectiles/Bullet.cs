@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,12 +37,12 @@ public class Bullet : ProjectileBase
                     enemy.GetComponent<Enemy>().TakeDamage(damage);
 					ExplodeFX(enemy.transform.position,enemy.transform.rotation); 
                 }
-                Tower tower = collider.GetComponent<Tower>();
+                /*Tower tower = collider.GetComponent<Tower>();
                 if (tower != null)
                 {
                     enemy.GetComponent<Tower>().TakeDamage(damage);
 					ExplodeFX(tower.transform.position,tower.transform.rotation); 
-                }
+                }*/
             }
         }
 
