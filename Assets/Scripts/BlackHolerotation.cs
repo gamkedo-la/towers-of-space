@@ -14,12 +14,14 @@ public class BlackHolerotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float x;
-        float y;
+        /*    float x;
+            float y;
 
-        angle += speed * Time.deltaTime; //if you want to switch direction, use -= instead of +=
-        x = Mathf.Cos(angle) * radius;
-        y = Mathf.Sin(angle) * radius;
-        transform.position = new Vector3(x, y, 140.4f);
+            angle += speed * Time.deltaTime; //if you want to switch direction, use -= instead of +=
+            x = Mathf.Cos(angle) * radius;
+            y = Mathf.Sin(angle) * radius;
+            transform.position = new Vector3(x, y, 140.4f);*/
+
+        transform.Rotate(0.0f, Time.deltaTime * 20.0f,0.0f);
     }
 }
