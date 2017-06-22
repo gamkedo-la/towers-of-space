@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}" SchemaVersion="75">
+	<Events>
+		<WorkUnit Name="Tanks" ID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_tank_hit" ID="{F05E7C1F-859B-4436-92F8-F79741196427}">
+					<ChildrenList>
+						<Action Name="Play" ID="{09A8C5EA-799F-4C25-9DAE-7D44971E8930}" ShortID="989690133" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{04F3C561-8CFD-473A-92AA-34CADFC98EE0}" Global="false">
+									<ObjectRef Name="sfx_fire_tank_hit_01" ID="{69D20E4C-B23C-46B0-B0F7-54C7BAA1BE77}" WorkUnitID="{56ADF949-52F3-443C-8E21-3CD5D42A413E}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{3F990393-F2D3-4EFF-90CD-85DBB33FE612}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Desktop"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="Z:\Volumes\Data\ALL SESSIONS\Game Audio Sessions\Towers of Space SFX\TowersOfSpace_ReaperProj"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
 						<Value Platform="Windows"></Value>

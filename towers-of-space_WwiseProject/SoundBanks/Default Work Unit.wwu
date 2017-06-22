@@ -9,6 +9,7 @@
 						<ObjectRef Name="Towers" ID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Music" ID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" WorkUnitID="{EF2326A9-A2AF-4797-9747-7095CE69A4D1}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="Music" ID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}" WorkUnitID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Tanks" ID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}" WorkUnitID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

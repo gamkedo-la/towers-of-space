@@ -58,6 +58,11 @@
 								<Value>10</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -97,6 +102,13 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="EMPTower" ID="{ECC9515A-8105-4CEF-9B8D-8D53A96D98B0}" ShortID="9698810">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
@@ -133,16 +145,6 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
-				</ActorMixer>
-				<ActorMixer Name="PlasmaTower" ID="{A3B846AD-28F0-4EA4-9101-23D9C7106BFD}" ShortID="113226714">
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="SFX" ID="{6683D6D8-4FDC-45FE-85A4-7D4B68806F00}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
-						</Reference>
-					</ReferenceList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

@@ -21,6 +21,10 @@
 							<ObjectRef Name="Play_EMP_shot" ID="{B6860FF5-18F4-40F6-87F1-33E254D25C76}" WorkUnitID="{6F136F8A-CDB0-45C9-AF8D-506A34E27A4C}"/>
 							<Position X="1" Y="2"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="Play_tank_hit" ID="{F05E7C1F-859B-4436-92F8-F79741196427}" WorkUnitID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}"/>
+							<Position X="2" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

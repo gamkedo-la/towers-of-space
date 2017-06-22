@@ -15,6 +15,7 @@ abstract public class ProjectileBase : MonoBehaviour {
 		{
 			Debug.Log("a projectile explodes!");
 			GameObject explosion = Instantiate(explosionPrefab, pos, rot);
+			AkSoundEngine.PostEvent ("Play_tank_hit", gameObject);
 			Destroy(explosion,5); // FIXME: reuse pool
 		}
 	}

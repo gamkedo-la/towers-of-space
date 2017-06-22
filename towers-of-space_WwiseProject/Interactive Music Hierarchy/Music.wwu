@@ -71,7 +71,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-5</Value>
 							</ValueList>
 							<RTPCList>
 								<RTPC Name="" ID="{19B0DD3E-50F8-4783-87EB-F9A015814A32}" ShortID="142320706">
