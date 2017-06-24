@@ -33,9 +33,8 @@ public class Enemy : MonoBehaviour
 
     public void ReachedGoal()
     {
-        // @todo
-        GameController.instance.LoseLife(); //instance is the Score Manager
         Destroy(gameObject);
+        GameController.instance.LoseLife(); //instance is the Score Manager
     }
 
     public void GiveLootEnergy()

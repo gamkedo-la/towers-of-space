@@ -220,13 +220,13 @@ public class GameController : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         lives -= l;
-		AkSoundEngine.SetRTPCValue("Life", lives);
         if (lives <= 0)
         {
             GameOver();
         }
 
         UIController.instance.UpdateLives(lives);
+        AkSoundEngine.SetRTPCValue("Life", lives);
     }
 
     public bool HasEnergy(int e = 1)
