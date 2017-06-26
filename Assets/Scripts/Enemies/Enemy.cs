@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
 		Explode();
+		AkSoundEngine.PostEvent ("Play_tank_explo", gameObject);
         Destroy(gameObject);
     }
 }

@@ -25,8 +25,17 @@
 							<ObjectRef Name="Play_tank_hit" ID="{F05E7C1F-859B-4436-92F8-F79741196427}" WorkUnitID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}"/>
 							<Position X="2" Y="0"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="Play_tank_explo" ID="{AD6A41E9-3777-44D0-BB77-CD4E2BCBEA82}" WorkUnitID="{BF245CD0-5A7B-4D5D-9043-AB455A077228}"/>
+							<Position X="2" Y="1"/>
+						</Module>
 					</ModuleList>
-					<RTPCValueList ShowAll="true"/>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}"/>
+							<Value>20</Value>
+						</RTPCValue>
+					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>

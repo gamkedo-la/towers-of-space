@@ -5,9 +5,7 @@
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<ChildrenList>
-						<Bus Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}">
-							<ReferenceList/>
-						</Bus>
+						<Bus Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}"/>
 						<Bus Name="SFX" ID="{6683D6D8-4FDC-45FE-85A4-7D4B68806F00}">
 							<PropertyList>
 								<Property Name="MaxSoundPerInstance" Type="int16">
@@ -16,17 +14,6 @@
 									</ValueList>
 								</Property>
 							</PropertyList>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}"/>
-									<DuckingParam>
-										<Volume>-3</Volume>
-										<FadeInTime>0.5</FadeInTime>
-										<FadeOutTime>0.5</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
 						</Bus>
 					</ChildrenList>
 				</Bus>

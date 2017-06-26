@@ -25,6 +25,7 @@
 				<Event Id="2111735307" Name="Play_EMP_shot" ObjectPath="\Events\Towers\Play_EMP_shot"/>
 				<Event Id="4185646314" Name="Play_Laser_shot" ObjectPath="\Events\Towers\Play_Laser_shot"/>
 				<Event Id="557932600" Name="Play_Level_Music" ObjectPath="\Events\Music\Play_Level_Music"/>
+				<Event Id="531438269" Name="Play_tank_explo" ObjectPath="\Events\Tanks\Play_tank_explo"/>
 				<Event Id="3748445276" Name="Play_tank_hit" ObjectPath="\Events\Tanks\Play_tank_hit"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
@@ -35,6 +36,10 @@
 				<File Id="537159404" Language="SFX">
 					<ShortName>towers.wav</ShortName>
 					<Path>SFX/towers_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="863661360" Language="SFX">
+					<ShortName>sfx_tank_explo.wav</ShortName>
+					<Path>SFX/sfx_tank_explo_9E69E797.wem</Path>
 				</File>
 				<File Id="989743774" Language="SFX">
 					<ShortName>sfx_fire_tank_hit_01.wav</ShortName>

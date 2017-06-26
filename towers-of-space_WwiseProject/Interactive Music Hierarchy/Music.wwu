@@ -71,7 +71,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-5</Value>
+								<Value>-4</Value>
 							</ValueList>
 							<RTPCList>
 								<RTPC Name="" ID="{19B0DD3E-50F8-4783-87EB-F9A015814A32}" ShortID="142320706">
@@ -115,6 +115,9 @@
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+							<ObjectRef Name="Towers_Music_EQ" ID="{A227D1F5-9277-4423-A72F-D38B8469D57B}" WorkUnitID="{887D4D98-C457-4D9F-9BDF-0FF671612DA4}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>

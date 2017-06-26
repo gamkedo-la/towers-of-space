@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_tank_explo" ID="{AD6A41E9-3777-44D0-BB77-CD4E2BCBEA82}">
+					<ChildrenList>
+						<Action Name="Play" ID="{720AAC5E-5B4E-4021-AFAB-E27E013748B8}" ShortID="199678170" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{5CE2434E-DD86-41A4-BC01-E89919257C1E}" Global="false">
+									<ObjectRef Name="sfx_tank_explo" ID="{554BC970-AD5E-4AA8-B567-5C5A0E84510C}" WorkUnitID="{56ADF949-52F3-443C-8E21-3CD5D42A413E}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

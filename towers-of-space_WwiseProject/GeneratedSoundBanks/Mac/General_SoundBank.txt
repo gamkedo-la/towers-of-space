@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	531438269	Play_tank_explo			\Tanks\Play_tank_explo	
 	557932600	Play_Level_Music			\Music\Play_Level_Music	
 	2111735307	Play_EMP_shot			\Towers\Play_EMP_shot	
 	3748445276	Play_tank_hit			\Tanks\Play_tank_hit	
@@ -8,9 +9,13 @@ Event	ID	Name			Wwise Object Path	Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2137943	Life			\Default Work Unit\Life	
 
+Effect plug-ins	ID	Name	Type				Notes
+	1369188824	Towers_Music_EQ	Wwise Parametric EQ			
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	443561458	sfx_DoubleLaser_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_DoubleLaser_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\DoubleTower\sfx_DoubleLaser_shot		116084
 	537159404	towers	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\towers_4B8CC0C5.wem		\Interactive Music Hierarchy\Music\Level Music\Towers\towers		22606912
+	863661360	sfx_tank_explo	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_tank_explo_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank Explo\sfx_tank_explo		412944
 	989743774	sfx_fire_tank_hit_01	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_fire_tank_hit_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Hit\sfx_fire_tank_hit_01		332064
 	1017088473	sfx_Laser_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Mac\SFX\sfx_SingleLaser_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\SingleTower\sfx_Laser_shot		116084
 

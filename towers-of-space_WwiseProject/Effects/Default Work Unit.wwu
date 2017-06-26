@@ -3,7 +3,15 @@
 	<Effects>
 		<WorkUnit Name="Default Work Unit" ID="{887D4D98-C457-4D9F-9BDF-0FF671612DA4}" PersistMode="Standalone">
 			<ChildrenList>
-				<Effect Name="New_Wwise_Compressor" ID="{2A950A06-3894-4FA8-B24E-9895B80F1E90}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3"/>
+				<Effect Name="Towers_Music_EQ" ID="{A227D1F5-9277-4423-A72F-D38B8469D57B}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand2" Type="Real32" Value="318"/>
+						<Property Name="GainBand2" Type="Real32" Value="-3"/>
+						<Property Name="OnOffBand1" Type="bool" Value="False"/>
+						<Property Name="OnOffBand3" Type="bool" Value="False"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="0.5"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>
