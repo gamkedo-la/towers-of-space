@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +32,7 @@ public class CameraDisplay : MonoBehaviour
     private float maxFov = 90f;
     public float sensitivity = 15f; //Mouse scroll sensitivity
     private float zoomSmoothTime = 0.3f;
-    private float currentZoomVelocity = 25;
+    private float currentZoomVelocity = 0;
 
     private float resetMove;
 
