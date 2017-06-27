@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class MeterialPulse : MonoBehaviour
+public class MaterialPulse : MonoBehaviour
 {
 	[SerializeField] private float duration = 1f;
 	[SerializeField] private float minValue = 0.8f;
