@@ -33,6 +33,11 @@
 					<ChildrenList>
 						<Sound Name="sfx_fire_tank_hit_01" ID="{69D20E4C-B23C-46B0-B0F7-54C7BAA1BE77}" ShortID="405447494" Type="SoundFX">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>3</Value>
@@ -86,7 +91,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-9</Value>
+										<Value>-6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

@@ -89,6 +89,7 @@ public class Tower : MonoBehaviour
     {
         LaserBuilderEffect laserEffect = parentSpot.GetComponent<LaserBuilderEffect>();
         laserEffect.beginConstruction();
+		AkSoundEngine.PostEvent ("Play_tower_build", gameObject);
 
         while (buildTimeLeft > 0)
         {
