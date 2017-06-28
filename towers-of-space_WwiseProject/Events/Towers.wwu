@@ -8,18 +8,7 @@
 						<Action Name="Play" ID="{DD0BDE55-AE2F-4BF1-AD04-5C5A97F8FAA4}" ShortID="643967885" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{02C8D862-F53A-4D40-939C-E630C76C76E5}" Global="false">
-									<ObjectRef Name="sfx_Laser_shot" ID="{2AD1E20A-BB03-4E8E-9FF4-CE37DD25F37D}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
-								</Element>
-							</ElementList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="Play_doubleLaser_shot" ID="{E32D9D6B-EEC2-4DD1-AD15-B442E09242E1}">
-					<ChildrenList>
-						<Action Name="Play" ID="{F16E91FF-AEFF-4D7D-BAFD-873759D88D55}" ShortID="1029322459" Type="Play" Scope="One" Global="false">
-							<ElementList>
-								<Element ID="{6EE33ED8-5DE3-4B8C-81D6-378339AACC04}" Global="false">
-									<ObjectRef Name="sfx_DoubleLaser_shot" ID="{1292CA47-101B-403A-AE4C-2112FF285807}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
+									<ObjectRef Name="sfx_laser_shot" ID="{19081893-3B56-46FC-ACE1-3224AD27581C}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
 								</Element>
 							</ElementList>
 						</Action>
@@ -31,6 +20,28 @@
 							<ElementList>
 								<Element ID="{953C0900-2FF4-4A2F-9ACD-4C2C6B4FE36B}" Global="false">
 									<ObjectRef Name="sfx_EMP_shot" ID="{6609850C-3CD0-4067-B4B0-340A4C5D9CF2}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_tower_build" ID="{F591DEBA-EE21-4B6F-82BD-01D8F5550609}">
+					<ChildrenList>
+						<Action Name="Play" ID="{471723C5-5C0A-44E9-B775-D68366924F09}" ShortID="632578963" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{8534EEC4-A1E8-4D43-B7FA-91493D396B25}" Global="false">
+									<ObjectRef Name="sfx_tower_build" ID="{A6CB1BAD-6B65-4073-9D5D-42111611E4E3}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_AP_shot" ID="{83A043D2-F816-452A-A451-EAB0BB52379B}">
+					<ChildrenList>
+						<Action Name="Play" ID="{D5618F6D-3E02-496A-AB2A-16836719E523}" ShortID="332745250" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{43AA2A10-316F-4466-9B41-20DAA2C75504}" Global="false">
+									<ObjectRef Name="sfx_ap_shot" ID="{81047EB2-2932-463B-8F87-7AF627EAC3A3}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
 								</Element>
 							</ElementList>
 						</Action>
