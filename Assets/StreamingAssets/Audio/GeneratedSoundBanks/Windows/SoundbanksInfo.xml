@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
+	<RootPaths>
+		<ProjectRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3657742645" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\General_SoundBank</ObjectPath>
+			<ShortName>General_SoundBank</ShortName>
+			<Path>General_SoundBank.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1856089824" Name="Play_AP_shot" ObjectPath="\Events\Towers\Play_AP_shot"/>
+				<Event Id="2111735307" Name="Play_EMP_shot" ObjectPath="\Events\Towers\Play_EMP_shot"/>
+				<Event Id="4185646314" Name="Play_Laser_shot" ObjectPath="\Events\Towers\Play_Laser_shot"/>
+				<Event Id="557932600" Name="Play_Level_Music" ObjectPath="\Events\Music\Play_Level_Music"/>
+				<Event Id="531438269" Name="Play_tank_explo" ObjectPath="\Events\Tanks\Play_tank_explo"/>
+				<Event Id="3748445276" Name="Play_tank_hit" ObjectPath="\Events\Tanks\Play_tank_hit"/>
+				<Event Id="2943239532" Name="Play_tower_build" ObjectPath="\Events\Towers\Play_tower_build"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="15831366" Language="SFX">
+					<ShortName>sfx_laser_shot_01.wav</ShortName>
+					<Path>SFX/sfx_laser_shot_01_9E69E797.wem</Path>
+				</File>
+				<File Id="321126335" Language="SFX">
+					<ShortName>sfx_tower_build.wav</ShortName>
+					<Path>SFX/sfx_tower_build_3D8B6418.wem</Path>
+				</File>
+				<File Id="323207063" Language="SFX">
+					<ShortName>sfx_laser_shot_02.wav</ShortName>
+					<Path>SFX/sfx_laser_shot_02_9E69E797.wem</Path>
+				</File>
+				<File Id="537159404" Language="SFX">
+					<ShortName>towers.wav</ShortName>
+					<Path>SFX/towers_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="651112780" Language="SFX">
+					<ShortName>sfx_ap_shot.wav</ShortName>
+					<Path>SFX/sfx_ap_shot_9E69E797.wem</Path>
+				</File>
+				<File Id="863661360" Language="SFX">
+					<ShortName>sfx_tank_explo.wav</ShortName>
+					<Path>SFX/sfx_tank_explo_9E69E797.wem</Path>
+				</File>
+				<File Id="989743774" Language="SFX">
+					<ShortName>sfx_fire_tank_hit_01.wav</ShortName>
+					<Path>SFX/sfx_fire_tank_hit_01_9E69E797.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
