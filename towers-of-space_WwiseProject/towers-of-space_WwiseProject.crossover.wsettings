@@ -20,6 +20,7 @@
 				</Property>
 				<Property Name="General\LatestLanguage" Type="int32" Value="12"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
+				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
 				<Property Name="GenerateSoundBanks\SelectedLanguages" Type="string" Value="DAAAAA=="/>
 				<Property Name="GenerateSoundBanks\SelectedPlatforms" Type="string" Value="EuoV9CPKIE6TavEORzALzDTi7kJEQtlLp2wEsDpbD/JbWM0/wHyBSLhnSpdUP6Wy"/>
 				<Property Name="GenerateSoundBanks\SelectedSoundBanks" Type="string" Value="Vcn4YxSwyE+T+VDFDZ0bkg=="/>
@@ -34,6 +35,10 @@
 				<Property Name="Music Transition List\{1B38A978-74A0-4F84-91D0-FB6679057457}\Expand States" Type="string" Value=""/>
 				<Property Name="Music Transition List\{7821589F-74EE-4B79-B1E5-17C7EBF1160B}\Expand States" Type="string" Value=""/>
 				<Property Name="Music Transition List\{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}\Expand States" Type="string" Value=""/>
+				<Property Name="OverrideCacheFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideCacheFolder\Path" Type="string" Value=".cache"/>
+				<Property Name="OverrideOriginalFolder\Active" Type="bool" Value="False"/>
+				<Property Name="OverrideOriginalFolder\Path" Type="string" Value="Originals"/>
 				<Property Name="ProjectExplorer\Expanded_10_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_11_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\Expanded_12_1" Type="string" Value="AdHzadcluEm2VO8XrLhb4dMtkeXVuAZNkBwqTl6kQSk="/>

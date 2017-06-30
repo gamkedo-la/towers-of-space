@@ -31,4 +31,35 @@
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.crossover.wsettings" DateLow="2109878784" DateHigh="30601146"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.wproj" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Tanks.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Towers.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Effects\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Effects\Factory Effects.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Events\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Events\Music.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Events\Tanks.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Events\Towers.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="777865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Music.wwu" DateLow="777865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="777865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="777865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="777865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Presets\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Queries\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Queries\Factory Queries.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\States\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Switches\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.crossover.wsettings" DateLow="4127865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.wproj" DateLow="3757865984" DateHigh="30601696"/>
+	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="787865984" DateHigh="30601696"/>
 </ValidationCache>
