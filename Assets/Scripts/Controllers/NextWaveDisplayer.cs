@@ -43,9 +43,9 @@ public class NextWaveDisplayer : MonoBehaviour
 
 					// Not preaty, but gets the job done ;-)
 					GameObject icon = normalEnemyIcon;
-					if ( waveComponenet.enemyPrefab.name == "Faster enemy" )
+					if ( waveComponenet.enemyPrefab.name == "Fast Enemy" )
 						icon = fastEnemyIcon;
-					if ( waveComponenet.enemyPrefab.name == "Small tank" )
+					if ( waveComponenet.enemyPrefab.name == "Armored Enemy" )
 						icon = armoredEnemyIcon;
 
 					var go = Instantiate( icon, Vector3.zero, Quaternion.identity, parentGO.transform );
