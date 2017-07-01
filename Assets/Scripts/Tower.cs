@@ -88,7 +88,7 @@ public class Tower : MonoBehaviour
     {
         LaserBuilderEffect laserEffect = parentSpot.GetComponent<LaserBuilderEffect>();
         laserEffect.beginConstruction();
-		AkSoundEngine.PostEvent ("Play_tower_build", gameObject);
+		//AkSoundEngine.PostEvent ("Play_tower_build", gameObject);
 
         while (buildTimeLeft > 0)
         {
@@ -189,7 +189,7 @@ public class Tower : MonoBehaviour
         foreach (Enemy enemy in enemies)
         {
             float d = Vector3.Distance(transform.position, enemy.transform.position);
-            if (nearestEnemy == null || d < dist)
+            if (d <= range && (nearestEnemy == null || d < dist))
             {
                 nearestEnemy = enemy;
                 dist = d;

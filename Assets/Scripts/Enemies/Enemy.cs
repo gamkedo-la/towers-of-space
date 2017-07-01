@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
 	public float health = 1f;
 	public int lootEnergy;
 	float startHealth;
