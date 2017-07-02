@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 public class WaveController : MonoBehaviour {
 	public float timeBeforeWave = 10f; //Time before first wave. Will be overwritten with time to beat wave
-	public float timeLeft = 10f; 
+	public float timeLeft = 10f;
 	SpawnPoint[] spawnPoints;
 
 	[SerializeField] private NextWaveDisplayer nextWave = null;
@@ -16,7 +16,7 @@ public class WaveController : MonoBehaviour {
 		spawnPoints = FindObjectsOfType<SpawnPoint>( );
 		queueFirstWave ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		timeLeft -= Time.deltaTime;
@@ -45,20 +45,20 @@ public class WaveController : MonoBehaviour {
 		string msg = "Queing next wave \n";
 		bool isSpawned;
 		UIController.instance.nextWaves.Clear();
-		foreach (SpawnPoint spawnPoint in spawnPoints) {			
+		foreach (SpawnPoint spawnPoint in spawnPoints) {
 			msg += "Spawn Point: " + spawnPoint.name + "\n";
 			EnemySpawner[] spawners = spawnPoint.Waves.GetComponentsInChildren<EnemySpawner>(true);
 			isSpawned = false;
 			foreach (EnemySpawner spawner in spawners) {
 				if (!spawner.gameObject.activeSelf && !isSpawned) {
-					
+
 					if(timeBeforeWave < spawner.timeBeforeSpawning){
 						timeBeforeWave = spawner.timeBeforeSpawning;
 						timeLeft = spawner.timeBeforeSpawning;
 					}
 					msg += "  Activating Wave: " + spawner.name + "\n";
 					spawner.gameObject.SetActive (true);
-					GameController.instance.RefoundDeconstructs( );
+					GameController.instance.ResetDeconstructs( );
 					isSpawned = true;
 				} else
 				{

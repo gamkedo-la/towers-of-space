@@ -38,11 +38,12 @@ public class GameController : MonoBehaviour
     {
         instance = this;
 
-		currentDeconstructsAvailable = 0;
+        // Start out with 0 deconstructs, when next wave comes, it is reset
+        currentDeconstructsAvailable = 0;
 
 		UIController.instance.UpdateEnergy( energy );
 		UIController.instance.UpdateLives( lives );
-		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
+        UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
 	}
 
     public void TogglePause()
@@ -130,8 +131,8 @@ public class GameController : MonoBehaviour
 
     public void InstantiateTower(string towerType)
     {
-        TowerTypeEnum towerTypeEnum = (TowerTypeEnum)System.Enum.Parse(typeof(TowerTypeEnum), towerType); //Uses the button's string to find the corresponding enum value 
-        TowerChange(towerTypeEnum, true); //Now takes the enum as argument to remove the previous big "switch" 
+        TowerTypeEnum towerTypeEnum = (TowerTypeEnum)System.Enum.Parse(typeof(TowerTypeEnum), towerType); //Uses the button's string to find the corresponding enum value
+        TowerChange(towerTypeEnum, true); //Now takes the enum as argument to remove the previous big "switch"
 
         if (selectedTowerType != null && isPaused != true)
         {
@@ -161,7 +162,7 @@ public class GameController : MonoBehaviour
 		return currentDeconstructsAvailable > 0 ? true : false;
 	}
 
-	public void RefoundDeconstructs( )
+	public void ResetDeconstructs()
 	{
 		currentDeconstructsAvailable = deconstructs;
 		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
@@ -174,6 +175,9 @@ public class GameController : MonoBehaviour
 
         //Destroy(attachedTower.gameObject); //Destroys the GameObject attached to the transform
         currentTowerSpot.RemoveTower();
+
+		currentDeconstructsAvailable--;
+		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
 
         UIController.instance.ClosePanel("Options");
         Debug.Log("remove tower gamecontroller");
@@ -191,11 +195,8 @@ public class GameController : MonoBehaviour
         {
             return;
         }
-        
-        AddEnergy(currentCost); //Refunds energy
 
-		currentDeconstructsAvailable--;
-		UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
+        AddEnergy(currentCost); //Refunds energy
 
 	}
 
