@@ -55,6 +55,8 @@ public class Enemy : MonoBehaviour
 	{
 		Explode();
 		Destroy(gameObject);
-		AkSoundEngine.PostEvent ("Play_tank_explo", gameObject);
+		#if !UNITY_EDITOR_LINUX
+			AkSoundEngine.PostEvent ("Play_tank_explo", gameObject);
+		#endif
 	}
 }
