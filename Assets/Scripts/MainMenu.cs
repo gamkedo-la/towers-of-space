@@ -15,4 +15,9 @@ public class MainMenu : MonoBehaviour {
 		SceneManager.LoadScene(sceneName);
 	}
 
+	public void ReloadCurrentScene()
+	{
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
 }

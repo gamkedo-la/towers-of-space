@@ -43,7 +43,7 @@ public class WaveController : MonoBehaviour {
 	void queueNextWave () {
 		timeBeforeWave = 0f;
 		string msg = "Queing next wave \n";
-		bool isSpawned;
+		bool isSpawned = false;
 		UIController.instance.nextWaves.Clear();
 		foreach (SpawnPoint spawnPoint in spawnPoints) {
 			msg += "Spawn Point: " + spawnPoint.name + "\n";

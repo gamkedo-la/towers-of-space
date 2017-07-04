@@ -46,20 +46,46 @@ public class GameController : MonoBehaviour
         UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
 	}
 
-    public void TogglePause()
+    protected void TogglePause()
     {
         if (isPaused == true)
         {
             isPaused = false;
             Time.timeScale = gameTimeScale;
-            UIController.instance.pausePanel.SetActive(false);
         }
         else
         {
             isPaused = true;
             Time.timeScale = 0;
-            UIController.instance.pausePanel.SetActive(true);
         }
+    }
+
+    public void TogglePausePanel()
+    {
+        TogglePause();
+        UIController.instance.pausePanel.SetActive(isPaused);
+    }
+
+    public void GameOver()
+    {
+        if (UIController.instance.gameOverPanel.activeSelf)
+        {
+            return;
+        }
+
+        TogglePause();
+        UIController.instance.gameOverPanel.SetActive(isPaused);
+    }
+
+    public void GameWon()
+    {
+        if (UIController.instance.gameWonPanel.activeSelf)
+        {
+            return;
+        }
+
+        TogglePause();
+        UIController.instance.gameWonPanel.SetActive(isPaused);
     }
 
     public void SlowTime()
@@ -227,7 +253,9 @@ public class GameController : MonoBehaviour
         }
 
         UIController.instance.UpdateLives(lives);
-        AkSoundEngine.SetRTPCValue("Life", lives);
+        #if !UNITY_EDITOR_LINUX
+            AkSoundEngine.SetRTPCValue("Life", lives);
+        #endif
     }
 
     public bool HasEnergy(int e = 1)
@@ -249,17 +277,4 @@ public class GameController : MonoBehaviour
         UIController.instance.UpdateEnergy(energy); //Updates it
     }
 
-    public void GameOver()
-    {
-        Debug.Log("Game Over");
-        // TODO: Send the player to a game-over screen instead!
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-public GameObject debugTank;
-    public void DebugSpawnEnemy()
-    {
-		SpawnPoint[] spawnPoints = Resources.FindObjectsOfTypeAll<SpawnPoint>();
-        spawnPoints[0].SpawnEnemy(debugTank);
-    }
 }

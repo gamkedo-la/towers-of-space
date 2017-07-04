@@ -13,9 +13,8 @@ public class UIController : MonoBehaviour
     public GameObject creationPanel;
     public GameObject optionsPanel;
     public GameObject rubblePanel;
-    public GameObject levelSelectPanel;
-    public GameObject creditsPanel;
-    public GameObject howToPlayPanel;
+    public GameObject gameOverPanel;
+    public GameObject gameWonPanel;
 
     public Transform creationPanelPosition;
     public Transform optionsPanelPosition;
@@ -28,10 +27,6 @@ public class UIController : MonoBehaviour
 	public Text deconstructsText;
 	public Image spawnBar;
 	public List<List<EnemySpawner.WaveComponent>> nextWaves = new List<List<EnemySpawner.WaveComponent>>();
-
-    public bool isLevelSelectPanelOpen = false;
-    public bool isCreditsPanelOpen = false;
-    public bool isHowToPlayPanelOpen = false;
 
     // Use this for initialization
     private void Awake()
@@ -127,25 +122,6 @@ public class UIController : MonoBehaviour
             case "Rubble":
                 rubblePanel.GetComponent<MenuVisibilityCtrl>().hide();
                 rubblePanel.SetActive(false); //Hides the panel
-                break;
-        }
-    }
-
-    public void TogglePanel(string panelToToggle)
-    {
-        switch (panelToToggle)
-        {
-            case "Credits":
-                isCreditsPanelOpen = !isCreditsPanelOpen;
-                creditsPanel.SetActive(isCreditsPanelOpen);
-                break;
-            case "HowToPlay":
-                isHowToPlayPanelOpen = !isHowToPlayPanelOpen;
-                howToPlayPanel.SetActive(isHowToPlayPanelOpen);
-                break;
-            case "LevelSelect":
-                isLevelSelectPanelOpen = !isLevelSelectPanelOpen;
-                levelSelectPanel.SetActive(isLevelSelectPanelOpen);
                 break;
         }
     }
