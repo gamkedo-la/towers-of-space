@@ -12,12 +12,19 @@ public class MainMenu : MonoBehaviour {
 
 	public void LoadScene(string sceneName)
 	{
+		ResetTimeScale();
 		SceneManager.LoadScene(sceneName);
 	}
 
 	public void ReloadCurrentScene()
 	{
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	protected void ResetTimeScale()
+	{
+		GameController.instance.isPaused = false;
+		GameController.instance.ResetTimeScale();
 	}
 
 }
