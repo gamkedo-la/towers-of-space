@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
 	{
 		Destroy(gameObject);
 		GameController.instance.LoseLife(); //instance is the Score Manager
+		GameController.instance.CheckGameWon();
 	}
 
 	public void GiveLootEnergy()
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
 	{
 		Explode();
 		Destroy(gameObject);
+		GameController.instance.CheckGameWon();
 		#if !UNITY_EDITOR_LINUX
 			AkSoundEngine.PostEvent ("Play_tank_explo", gameObject);
 		#endif

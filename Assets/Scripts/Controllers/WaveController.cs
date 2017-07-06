@@ -25,6 +25,7 @@ public class WaveController : MonoBehaviour {
 		}
 		UIController.instance.UpdateSpawnBar (timeLeft / timeBeforeWave);
 	}
+
 	void queueFirstWave(){
 		UIController.instance.nextWaves.Clear();
 
@@ -44,6 +45,7 @@ public class WaveController : MonoBehaviour {
 		timeBeforeWave = 0f;
 		string msg = "Queing next wave \n";
 		bool isSpawned = false;
+		GameController.instance.hasNextWave = false;
 		UIController.instance.nextWaves.Clear();
 		foreach (SpawnPoint spawnPoint in spawnPoints) {
 			msg += "Spawn Point: " + spawnPoint.name + "\n";
@@ -60,16 +62,19 @@ public class WaveController : MonoBehaviour {
 					spawner.gameObject.SetActive (true);
 					GameController.instance.ResetDeconstructs( );
 					isSpawned = true;
-				} else
+				}
+				else
 				{
 					Debug.Log( "loading next wave into UI" );
 					GetNextWaveData( spawner );
+					GameController.instance.hasNextWave = true;
 					break;
 				}
 			}
 		}
 		nextWave.DisplayNextWave( );
 		Debug.Log(msg);
+		Debug.Log("has next wave? " + (GameController.instance.hasNextWave ? "yes" : "no"));
 	}
 
 	private static void GetNextWaveData( EnemySpawner spawner )

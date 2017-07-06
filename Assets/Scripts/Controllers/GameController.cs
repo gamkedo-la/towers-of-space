@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     public static GameController instance;
 
     public GameObject selectedTowerType; //Related to tower spawning
@@ -14,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject towerSpotToModify;
     private Tower currentTowerClass; //This is the Tower component of the selected type, NOT the Tower object
 
+    public bool hasNextWave = true;
     public bool isPaused = false; //Related to time manipulation
     public float gameTimeScale = 1.0f;
 
@@ -68,6 +68,11 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        Invoke("ShowGameOver", 2);
+    }
+
+    public void ShowGameOver()
+    {
         if (UIController.instance.gameOverPanel.activeSelf)
         {
             return;
@@ -77,7 +82,27 @@ public class GameController : MonoBehaviour
         UIController.instance.gameOverPanel.SetActive(isPaused);
     }
 
-    public void GameWon()
+    public void CheckGameWon()
+    {
+        if (hasNextWave)
+        {
+            return;
+        }
+
+		Enemy[] enemies = FindObjectsOfType<Enemy>();
+        // Current enemy is not 'gone' yet, so we need to check for more than 1
+        if (enemies.Length > 1)
+        {
+            return;
+        }
+
+        if (0 < lives)
+        {
+            Invoke("ShowGameWon", 2);
+        }
+    }
+
+    public void ShowGameWon()
     {
         if (UIController.instance.gameWonPanel.activeSelf)
         {
@@ -247,6 +272,11 @@ public class GameController : MonoBehaviour
     public void LoseLife(int l = 1)
     {
         lives -= l;
+        if (lives < 0)
+        {
+            lives = 0;
+        }
+
         if (lives <= 0)
         {
             GameOver();
