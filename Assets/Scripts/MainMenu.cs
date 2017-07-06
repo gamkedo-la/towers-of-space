@@ -23,8 +23,11 @@ public class MainMenu : MonoBehaviour {
 
 	protected void ResetTimeScale()
 	{
-		GameController.instance.isPaused = false;
-		GameController.instance.ResetTimeScale();
+		if (GameController.instance)
+		{
+			GameController.instance.isPaused = false;
+			GameController.instance.ResetTimeScale();
+		}
 	}
 
 }
