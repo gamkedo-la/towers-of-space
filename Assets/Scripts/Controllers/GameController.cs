@@ -44,6 +44,10 @@ public class GameController : MonoBehaviour
 		UIController.instance.UpdateEnergy( energy );
 		UIController.instance.UpdateLives( lives );
         UIController.instance.UpdateDeconstructs( currentDeconstructsAvailable );
+
+		#if !UNITY_EDITOR_LINUX
+			AkSoundEngine.SetRTPCValue("Life", lives);
+		#endif
 	}
 
     protected void TogglePause()

@@ -23,12 +23,17 @@
 										<PointList>
 											<Point>
 												<XPos>0</XPos>
-												<YPos>75</YPos>
+												<YPos>78</YPos>
 												<Flags>5</Flags>
 												<SegmentShape>Log3</SegmentShape>
 											</Point>
 											<Point>
-												<XPos>20</XPos>
+												<XPos>1.9883</XPos>
+												<YPos>33</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
 												<YPos>-1</YPos>
 												<Flags>37</Flags>
 											</Point>
@@ -37,6 +42,7 @@
 								</RTPC>
 							</RTPCList>
 						</Property>
+						<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 						<Property Name="Lowpass" Type="int16">
 							<RTPCList>
 								<RTPC Name="" ID="{359B06A7-6AFA-42DF-91AB-99E9414C9F3A}" ShortID="159741899">
@@ -52,18 +58,24 @@
 										<PointList>
 											<Point>
 												<XPos>0</XPos>
-												<YPos>-75</YPos>
+												<YPos>-100</YPos>
 												<Flags>5</Flags>
 												<SegmentShape>Log3</SegmentShape>
 											</Point>
 											<Point>
-												<XPos>7.48538011695906</XPos>
-												<YPos>-18</YPos>
+												<XPos>0.62865</XPos>
+												<YPos>-65</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>5.5117</XPos>
+												<YPos>-17</YPos>
 												<Flags>0</Flags>
 												<SegmentShape>Exp3</SegmentShape>
 											</Point>
 											<Point>
-												<XPos>20</XPos>
+												<XPos>10</XPos>
 												<YPos>0</YPos>
 												<Flags>37</Flags>
 											</Point>
@@ -71,6 +83,17 @@
 									</Curve>
 								</RTPC>
 							</RTPCList>
+						</Property>
+						<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
@@ -95,17 +118,17 @@
 												<SegmentShape>Log3</SegmentShape>
 											</Point>
 											<Point>
-												<XPos>1.88304</XPos>
+												<XPos>0.94152</XPos>
 												<YPos>-5.96648</YPos>
 												<Flags>0</Flags>
 											</Point>
 											<Point>
-												<XPos>10</XPos>
+												<XPos>5</XPos>
 												<YPos>0</YPos>
 												<Flags>0</Flags>
 											</Point>
 											<Point>
-												<XPos>20</XPos>
+												<XPos>10</XPos>
 												<YPos>0</YPos>
 												<Flags>37</Flags>
 											</Point>

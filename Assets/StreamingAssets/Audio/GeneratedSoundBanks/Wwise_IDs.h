@@ -13,10 +13,13 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_DOUBLELASER_SHOT = 4159316657U;
+        static const AkUniqueID PLAY_AP_SHOT = 1856089824U;
         static const AkUniqueID PLAY_EMP_SHOT = 2111735307U;
         static const AkUniqueID PLAY_LASER_SHOT = 4185646314U;
         static const AkUniqueID PLAY_LEVEL_MUSIC = 557932600U;
+        static const AkUniqueID PLAY_TANK_EXPLO = 531438269U;
+        static const AkUniqueID PLAY_TANK_HIT = 3748445276U;
+        static const AkUniqueID PLAY_TOWER_BUILD = 2943239532U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

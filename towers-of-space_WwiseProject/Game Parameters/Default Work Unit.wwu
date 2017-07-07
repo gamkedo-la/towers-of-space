@@ -5,11 +5,11 @@
 			<ChildrenList>
 				<GameParameter Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}">
 					<PropertyList>
-						<Property Name="InitialValue" Type="Real64" Value="20"/>
-						<Property Name="Max" Type="Real64" Value="20"/>
+						<Property Name="InitialValue" Type="Real64" Value="10"/>
+						<Property Name="Max" Type="Real64" Value="10"/>
 						<Property Name="RTPCRamping" Type="int16" Value="1"/>
-						<Property Name="SlewRateDown" Type="Real64" Value="5"/>
-						<Property Name="SlewRateUp" Type="Real64" Value="5"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="1"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="1"/>
 					</PropertyList>
 				</GameParameter>
 			</ChildrenList>
