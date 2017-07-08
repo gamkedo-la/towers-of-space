@@ -153,6 +153,9 @@ public class Tower : MonoBehaviour
     {
 		Debug.Log("die tower");
 		Explode();
+	/* #if !UNITY_EDITOR_LINUX
+		//AkSoundEngine.PostEvent ("Play_tower_explo", gameObject);
+	#endif */
         parentSpot.DestroyTower();
         rubbleGO.SetActive(true);
         towerGO.SetActive(false);

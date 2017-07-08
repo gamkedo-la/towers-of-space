@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ValidationCache Version="1" SchemaVersion="75">
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="649388416" DateHigh="30594404"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Tanks.wwu" DateLow="302291456" DateHigh="30600914"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Towers.wwu" DateLow="1444846080" DateHigh="30601145"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Tanks.wwu" DateLow="3920009600" DateHigh="30601150"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Towers.wwu" DateLow="3920009600" DateHigh="30601150"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
@@ -15,9 +15,9 @@
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Events\Music.wwu" DateLow="4210000768" DateHigh="30598092"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Events\Tanks.wwu" DateLow="1897127936" DateHigh="30600909"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Events\Towers.wwu" DateLow="1764846080" DateHigh="30601145"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="4210000768" DateHigh="30598092"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="3573393664" DateHigh="30603241"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="4210000768" DateHigh="30598092"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Music.wwu" DateLow="432291456" DateHigh="30600914"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Interactive Music Hierarchy\Music.wwu" DateLow="3573393664" DateHigh="30603241"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1007258752" DateHigh="30600913"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
@@ -25,11 +25,11 @@
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Queries\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Queries\Factory Queries.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="3069522048" DateHigh="30599912"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="604846080" DateHigh="30601145"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="2980009600" DateHigh="30601150"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\States\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Switches\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.crossover.wsettings" DateLow="2109878784" DateHigh="30601146"/>
-	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.wproj" DateLow="2954290304" DateHigh="30594401"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.crossover.wsettings" DateLow="2970050432" DateHigh="30602833"/>
+	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\towers-of-space_WwiseProject.wproj" DateLow="2970050432" DateHigh="30602833"/>
 	<ValidationCacheItem File="Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="2954290304" DateHigh="30594401"/>
 	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="767865984" DateHigh="30601696"/>
 	<ValidationCacheItem File="Z:\Volumes\MBP Data\Game Engine Projects\towers-of-space\towers-of-space_WwiseProject\Actor-Mixer Hierarchy\Tanks.wwu" DateLow="767865984" DateHigh="30601696"/>

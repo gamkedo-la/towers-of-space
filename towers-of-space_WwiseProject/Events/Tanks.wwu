@@ -25,6 +25,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_tank_fire" ID="{175E467B-7C12-4E31-A4AB-F9BD3025A25B}">
+					<ChildrenList>
+						<Action Name="Play" ID="{6ECDE220-F00E-499B-94F2-9C0C9865BE0D}" ShortID="747570831" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{F7A5B6D4-B727-432B-80BC-0718ACC52F82}" Global="false">
+									<ObjectRef Name="sfx_tank_fire" ID="{DAF38EDD-B496-444A-B8EC-437ABD2040FF}" WorkUnitID="{56ADF949-52F3-443C-8E21-3CD5D42A413E}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_ArmorTank_hit" ID="{65FCB352-7CD0-4C73-AA5A-0B4398636CDC}">
+					<ChildrenList>
+						<Action Name="Play" ID="{F3D1B641-4C20-4014-A54B-FB090A2C2B9A}" ShortID="867614527" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{C56DC122-20E1-4A28-A8EF-F8DEAF636367}" Global="false">
+									<ObjectRef Name="sfx_ArmorTank_hit" ID="{BEDC3CB8-8CC5-43B8-9C41-9375821B87A4}" WorkUnitID="{56ADF949-52F3-443C-8E21-3CD5D42A413E}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

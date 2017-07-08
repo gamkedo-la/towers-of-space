@@ -47,6 +47,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_tower_explo" ID="{54540881-F2BE-49BA-A569-95FDFBE77058}">
+					<ChildrenList>
+						<Action Name="Play" ID="{D67A2D2F-640E-48F9-8183-7A25920E4FE1}" ShortID="692587719" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{3AF6E4FC-FB32-4D9D-97EF-6B0F0F34900F}" Global="false">
+									<ObjectRef Name="sfx_tower_explo" ID="{9929AB45-B32F-4A33-A103-86BF28BA6BB1}" WorkUnitID="{84CDEC1E-2DF3-433C-B6AB-A6C2BFA426D9}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
