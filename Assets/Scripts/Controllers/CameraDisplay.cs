@@ -26,10 +26,16 @@ public class CameraDisplay : MonoBehaviour
     private float targetMovement;
     private float targetMovementX; //These two are for when the player is holding translation lock
     private float targetMovementY;
+    private float momentumTranslateVertical = 0f;
+    private float momentumTranslateHorizontal = 0f;
+    private float momentumRotateVertical = 0f;
+    private float momentumRotateHorizontal = 0f;
+    public float momentumRampTime = 3f;
 
     private float fov; //Field of view, in degrees
     private float minFov = 15f;
     private float maxFov = 90f;
+    float targetFov = 63f;
     public float sensitivity = 15f; //Mouse scroll sensitivity
     private float zoomSmoothTime = 0.3f;
     private float currentZoomVelocity = 0;
@@ -54,6 +60,7 @@ public class CameraDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float timeScale = Time.deltaTime / GameController.instance.gameTimeScale;
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -68,8 +75,9 @@ public class CameraDisplay : MonoBehaviour
             //canvas.worldCamera = playerCamera;
         }
 
-
         Vector3 angle = playerCamera.transform.rotation.eulerAngles * Mathf.Deg2Rad; //Calculates the proportions of Y and Z movements necessary to move forwards
+
+        UpdateInputMomentum(timeScale);
 
         if (playerCamera.enabled && !Input.GetKey(KeyCode.LeftShift)) //Only triggers if not in overhead view
         {
@@ -78,12 +86,13 @@ public class CameraDisplay : MonoBehaviour
 
         else if (playerCamera.enabled && Input.GetKey(KeyCode.LeftShift))
         {
-
             CameraTranslate(angle, playerCamera);
 
         }
         else if (overheadCamera.enabled && Input.GetKey(KeyCode.LeftShift))
         {
+            targetMovementX = Input.GetAxisRaw("Horizontal") * resetMove;
+            targetMovementY = Input.GetAxisRaw("Vertical") * resetMove;
 
             CameraTranslate(angle, overheadCamera);
 
@@ -101,33 +110,72 @@ public class CameraDisplay : MonoBehaviour
         }
 
         //Enables zooming with the scroll wheel
-        float targetFov = fov - (Input.GetAxis("Mouse ScrollWheel") * sensitivity);
-        fov = Mathf.SmoothDamp(fov, targetFov, ref currentZoomVelocity, zoomSmoothTime);
-        fov = Mathf.Clamp(fov, minFov, maxFov);
+        if(!Mathf.Equals(Input.GetAxis("Mouse ScrollWheel"), 0f)) {
+            targetFov -= (Input.GetAxis("Mouse ScrollWheel") * sensitivity);
+            targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
+        }
+        fov = Mathf.SmoothDamp(fov, targetFov, ref currentZoomVelocity, zoomSmoothTime, Mathf.Infinity, timeScale);
         Camera.main.fieldOfView = fov;
+
+        //Axis changes by about 0.05 per frame
 
     }
     void CameraTranslate(Vector3 angle, Camera camera)
     {
-        targetMovementX = Input.GetAxis("Horizontal") * resetMove;
-        targetMovementY = Input.GetAxis("Vertical") * resetMove;
+        targetMovementX = momentumTranslateHorizontal * resetMove;
+        targetMovementY = momentumTranslateVertical * resetMove;
 
-        movementX = targetMovementX * translationSpeed * Time.deltaTime;
-        movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed * Time.deltaTime;
-        movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed * Time.deltaTime; //Which is actually the camera's local Z axis
+        movementX = targetMovementX * translationSpeed * 0.0166666667f;
+        movementY = Mathf.Sin(angle.x) * targetMovementY * translationSpeed * 0.0166666667f;
+        movementZ = Mathf.Cos(angle.x) * targetMovementY * translationSpeed * 0.0166666667f; //Which is actually the camera's local Z axis
 
         camera.transform.Translate(movementX, movementY, movementZ);
     }
 
     void CameraRotate(Vector3 angle, Camera camera)
     {
-        targetRotation = Input.GetAxis("Horizontal") * rotationSpeed * resetMove * (invert ? 1 : -1) * Time.deltaTime;          //Rotates the camera around by pressing left/right (or a,d).
+        targetRotation = momentumRotateHorizontal * rotationSpeed * resetMove * (invert ? 1 : -1) * 0.0166666667f;          //Rotates the camera around by pressing left/right (or a,d).
         camera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
 
-        targetMovement = Input.GetAxis("Vertical"); //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
+        targetMovement = momentumRotateVertical; //The forwards direction is relative to the rotation. Will make it so that holding a button allows for translation only.
 
-        movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
-        movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed * Time.deltaTime;
+        movementY = Mathf.Sin(angle.x) * targetMovement * translationSpeed * 0.0166666667f;
+        movementZ = Mathf.Cos(angle.x) * targetMovement * translationSpeed * 0.0166666667f;
         camera.transform.Translate(0, movementY, movementZ);
+    }
+
+    //Update all input momentum variables
+    private void UpdateInputMomentum(float timeScale) {
+
+        //All variables decay if they are not currently being added to
+        if (!Mathf.Equals(Input.GetAxisRaw("Horizontal"), 0f)) {
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, Input.GetAxisRaw("Horizontal"), momentumRampTime * timeScale);
+                momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, 0f, momentumRampTime * timeScale);
+            }
+            else {
+                momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, Input.GetAxisRaw("Horizontal"), momentumRampTime * timeScale);
+                momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, 0f, momentumRampTime * timeScale);
+            }
+        }
+        else {
+            momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, 0f, momentumRampTime * timeScale);
+            momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, 0f, momentumRampTime * timeScale);
+        }
+
+        if (!Mathf.Equals(Input.GetAxisRaw("Vertical"), 0f)) {
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
+                momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, 0f, momentumRampTime * timeScale);
+            }
+            else {
+                momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
+                momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, 0f, momentumRampTime * timeScale);
+            }
+        }
+        else {
+            momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, 0f, momentumRampTime * timeScale);
+            momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, 0f, momentumRampTime * timeScale);
+        }
     }
 }
