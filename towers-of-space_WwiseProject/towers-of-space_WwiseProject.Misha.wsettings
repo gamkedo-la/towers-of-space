@@ -23,7 +23,7 @@
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value=""/>
 				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="Vcn4YxSwyE+T+VDFDZ0bkg=="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
-				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="FMxF2MTiXUSSSttmPUbmFwEWNRH/////ZvuyZvZCcU6Rmohfc9/l/QEWNRH/////"/>
+				<Property Name="HardwareController\{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}\x64_ActiveGroups" Type="string" Value="FMxF2MTiXUSSSttmPUbmFwEtRhH/////ZvuyZvZCcU6Rmohfc9/l/QEtRhH/////"/>
 				<Property Name="Interactive Music\x64_{58E99882-60E3-4F5B-8326-A8434A3431C0} - SegmentEditorZoomInfo" Type="string" Value="AAAAAAAA8D8AAAAAAADwP8QdcUfcEec/AAAAAAAA8D8AAAAAAAAAAAAAAAAAAAAA"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
@@ -59,7 +59,11 @@
 				<Property Name="ProjectExplorer\x64_Expanded_6_1" Type="string" Value=""/>
 				<Property Name="ProjectExplorer\x64_Expanded_7_1" Type="string" Value="rfkqhDyyR0yh/5PYGkApRw=="/>
 				<Property Name="ProjectExplorer\x64_Expanded_8_1" Type="string" Value=""/>
-				<Property Name="RTPC\GameParameterSimValue\{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}" Type="Real64" Value="10"/>
+				<Property Name="RTPC\GameParameterSimValue\{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}" Type="Real64" Value="20"/>
+				<Property Name="RTPC\GameParameterSimValue\{3BE0AB8D-DE25-48CC-ACB6-6C3D48BB6663}" Type="Real64" Value="0"/>
+				<Property Name="RTPC\GameParameterSimValue\{B7911CFA-86E0-488A-B9DD-0EDFF62FFA2B}" Type="Real64" Value="100"/>
+				<Property Name="RTPC\GameParameterSimValue\{C253E390-2A37-48A8-808D-A64B16457D00}" Type="Real64" Value="100"/>
+				<Property Name="RTPC\GameParameterSimValue\{FD7CA0BC-CFA1-4FC6-A990-68062CA838D5}" Type="Real64" Value="0"/>
 				<Property Name="SoundBank Manager\x64_Expand States" Type="string" Value="BCkvVftvsEe003tCrygX/Q=="/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
 				<Property Name="SoundBankPaths" Type="string">
@@ -97,6 +101,7 @@
 						<Value Platform="Linux"></Value>
 					</ValueList>
 				</Property>
+				<Property Name="Soundcaster\PreviousSession" Type="string" Value="{4FE8D093-D1EF-426D-8980-F5D9C0442C19}"/>
 			</PropertyList>
 		</UserProjectSettings>
 	</UserProjectSettingsInfo>
