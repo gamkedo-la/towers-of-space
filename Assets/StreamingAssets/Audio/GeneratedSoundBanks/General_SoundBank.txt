@@ -17,15 +17,15 @@ Effect plug-ins	ID	Name	Type				Notes
 	1369188824	Towers_Music_EQ	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	15831366	sfx_laser_shot_01	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_01_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_01		205836
-	308035128	sfx_tank_fire_01	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_fire_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Fire\sfx_tank_fire\sfx_tank_fire_01		164300
-	321126335	sfx_tower_build	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tower_build_3D8B6418.wem		\Actor-Mixer Hierarchy\Towers\Build\sfx_tower_build		442240
-	323207063	sfx_laser_shot_02	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_02_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_02		205836
-	448790522	sfx_ArmorTank_hit	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_hit_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Hit\sfx_ArmorTank_hit		205556
-	475329880	sfx_tank_fire_02	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_fire_02_DA325760.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Fire\sfx_tank_fire\sfx_tank_fire_02		164300
-	537159404	towers	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\towers_4B8CC0C5.wem		\Interactive Music Hierarchy\Music\Level Music\Towers\towers		22606912
-	651112780	sfx_ap_shot	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_ap_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\AP\sfx_ap_shot		492960
-	854593625	sfx_tower_explo	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tower_explo_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Tower Explo\sfx_tower_explo		296776
-	863661360	sfx_tank_explo	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_explo_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank Explo\sfx_tank_explo		412944
-	989743774	sfx_fire_tank_hit_01	Z:\Volumes\Data\ALL SESSIONS\Gamkedo Club\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_fire_tank_hit_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Hit\sfx_fire_tank_hit_01		332064
+	15831366	sfx_laser_shot_01	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_01_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_01		205836
+	308035128	sfx_tank_fire_01	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_fire_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Fire\sfx_tank_fire\sfx_tank_fire_01		164300
+	321126335	sfx_tower_build	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tower_build_3D8B6418.wem		\Actor-Mixer Hierarchy\Towers\Build\sfx_tower_build		442240
+	323207063	sfx_laser_shot_02	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_02_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_02		205836
+	448790522	sfx_ArmorTank_hit	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_hit_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Hit\sfx_ArmorTank_hit		205556
+	475329880	sfx_tank_fire_02	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_fire_02_C54F01C6.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Fire\sfx_tank_fire\sfx_tank_fire_02		164300
+	537159404	towers	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\towers_4B8CC0C5.wem		\Interactive Music Hierarchy\Music\Level Music\Towers\towers		22606912
+	651112780	sfx_ap_shot	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_ap_shot_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\AP\sfx_ap_shot		492960
+	854593625	sfx_tower_explo	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tower_explo_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Tower Explo\sfx_tower_explo		296776
+	863661360	sfx_tank_explo	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_explo_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank Explo\sfx_tank_explo		412944
+	989743774	sfx_fire_tank_hit_01	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_fire_tank_hit_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Hit\sfx_fire_tank_hit_01		332064
 

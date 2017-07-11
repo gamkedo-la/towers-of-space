@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="120">
 	<RootPaths>
-		<ProjectRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/</ProjectRoot>
-		<SourceFilesRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/.cache/Windows/</SourceFilesRoot>
-		<SoundBanksRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/Assets/StreamingAssets/Audio/GeneratedSoundBanks/</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\Assets\StreamingAssets\Audio\GeneratedSoundBanks\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Volumes/Data/Users/NewUser/Library/Application Support/Wwise2016/Bottles/wwise/dosdevices/z:/Volumes/Data/ALL SESSIONS/Gamkedo Club/towers-of-space/towers-of-space_WwiseProject/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -35,47 +35,47 @@
 			<IncludedMemoryFiles>
 				<File Id="15831366" Language="SFX">
 					<ShortName>sfx_laser_shot_01.wav</ShortName>
-					<Path>SFX/sfx_laser_shot_01_9E69E797.wem</Path>
+					<Path>SFX\sfx_laser_shot_01_9E69E797.wem</Path>
 				</File>
 				<File Id="308035128" Language="SFX">
 					<ShortName>sfx_tank_fire_01.wav</ShortName>
-					<Path>SFX/sfx_tank_fire_01_9E69E797.wem</Path>
+					<Path>SFX\sfx_tank_fire_01_9E69E797.wem</Path>
 				</File>
 				<File Id="321126335" Language="SFX">
 					<ShortName>sfx_tower_build.wav</ShortName>
-					<Path>SFX/sfx_tower_build_3D8B6418.wem</Path>
+					<Path>SFX\sfx_tower_build_3D8B6418.wem</Path>
 				</File>
 				<File Id="323207063" Language="SFX">
 					<ShortName>sfx_laser_shot_02.wav</ShortName>
-					<Path>SFX/sfx_laser_shot_02_9E69E797.wem</Path>
+					<Path>SFX\sfx_laser_shot_02_9E69E797.wem</Path>
 				</File>
 				<File Id="448790522" Language="SFX">
 					<ShortName>sfx_tank_hit.wav</ShortName>
-					<Path>SFX/sfx_tank_hit_9E69E797.wem</Path>
+					<Path>SFX\sfx_tank_hit_9E69E797.wem</Path>
 				</File>
 				<File Id="475329880" Language="SFX">
 					<ShortName>sfx_tank_fire_02.wav</ShortName>
-					<Path>SFX/sfx_tank_fire_02_DA325760.wem</Path>
+					<Path>SFX\sfx_tank_fire_02_C54F01C6.wem</Path>
 				</File>
 				<File Id="537159404" Language="SFX">
 					<ShortName>towers.wav</ShortName>
-					<Path>SFX/towers_4B8CC0C5.wem</Path>
+					<Path>SFX\towers_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="651112780" Language="SFX">
 					<ShortName>sfx_ap_shot.wav</ShortName>
-					<Path>SFX/sfx_ap_shot_9E69E797.wem</Path>
+					<Path>SFX\sfx_ap_shot_9E69E797.wem</Path>
 				</File>
 				<File Id="854593625" Language="SFX">
 					<ShortName>sfx_tower_explo.wav</ShortName>
-					<Path>SFX/sfx_tower_explo_9E69E797.wem</Path>
+					<Path>SFX\sfx_tower_explo_9E69E797.wem</Path>
 				</File>
 				<File Id="863661360" Language="SFX">
 					<ShortName>sfx_tank_explo.wav</ShortName>
-					<Path>SFX/sfx_tank_explo_9E69E797.wem</Path>
+					<Path>SFX\sfx_tank_explo_9E69E797.wem</Path>
 				</File>
 				<File Id="989743774" Language="SFX">
 					<ShortName>sfx_fire_tank_hit_01.wav</ShortName>
-					<Path>SFX/sfx_fire_tank_hit_01_9E69E797.wem</Path>
+					<Path>SFX\sfx_fire_tank_hit_01_9E69E797.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

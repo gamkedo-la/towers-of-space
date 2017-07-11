@@ -36,8 +36,24 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="Music_Volume" ID="{B7911CFA-86E0-488A-B9DD-0EDFF62FFA2B}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_Volume" ID="{C253E390-2A37-48A8-808D-A64B16457D00}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Music_Mute" ID="{3BE0AB8D-DE25-48CC-ACB6-6C3D48BB6663}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}"/>
 							<Value>20</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFX_Mute" ID="{FD7CA0BC-CFA1-4FC6-A990-68062CA838D5}"/>
+							<Value>0</Value>
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true"/>
