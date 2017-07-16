@@ -70,8 +70,8 @@ public class EnemyAttack : MonoBehaviour
 
     Tower FindTowerTarget()
     {
-        // If the current target is still in range, keep targetting that.
-        if (targetedTower != null)
+        // If the current target is still in range and not destroyed, keep targetting that.
+        if (targetedTower != null && !targetedTower.IsDestroyed())
         {
             float d = Vector3.Distance(transform.position, targetedTower.transform.position);
             if (d <= range)
@@ -80,28 +80,28 @@ public class EnemyAttack : MonoBehaviour
             }
         }
 
-        Tower[] enemies = GameObject.FindObjectsOfType<Tower>();
+        Tower[] towers = GameObject.FindObjectsOfType<Tower>();
 
-        Tower nearestEnemy = null;
+        Tower nearestTower = null;
 
         float dist = Mathf.Infinity;
 
-        foreach (Tower enemy in enemies)
+        foreach (Tower tower in towers)
         {
-            if (enemy.IsDestroyed())
+            if (tower.IsDestroyed())
             {
                 continue;
             }
 
-            float d = Vector3.Distance(transform.position, enemy.transform.position);
-            if (d <= range && (nearestEnemy == null || d < dist))
+            float d = Vector3.Distance(transform.position, tower.transform.position);
+            if (d <= range && (nearestTower == null || d < dist))
             {
-                nearestEnemy = enemy;
+                nearestTower = tower;
                 dist = d;
             }
         }
 
-        return nearestEnemy;
+        return nearestTower;
     }
 
     private IEnumerator RotateBarrelForward()
