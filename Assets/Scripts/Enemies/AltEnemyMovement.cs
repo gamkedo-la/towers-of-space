@@ -11,37 +11,28 @@ public class AltEnemyMovement : MonoBehaviour
 
     void Start()
     {
-        Vector3 myVector = new Vector3(6.4f, -4.52f, 13.48f);
+        GameObject baseGO = GameObject.Find("Base");
+
+        Vector3 destination = baseGO.transform.position;
+        //Quaternion destinationRot = baseGO.transform.rotation;
 
         //Transform destination = transform.position(6.4, -4.52, 13.48);
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         //agent.SetDestination(destination.position);
-        agent.SetDestination(myVector);
+        agent.SetDestination(destination);
 
     }
-    //void Update()
-    //    {
-    //        if (!hasNextWaypoint)
-    //        {
-    //            SetNextNode();
-    //
-    //            if (!hasNextWaypoint)
-    //            {
-    //                // No more path nodes!
-    //                ReachedGoal();
-    //            }
-    //        }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("EndZone"))
+        {
+            Debug.Log("made it to the end? I just walked into: " + other.gameObject.name);
+               Destroy(gameObject);
+                GameController.instance.LoseLife(); //instance is the Score Manager
+                GameController.instance.CheckGameWon();
+        }
 
-
-
-            //if (agent.transform.position = myVector)
-            //{
-            //    Destroy(gameObject);
-            //    GameController.instance.LoseLife(); //instance is the Score Manager
-            //    GameController.instance.CheckGameWon();
-            //}
-      //  }
-
+    }
 }
