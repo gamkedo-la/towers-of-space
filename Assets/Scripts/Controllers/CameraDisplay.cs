@@ -122,6 +122,11 @@ public class CameraDisplay : MonoBehaviour
     }
     void CameraTranslate(Vector3 angle, Camera camera)
     {
+        if (Mathf.Equals(momentumTranslateHorizontal, 0f) && Mathf.Equals(momentumTranslateVertical, 0f))
+        {
+            return;
+        }
+
         targetMovementX = momentumTranslateHorizontal * resetMove;
         targetMovementY = momentumTranslateVertical * resetMove;
 
@@ -134,6 +139,11 @@ public class CameraDisplay : MonoBehaviour
 
     void CameraRotate(Vector3 angle, Camera camera)
     {
+        if (Mathf.Equals(momentumRotateHorizontal, 0f) && Mathf.Equals(momentumRotateVertical, 0f))
+        {
+            return;
+        }
+
         targetRotation = momentumRotateHorizontal * rotationSpeed * resetMove * (invert ? 1 : -1) * 0.0166666667f;          //Rotates the camera around by pressing left/right (or a,d).
         camera.transform.RotateAround(rotationPoint.position, Vector3.up, targetRotation);   //Thought about adding smoothing but it actually feels fine like this
 
@@ -145,17 +155,17 @@ public class CameraDisplay : MonoBehaviour
     }
 
     //Update all input momentum variables
-    private void UpdateInputMomentum(float timeScale) {
-
+    private void UpdateInputMomentum(float timeScale)
+    {
         //All variables decay if they are not currently being added to
         if (!Mathf.Equals(Input.GetAxisRaw("Horizontal"), 0f)) {
             if (Input.GetKey(KeyCode.LeftShift)) {
                 momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, Input.GetAxisRaw("Horizontal"), momentumRampTime * timeScale);
-                momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, 0f, momentumRampTime * timeScale);
+                momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, Input.GetAxisRaw("Horizontal"),  momentumRampTime * timeScale);
             }
             else {
                 momentumRotateHorizontal = Mathf.MoveTowards(momentumRotateHorizontal, Input.GetAxisRaw("Horizontal"), momentumRampTime * timeScale);
-                momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, 0f, momentumRampTime * timeScale);
+                momentumTranslateHorizontal = Mathf.MoveTowards(momentumTranslateHorizontal, Input.GetAxisRaw("Horizontal"),  momentumRampTime * timeScale);
             }
         }
         else {
@@ -166,11 +176,11 @@ public class CameraDisplay : MonoBehaviour
         if (!Mathf.Equals(Input.GetAxisRaw("Vertical"), 0f)) {
             if (Input.GetKey(KeyCode.LeftShift)) {
                 momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
-                momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, 0f, momentumRampTime * timeScale);
+                momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
             }
             else {
                 momentumRotateVertical = Mathf.MoveTowards(momentumRotateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
-                momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, 0f, momentumRampTime * timeScale);
+                momentumTranslateVertical = Mathf.MoveTowards(momentumTranslateVertical, Input.GetAxisRaw("Vertical"), momentumRampTime * timeScale);
             }
         }
         else {
