@@ -93,6 +93,13 @@ public class GameController : MonoBehaviour
             return;
         }
 
+		EnemySpawner[] enemySpawners = FindObjectsOfType<EnemySpawner>();
+        // There are still enemy spawners, means the current wave is still being spawned
+        if (enemySpawners.Length > 0)
+        {
+            return;
+        }
+
 		Enemy[] enemies = FindObjectsOfType<Enemy>();
         // Current enemy is not 'gone' yet, so we need to check for more than 1
         if (enemies.Length > 1)
@@ -164,7 +171,6 @@ public class GameController : MonoBehaviour
         selectedTowerType = TowerTypes[index]; //Gets the GameObject
         currentTowerClass = selectedTowerType.GetComponent<Tower>(); //Gets its Tower component
 
-
         if (currentCount + modIndex > currentTowerClass.costLadder.Length - 1)
         {
             currentCost = currentTowerClass.costLadder[currentTowerClass.costLadder.Length - 1];
@@ -177,7 +183,7 @@ public class GameController : MonoBehaviour
         {
             currentCost = currentTowerClass.costLadder[currentCount + modIndex];  //Access the array based on the number of towers
         }
-        if (HasEnergy(currentCost) && creating || !creating)
+        if ((HasEnergy(currentCost) && creating) || !creating)
         {
             currentCount += modCount;
         }
