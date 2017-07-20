@@ -28,7 +28,7 @@ public class AltEnemyMovement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("EndZone"))
         {
-            Debug.Log("made it to the end? I just walked into: " + other.gameObject.name);
+            //Debug.Log("made it to the end? I just walked into: " + other.gameObject.name);
                Destroy(gameObject);
                 GameController.instance.LoseLife(); //instance is the Score Manager
                 GameController.instance.CheckGameWon();
