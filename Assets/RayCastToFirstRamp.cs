@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class RayCastToFirstRamp : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    Animator animator;
+    UnityEngine.AI.NavMeshAgent navMeshAgent;
+
+    private bool upTheFirstRamp = false;
+    private bool downTheFirstRamp = false;
+
+    // Use this for initialization
+    void Start () {
+        animator = GetComponent<Animator>();        
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         RaycastHit rayInfo;
-        int UpRamp= LayerMask.GetMask("UpRamp");
+        int FirstRamp = LayerMask.GetMask("FirstRamp");
+        int SecondRamp = LayerMask.GetMask("SecondRamp");
 
-        if(Physics.Raycast(transform.position, Vector3.forward, out rayInfo, 5.0f, UpRamp))
+        //First Ramp Up
+        //Debug.Log(Physics.Raycast(transform.position, Vector3.right, out rayInfo, 10f, FirstRamp));
+        if (Physics.Raycast(transform.position, Vector3.right, out rayInfo, 10f, FirstRamp))
         {
-            Debug.Log("ship close by 5");
+            upTheFirstRamp = true;
+        } else
+        {
+            upTheFirstRamp = false;
         }
-        
-          //   if (other.gameObject.layer == LayerMask.NameToLayer("EndZone"))
+        animator.SetBool("upTheFirstRamp", upTheFirstRamp);
 
-        //transform.Rotate(Vector3.up, 30.0f * Time.deltaTime);
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("downTheFirstRamp") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime ==1 )
+        {
+            downTheFirstRamp = false;
+        }
     }
+
+    
 }
