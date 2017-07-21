@@ -12,14 +12,25 @@ public class MainMenu : MonoBehaviour {
 	public Toggle toggleMusic;
 	public Toggle toggleSound;
 
+	public Text d;
+
 	void Start()
 	{
+		// d = Find
 		musicMute = PlayerPrefs.GetInt("Music", musicMute ? 1 : 0) == 1;
 		sfxMute = PlayerPrefs.GetInt("Sound", sfxMute ? 1 : 0) == 1;
-		toggleMusic.isOn = !musicMute;
-		toggleSound.isOn = !sfxMute;
-		ToggleMusic(musicMute);
-		ToggleSound(sfxMute);
+		d.text += "\nload music:" + System.Convert.ToSingle(musicMute);
+
+		toggleMusic.isOn = musicMute;
+		toggleSound.isOn = sfxMute;
+		if (musicMute)
+		{
+			ToggleMusic(!musicMute);
+		}
+		if (sfxMute)
+		{
+			ToggleSound(!sfxMute);
+		}
 	}
 
 	public void QuitGame()
@@ -56,7 +67,10 @@ public class MainMenu : MonoBehaviour {
 		Debug.Log("mute music?" + (musicMute ? "on":"off"));
 		Debug.Log(System.Convert.ToSingle(musicMute));
 
+		d.text += "\nmusic:" + (music?"on":"off");
+		d.text += "\ntoggle music:" + System.Convert.ToSingle(musicMute);
 		#if !UNITY_EDITOR_LINUX
+			d.text += " ...";
             AkSoundEngine.SetRTPCValue("Music_Mute", System.Convert.ToSingle(musicMute));  // 1 for mute, 0 for unmute
 		#endif
     }
@@ -79,7 +93,6 @@ public class MainMenu : MonoBehaviour {
 		#if !UNITY_EDITOR_LINUX
 			AkSoundEngine.PostEvent("Play_UI_Button", this.gameObject);
 		#endif
-
 	}
 
 	public void playUITowerSound() {
