@@ -269,6 +269,85 @@
 								</MusicCue>
 							</CueList>
 						</MusicSegment>
+						<MusicSegment Name="Mot 1" ID="{B2E4E647-57AC-4780-A96E-935FF593FC5E}" ShortID="588387546">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="112683.9375"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="mot 1" ID="{12F75578-828A-4F77-A25B-CCCD1822026B}" ShortID="112636776">
+									<PropertyList>
+										<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+										<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="Towers_Music_EQ" ID="{A227D1F5-9277-4423-A72F-D38B8469D57B}" WorkUnitID="{887D4D98-C457-4D9F-9BDF-0FF671612DA4}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Mot 1" ID="{9D841F97-91D4-444D-AC58-621B268FE23D}" ShortID="56333376">
+											<Language>SFX</Language>
+											<AudioFile>Mot 1.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{2604AC64-ED56-4D5E-A18B-DF06D09E93AE}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{D200B86A-A9B2-4004-90A1-6E205AA43FD3}">
+											<ClipList>
+												<MusicClip Name="Mot 1" ID="{A418EBBB-696C-4A68-95B7-383675E586F3}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="112683.9375"/>
+														<Property Name="FadeInMode" Type="int16" Value="0"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Mot 1" ID="{9D841F97-91D4-444D-AC58-621B268FE23D}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{311D60BB-CCC6-4AA3-A430-E876A61A4387}"/>
+								<MusicCue Name="Exit Cue" ID="{A7E1CF5A-19D9-4B08-B40A-0B613E5B3C3E}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="1000"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
 					</ChildrenList>
 					<TransitionList>
 						<MusicTransition Name="Root" ID="{26B9D3DC-AF6A-4CFE-854A-BDD016323793}">
@@ -288,7 +367,7 @@
 							<PropertyList>
 								<Property Name="LoopCount" Type="int16" Value="0"/>
 								<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
-								<Property Name="PlayMode" Type="int16" Value="3"/>
+								<Property Name="PlayMode" Type="int16" Value="2"/>
 							</PropertyList>
 							<ChildrenList>
 								<MusicPlaylistItem Name="" ID="{CC311674-E22C-4D67-AF7B-F0E296C1F410}" ShortID="119218519">
@@ -296,6 +375,12 @@
 										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 									</PropertyList>
 									<SegmentRef Name="Towers" ID="{58E99882-60E3-4F5B-8326-A8434A3431C0}"/>
+								</MusicPlaylistItem>
+								<MusicPlaylistItem Name="" ID="{4E73A5B1-0532-431F-8C44-1576F02438CB}" ShortID="180223206">
+									<PropertyList>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="Mot 1" ID="{B2E4E647-57AC-4780-A96E-935FF593FC5E}"/>
 								</MusicPlaylistItem>
 							</ChildrenList>
 						</MusicPlaylistItem>

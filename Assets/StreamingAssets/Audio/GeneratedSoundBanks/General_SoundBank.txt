@@ -18,6 +18,7 @@ Effect plug-ins	ID	Name	Type				Notes
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	15831366	sfx_laser_shot_01	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_01_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_01		205836
+	56333376	mot 1	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\Mot 1_4B8CC0C5.wem		\Interactive Music Hierarchy\Music\Level Music\Mot 1\mot 1		21635380
 	308035128	sfx_tank_fire_01	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tank_fire_01_9E69E797.wem		\Actor-Mixer Hierarchy\Tanks\Tank_Fire\sfx_tank_fire\sfx_tank_fire_01		164300
 	321126335	sfx_tower_build	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_tower_build_3D8B6418.wem		\Actor-Mixer Hierarchy\Towers\Build\sfx_tower_build		442240
 	323207063	sfx_laser_shot_02	C:\Users\Misha\Documents\GitHub\towers-of-space\towers-of-space_WwiseProject\.cache\Windows\SFX\sfx_laser_shot_02_9E69E797.wem		\Actor-Mixer Hierarchy\Towers\Normal_AOE\sfx_laser_shot\sfx_laser_shot_02		205836

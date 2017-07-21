@@ -37,6 +37,10 @@
 					<ShortName>sfx_laser_shot_01.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_01_9E69E797.wem</Path>
 				</File>
+				<File Id="56333376" Language="SFX">
+					<ShortName>Mot 1.wav</ShortName>
+					<Path>SFX\Mot 1_4B8CC0C5.wem</Path>
+				</File>
 				<File Id="308035128" Language="SFX">
 					<ShortName>sfx_tank_fire_01.wav</ShortName>
 					<Path>SFX\sfx_tank_fire_01_9E69E797.wem</Path>
