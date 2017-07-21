@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{698F6A2D-49BD-4151-99A9-561B3870B1E6}" SchemaVersion="75">
+	<Events>
+		<WorkUnit Name="UI" ID="{698F6A2D-49BD-4151-99A9-561B3870B1E6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_UI_Button" ID="{FFF2AD89-908B-4771-A1E2-E8009F5163E8}">
+					<ChildrenList>
+						<Action Name="Play" ID="{77B0FE50-2BB4-44C9-BECF-219FC41CED34}" ShortID="706101356" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{2DFD3D53-6AA8-432E-9690-AA3F39D9A8CD}" Global="false">
+									<ObjectRef Name="UI_Button" ID="{4AA58A55-30F9-4AF6-B051-070F32574A25}" WorkUnitID="{9522C366-1F21-45E4-B255-FF13A4B1B852}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_UI_Tower" ID="{F75B2507-381D-4BCD-BAE7-7F8617FA2B8E}">
+					<ChildrenList>
+						<Action Name="Play" ID="{44291F3D-9632-4CA8-8235-67CC7D3E16CD}" ShortID="337408295" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{A66BDBC2-BEAF-4023-B225-7230ADB42DE4}" Global="false">
+									<ObjectRef Name="UI_Tower" ID="{DB6CD7BC-E87F-4DC1-9B4C-E3C5AF2BBC75}" WorkUnitID="{9522C366-1F21-45E4-B255-FF13A4B1B852}"/>
+								</Element>
+							</ElementList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

@@ -49,6 +49,8 @@ public class MainMenu : MonoBehaviour {
 
     public void ToggleMusic(bool music)
     {
+		playUIButtonSound ();
+
 		musicMute = !music;
 		PlayerPrefs.SetInt("Music", musicMute ? 1 : 0);
 		Debug.Log("mute music?" + (musicMute ? "on":"off"));
@@ -61,6 +63,8 @@ public class MainMenu : MonoBehaviour {
 
     public void ToggleSound(bool sound)
     {
+		playUIButtonSound ();
+
 		sfxMute = !sound;
 		PlayerPrefs.SetInt("Sound", sfxMute ? 1 : 0);
 		Debug.Log("mute sound?" + (sfxMute ? "on":"off"));
@@ -70,5 +74,18 @@ public class MainMenu : MonoBehaviour {
             AkSoundEngine.SetRTPCValue("SFX_Mute", System.Convert.ToSingle(sfxMute));  // 1 for mute, 0 for unmute
 		#endif
     }
+
+	public void playUIButtonSound() {
+		#if !UNITY_EDITOR_LINUX
+			AkSoundEngine.PostEvent("Play_UI_Button", this.gameObject);
+		#endif
+
+	}
+
+	public void playUITowerSound() {
+		#if !UNITY_EDITOR_LINUX
+			AkSoundEngine.PostEvent("Play_UI_Tower", this.gameObject);
+		#endif
+	}
 
 }

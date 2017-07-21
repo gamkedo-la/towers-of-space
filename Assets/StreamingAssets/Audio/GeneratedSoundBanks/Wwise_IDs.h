@@ -23,6 +23,8 @@ namespace AK
         static const AkUniqueID PLAY_TANK_HIT = 3748445276U;
         static const AkUniqueID PLAY_TOWER_BUILD = 2943239532U;
         static const AkUniqueID PLAY_TOWER_EXPLO = 4289585650U;
+        static const AkUniqueID PLAY_UI_BUTTON = 43599987U;
+        static const AkUniqueID PLAY_UI_TOWER = 3218860414U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
