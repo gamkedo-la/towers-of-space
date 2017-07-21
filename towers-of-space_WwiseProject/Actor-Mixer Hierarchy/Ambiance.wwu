@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D3A75166-16B4-4070-8E7D-D68E293B9738}" SchemaVersion="75">
+	<AudioObjects>
+		<WorkUnit Name="Ambiance" ID="{D3A75166-16B4-4070-8E7D-D68E293B9738}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Ambiance" ID="{5794405B-7195-4DF0-A1CE-1E9166BC22DB}" ShortID="228047926">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{6683D6D8-4FDC-45FE-85A4-7D4B68806F00}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Ambiance" ID="{59C72561-4FBA-4451-948E-E337711D4931}" ShortID="189279800" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ambi" ID="{11F5543F-4945-4AED-8DC3-0225A712F966}" ShortID="986914778">
+									<Language>SFX</Language>
+									<AudioFile>ambi.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ambi" ID="{11F5543F-4945-4AED-8DC3-0225A712F966}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

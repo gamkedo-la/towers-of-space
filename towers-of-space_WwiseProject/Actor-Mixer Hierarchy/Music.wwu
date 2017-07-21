@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{83D86CB0-CCFF-4770-809E-E1D9F7E24FE7}" SchemaVersion="75">
+	<AudioObjects>
+		<WorkUnit Name="Music" ID="{83D86CB0-CCFF-4770-809E-E1D9F7E24FE7}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Level Music" ID="{CE8FC48A-FD84-4558-BFA5-87240C114B30}" ShortID="892375893">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<RTPCList>
+								<RTPC Name="" ID="{BF940A93-0A05-423E-B2C6-D089E3091C75}" ShortID="635476325">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}" WorkUnitID="{842AF9AD-B23C-4C47-A1FF-93D81A402947}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{B6AED42A-2BF4-4CE8-823E-2237174004D4}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>78</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>1.9883</XPos>
+												<YPos>33</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>-1</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<RTPCList>
+								<RTPC Name="" ID="{96526B16-A96C-41D5-96E6-8094BD771042}" ShortID="805127891">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}" WorkUnitID="{842AF9AD-B23C-4C47-A1FF-93D81A402947}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{BFF634AF-3F24-4709-B33F-E4FB98474006}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="65537"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-100</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>0.62865</XPos>
+												<YPos>-65</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>5.5117</XPos>
+												<YPos>-17</YPos>
+												<Flags>0</Flags>
+												<SegmentShape>Exp3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+							<RTPCList>
+								<RTPC Name="" ID="{BA2511BC-EA5C-4CF1-9E4C-912EF765686B}" ShortID="759197565">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}" WorkUnitID="{842AF9AD-B23C-4C47-A1FF-93D81A402947}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{E294F910-42BF-4C1C-A979-C1338446AD79}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-20</YPos>
+												<Flags>5</Flags>
+												<SegmentShape>Log3</SegmentShape>
+											</Point>
+											<Point>
+												<XPos>0.94152</XPos>
+												<YPos>-5.96647999999999</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>5</XPos>
+												<YPos>0</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>10</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Music" ID="{A96AF62B-5587-436A-91C4-5F6F1DA37505}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="tracks" ID="{B8412A19-5322-46D8-A28D-D08C44FE02B2}" ShortID="253384755" Type="SoundFX">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="tracks" ID="{FAF1FFBA-30B1-4B80-8E04-90E0172B3F73}" ShortID="738392464">
+									<Language>SFX</Language>
+									<AudioFile>tracks.wav</AudioFile>
+									<ConvertedFileIDList>
+										<File ID="921053856"/>
+									</ConvertedFileIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="tracks" ID="{FAF1FFBA-30B1-4B80-8E04-90E0172B3F73}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
