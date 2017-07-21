@@ -10,9 +10,13 @@ public class RayCastToFirstRamp : MonoBehaviour {
     private bool upTheFirstRamp = false;
     private bool downTheFirstRamp = false;
 
+    GameObject EndFirstRampGO;
+    Collider EndFirstRampCol;
+
     // Use this for initialization
     void Start () {
-        animator = GetComponent<Animator>();        
+        animator = GetComponent<Animator>();
+        EndFirstRampGO = GameObject.Find("EndFirstRampPoint");
     }
 	
 	// Update is called once per frame
@@ -33,12 +37,5 @@ public class RayCastToFirstRamp : MonoBehaviour {
         }
         animator.SetBool("upTheFirstRamp", upTheFirstRamp);
 
-        
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("downTheFirstRamp") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime ==1 )
-        {
-            downTheFirstRamp = false;
-        }
-    }
-
-    
+    }    
 }
