@@ -37,10 +37,6 @@
 					<ShortName>sfx_laser_shot_01.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_01_9E69E797.wem</Path>
 				</File>
-				<File Id="56333376" Language="SFX">
-					<ShortName>Mot 1.wav</ShortName>
-					<Path>SFX\Mot 1_4B8CC0C5.wem</Path>
-				</File>
 				<File Id="308035128" Language="SFX">
 					<ShortName>sfx_tank_fire_01.wav</ShortName>
 					<Path>SFX\sfx_tank_fire_01_9E69E797.wem</Path>
@@ -61,10 +57,6 @@
 					<ShortName>sfx_tank_fire_02.wav</ShortName>
 					<Path>SFX\sfx_tank_fire_02_C54F01C6.wem</Path>
 				</File>
-				<File Id="537159404" Language="SFX">
-					<ShortName>towers.wav</ShortName>
-					<Path>SFX\towers_4B8CC0C5.wem</Path>
-				</File>
 				<File Id="651112780" Language="SFX">
 					<ShortName>sfx_ap_shot.wav</ShortName>
 					<Path>SFX\sfx_ap_shot_9E69E797.wem</Path>
@@ -76,6 +68,14 @@
 				<File Id="863661360" Language="SFX">
 					<ShortName>sfx_tank_explo.wav</ShortName>
 					<Path>SFX\sfx_tank_explo_9E69E797.wem</Path>
+				</File>
+				<File Id="921053856" Language="SFX">
+					<ShortName>tracks.wav</ShortName>
+					<Path>SFX\tracks_4B8CC0C5.wem</Path>
+				</File>
+				<File Id="986914778" Language="SFX">
+					<ShortName>ambi.wav</ShortName>
+					<Path>SFX\ambi_4B8CC0C5.wem</Path>
 				</File>
 				<File Id="989743774" Language="SFX">
 					<ShortName>sfx_fire_tank_hit_01.wav</ShortName>

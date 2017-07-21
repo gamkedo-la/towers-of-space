@@ -8,7 +8,14 @@
 						<Action Name="Play" ID="{FAFB6931-F493-4465-AA18-5DBE1C10CE75}" ShortID="520504454" Type="Play" Scope="One" Global="false">
 							<ElementList>
 								<Element ID="{D82ED542-F2AD-4286-AAEB-07850876F659}" Global="false">
-									<ObjectRef Name="Level Music" ID="{EBE57CBE-B189-433C-8FB2-6D0ECC9A3C35}" WorkUnitID="{69F3D101-25D7-49B8-B654-EF17ACB85BE1}"/>
+									<ObjectRef Name="tracks" ID="{B8412A19-5322-46D8-A28D-D08C44FE02B2}" WorkUnitID="{83D86CB0-CCFF-4770-809E-E1D9F7E24FE7}"/>
+								</Element>
+							</ElementList>
+						</Action>
+						<Action Name="Play" ID="{AC876589-9AC3-4543-A463-A4367C89F9F1}" ShortID="714216813" Type="Play" Scope="One" Global="false">
+							<ElementList>
+								<Element ID="{7A0EB93C-55EE-413A-B91D-632C048AA1CC}" Global="false">
+									<ObjectRef Name="Ambiance" ID="{59C72561-4FBA-4451-948E-E337711D4931}" WorkUnitID="{D3A75166-16B4-4070-8E7D-D68E293B9738}"/>
 								</Element>
 							</ElementList>
 						</Action>
