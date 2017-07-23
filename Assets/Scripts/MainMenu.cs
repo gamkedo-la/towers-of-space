@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
-    public bool musicMute = false;
-    public bool sfxMute = false;
+    private bool musicMute = false;
+    private bool sfxMute = false;
 
 	public Toggle toggleMusic;
 	public Toggle toggleSound;
@@ -16,20 +16,19 @@ public class MainMenu : MonoBehaviour {
 
 	void Start()
 	{
-		// d = Find
-		musicMute = PlayerPrefs.GetInt("Music", musicMute ? 1 : 0) == 1;
-		sfxMute = PlayerPrefs.GetInt("Sound", sfxMute ? 1 : 0) == 1;
-		d.text += "\nload music:" + System.Convert.ToSingle(musicMute);
+		musicMute = PlayerPrefs.GetString("Mute music", "off") == "on";
+		sfxMute = PlayerPrefs.GetString("Mute sfx", "off") == "on";
 
-		toggleMusic.isOn = musicMute;
-		toggleSound.isOn = sfxMute;
+		d.text += "\nloaded music mute:" + System.Convert.ToSingle(musicMute);
+		d.text += "\nloaded sfx mute:" + System.Convert.ToSingle(sfxMute);
+
 		if (musicMute)
 		{
-			ToggleMusic(!musicMute);
+			toggleMusic.isOn = false;
 		}
 		if (sfxMute)
 		{
-			ToggleSound(!sfxMute);
+			toggleSound.isOn = false;
 		}
 	}
 
@@ -63,12 +62,9 @@ public class MainMenu : MonoBehaviour {
 		playUIButtonSound ();
 
 		musicMute = !music;
-		PlayerPrefs.SetInt("Music", musicMute ? 1 : 0);
-		Debug.Log("mute music?" + (musicMute ? "on":"off"));
-		Debug.Log(System.Convert.ToSingle(musicMute));
+		PlayerPrefs.SetString("Mute music", musicMute ? "on" : "off");
+		d.text += "\ntoggle music mute:" + System.Convert.ToSingle(musicMute);
 
-		d.text += "\nmusic:" + (music?"on":"off");
-		d.text += "\ntoggle music:" + System.Convert.ToSingle(musicMute);
 		#if !UNITY_EDITOR_LINUX
 			d.text += " ...";
             AkSoundEngine.SetRTPCValue("Music_Mute", System.Convert.ToSingle(musicMute));  // 1 for mute, 0 for unmute
@@ -80,11 +76,11 @@ public class MainMenu : MonoBehaviour {
 		playUIButtonSound ();
 
 		sfxMute = !sound;
-		PlayerPrefs.SetInt("Sound", sfxMute ? 1 : 0);
-		Debug.Log("mute sound?" + (sfxMute ? "on":"off"));
-		Debug.Log(System.Convert.ToSingle(sfxMute));
+		PlayerPrefs.SetString("Mute sfx", sfxMute ? "on" : "off");
+		d.text += "\ntoggle sound mute:" + System.Convert.ToSingle(sfxMute);
 
 		#if !UNITY_EDITOR_LINUX
+			d.text += " ...";
             AkSoundEngine.SetRTPCValue("SFX_Mute", System.Convert.ToSingle(sfxMute));  // 1 for mute, 0 for unmute
 		#endif
     }
