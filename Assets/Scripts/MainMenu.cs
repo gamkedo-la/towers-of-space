@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
+    public static MainMenu instance;
+
     private bool musicMute = false;
     private bool sfxMute = false;
 
@@ -13,6 +15,11 @@ public class MainMenu : MonoBehaviour {
 	public Toggle toggleSound;
 
 	public Text d;
+
+	void Awake()
+	{
+		instance = this;
+	}
 
 	void Start()
 	{

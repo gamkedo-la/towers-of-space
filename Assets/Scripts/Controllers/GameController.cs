@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    public Text debug;
-
     public static GameController instance;
 
     public GameObject selectedTowerType; //Related to tower spawning
@@ -191,7 +189,7 @@ public class GameController : MonoBehaviour
         }
         towerCounts[index] = currentCount; //Updates the tower count
 
-        debug.text += "\ncreate?"+(creating?1:0) + " - num:"+currentCount + " - cost:"+currentCost;
+        MainMenu.instance.d.text += "\ncreate?"+(creating?1:0) + " - num:"+currentCount + " - cost:"+currentCost;
     }
 
     public void InstantiateTower(string towerType)
