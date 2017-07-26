@@ -39,9 +39,9 @@
 					<ShortName>sfx_laser_shot_01.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_01_9E69E797.wem</Path>
 				</File>
-				<File Id="138926115" Language="SFX">
-					<ShortName>UI_Button.wav</ShortName>
-					<Path>SFX\UI_Button_9E69E797.wem</Path>
+				<File Id="46447441" Language="SFX">
+					<ShortName>Click_Ch01_SubSynth.wav</ShortName>
+					<Path>SFX\Click_Ch01_SubSynth_9E69E797.wem</Path>
 				</File>
 				<File Id="308035128" Language="SFX">
 					<ShortName>sfx_tank_fire_01.wav</ShortName>
@@ -55,6 +55,10 @@
 					<ShortName>sfx_laser_shot_02.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_02_9E69E797.wem</Path>
 				</File>
+				<File Id="420403182" Language="SFX">
+					<ShortName>Click_Ch02_SubSynth.wav</ShortName>
+					<Path>SFX\Click_Ch02_SubSynth_9E69E797.wem</Path>
+				</File>
 				<File Id="448790522" Language="SFX">
 					<ShortName>sfx_tank_hit.wav</ShortName>
 					<Path>SFX\sfx_tank_hit_9E69E797.wem</Path>
@@ -66,10 +70,6 @@
 				<File Id="651112780" Language="SFX">
 					<ShortName>sfx_ap_shot.wav</ShortName>
 					<Path>SFX\sfx_ap_shot_9E69E797.wem</Path>
-				</File>
-				<File Id="844904020" Language="SFX">
-					<ShortName>UI_Tower.wav</ShortName>
-					<Path>SFX\UI_Tower_9E69E797.wem</Path>
 				</File>
 				<File Id="854593625" Language="SFX">
 					<ShortName>sfx_tower_explo.wav</ShortName>

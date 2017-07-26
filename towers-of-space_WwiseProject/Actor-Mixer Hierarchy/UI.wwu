@@ -20,7 +20,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-12</Value>
 							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
@@ -57,9 +57,13 @@
 									<Language>SFX</Language>
 									<AudioFile>UI_Button.wav</AudioFile>
 								</AudioFileSource>
+								<AudioFileSource Name="Click_Ch01_SubSynth" ID="{65D340D4-FB33-4CD7-91A3-34F1E1C6B48B}" ShortID="46447441">
+									<Language>SFX</Language>
+									<AudioFile>Click_Ch01_SubSynth.wav</AudioFile>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="UI_Button" ID="{19A86FEC-92DD-426F-99B9-B581306FC5F5}" Platform="Linked"/>
+								<ActiveSource Name="Click_Ch01_SubSynth" ID="{65D340D4-FB33-4CD7-91A3-34F1E1C6B48B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -81,7 +85,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-6</Value>
+								<Value>-12</Value>
 							</ValueList>
 							<ModifierList>
 								<ModifierInfo>
@@ -118,9 +122,13 @@
 									<Language>SFX</Language>
 									<AudioFile>UI_Tower.wav</AudioFile>
 								</AudioFileSource>
+								<AudioFileSource Name="Click_Ch02_SubSynth" ID="{044EB390-FA91-4A4F-B4F7-457B036DEB56}" ShortID="420403182">
+									<Language>SFX</Language>
+									<AudioFile>Click_Ch02_SubSynth.wav</AudioFile>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="UI_Tower" ID="{2E5DC425-4E8C-4CF8-981A-B7B2F315E7B6}" Platform="Linked"/>
+								<ActiveSource Name="Click_Ch02_SubSynth" ID="{044EB390-FA91-4A4F-B4F7-457B036DEB56}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
