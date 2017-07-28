@@ -49,7 +49,7 @@
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="Life" ID="{02C7F7B3-E4AE-4C90-92A1-5AE76D9D334E}"/>
-							<Value>20</Value>
+							<Value>4.72919161896221E-316</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="SFX_Mute" ID="{FD7CA0BC-CFA1-4FC6-A990-68062CA838D5}"/>

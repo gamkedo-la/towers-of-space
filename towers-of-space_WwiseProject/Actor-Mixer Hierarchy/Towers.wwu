@@ -169,7 +169,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C0552374-FEB3-4DA3-97DB-EE4D9B6DBB59}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
+							<ObjectRef Name="SFX" ID="{6683D6D8-4FDC-45FE-85A4-7D4B68806F00}" WorkUnitID="{BAF1D330-E3E4-4177-A65E-9478CA8C924E}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -197,7 +197,7 @@
 							<ChildrenList>
 								<AudioFileSource Name="sfx_tower_build" ID="{11D5E0C2-EC92-4C14-A37B-A511D7A09FD7}" ShortID="321126335">
 									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.0187219917012449"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.87219917012449E-02"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>sfx_tower_build.wav</AudioFile>

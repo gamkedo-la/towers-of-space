@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -188,6 +188,8 @@ public class GameController : MonoBehaviour
             currentCount += modCount;
         }
         towerCounts[index] = currentCount; //Updates the tower count
+
+        MainMenu.instance.d.text += "\ncreate?"+(creating?1:0) + " - num:"+currentCount + " - cost:"+currentCost;
     }
 
     public void InstantiateTower(string towerType)

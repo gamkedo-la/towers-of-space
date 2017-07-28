@@ -31,11 +31,17 @@
 				<Event Id="3748445276" Name="Play_tank_hit" ObjectPath="\Events\Tanks\Play_tank_hit"/>
 				<Event Id="2943239532" Name="Play_tower_build" ObjectPath="\Events\Towers\Play_tower_build"/>
 				<Event Id="4289585650" Name="Play_tower_explo" ObjectPath="\Events\Towers\Play_tower_explo"/>
+				<Event Id="43599987" Name="Play_UI_Button" ObjectPath="\Events\UI\Play_UI_Button"/>
+				<Event Id="3218860414" Name="Play_UI_Tower" ObjectPath="\Events\UI\Play_UI_Tower"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="15831366" Language="SFX">
 					<ShortName>sfx_laser_shot_01.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_01_9E69E797.wem</Path>
+				</File>
+				<File Id="46447441" Language="SFX">
+					<ShortName>Click_Ch01_SubSynth.wav</ShortName>
+					<Path>SFX\Click_Ch01_SubSynth_9E69E797.wem</Path>
 				</File>
 				<File Id="308035128" Language="SFX">
 					<ShortName>sfx_tank_fire_01.wav</ShortName>
@@ -48,6 +54,10 @@
 				<File Id="323207063" Language="SFX">
 					<ShortName>sfx_laser_shot_02.wav</ShortName>
 					<Path>SFX\sfx_laser_shot_02_9E69E797.wem</Path>
+				</File>
+				<File Id="420403182" Language="SFX">
+					<ShortName>Click_Ch02_SubSynth.wav</ShortName>
+					<Path>SFX\Click_Ch02_SubSynth_9E69E797.wem</Path>
 				</File>
 				<File Id="448790522" Language="SFX">
 					<ShortName>sfx_tank_hit.wav</ShortName>
