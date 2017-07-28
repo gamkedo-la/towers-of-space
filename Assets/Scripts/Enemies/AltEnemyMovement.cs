@@ -16,13 +16,13 @@ public class AltEnemyMovement : MonoBehaviour
         Vector3 destination = baseGO.transform.position;
         //Quaternion destinationRot = baseGO.transform.rotation;
 
-        //Transform destination = transform.position(6.4, -4.52, 13.48);
         agent = gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         //agent.SetDestination(destination.position);
         agent.SetDestination(destination);
 
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
