@@ -12,11 +12,10 @@ public class LevelsControl : MonoBehaviour
 
 		if (SceneManager.sceneCountInBuildSettings - 1 <= SceneManager.GetActiveScene().buildIndex)
 		{
-			Debug.Log( SceneManager.sceneCountInBuildSettings );
 			if (button != null) button.interactable = false;
 		}
 	}
-	
+
 	public void NextLevel()
 	{
 		if ( SceneManager.sceneCountInBuildSettings - 1 <= SceneManager.GetActiveScene( ).buildIndex )

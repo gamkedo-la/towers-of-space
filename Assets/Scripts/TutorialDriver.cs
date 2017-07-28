@@ -1,11 +1,11 @@
 /**
- * Description: 
+ * Description:
  *
  * Authors: Kornel
  *
  * Copyright: © 2017 Kornel. All rights reserved. For license see: 'LICENSE.txt'
- * 
- * TODO: 
+ *
+ * TODO:
  **/
 
 using UnityEngine;
@@ -33,6 +33,7 @@ public class TutorialDriver : MonoBehaviour
 		}
 
 		tips[currentTip].SetActive( true );
+		scripts.SetActive( false );
 	}
 
 	public void OnClick( )

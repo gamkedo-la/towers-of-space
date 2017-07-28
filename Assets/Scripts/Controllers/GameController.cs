@@ -309,6 +309,7 @@ public class GameController : MonoBehaviour
     {
         energy -= e;
 
+        MainMenu.instance.d.text += "\nuse energy:"+(-e);
         UIController.instance.UpdateEnergy(energy); //Updates it
     }
 
@@ -316,6 +317,7 @@ public class GameController : MonoBehaviour
     {
         energy += e;
 
+        MainMenu.instance.d.text += "\nadd energy:"+e;
         UIController.instance.UpdateEnergy(energy); //Updates it
     }
 
