@@ -188,8 +188,6 @@ public class GameController : MonoBehaviour
             currentCount += modCount;
         }
         towerCounts[index] = currentCount; //Updates the tower count
-
-        MainMenu.instance.d.text += "\ncreate?"+(creating?1:0) + " - num:"+currentCount + " - cost:"+currentCost;
     }
 
     public void InstantiateTower(string towerType)
@@ -307,6 +305,7 @@ public class GameController : MonoBehaviour
 
     public void UseEnergy(int e = 1)
     {
+        Debug.Log("Using E: " + e);
         energy -= e;
 
         MainMenu.instance.d.text += "\nuse energy:"+(-e);
@@ -315,6 +314,7 @@ public class GameController : MonoBehaviour
 
     public void AddEnergy(int e)
     {
+        Debug.Log("Adding E: " + e);
         energy += e;
 
         MainMenu.instance.d.text += "\nadd energy:"+e;

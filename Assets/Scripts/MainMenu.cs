@@ -14,8 +14,6 @@ public class MainMenu : MonoBehaviour {
 	public Toggle toggleMusic;
 	public Toggle toggleSound;
 
-	public Text d;
-
 	void Awake()
 	{
 		instance = this;
@@ -25,9 +23,6 @@ public class MainMenu : MonoBehaviour {
 	{
 		musicMute = PlayerPrefs.GetString("Mute music", "off") == "on";
 		sfxMute = PlayerPrefs.GetString("Mute sfx", "off") == "on";
-
-		d.text += "\nloaded music mute:" + System.Convert.ToSingle(musicMute);
-		d.text += "\nloaded sfx mute:" + System.Convert.ToSingle(sfxMute);
 
 		if (musicMute)
 		{
@@ -70,10 +65,8 @@ public class MainMenu : MonoBehaviour {
 
 		musicMute = !music;
 		PlayerPrefs.SetString("Mute music", musicMute ? "on" : "off");
-		d.text += "\ntoggle music mute:" + System.Convert.ToSingle(musicMute);
 
 		#if !UNITY_EDITOR_LINUX
-			d.text += " ...";
             AkSoundEngine.SetRTPCValue("Music_Mute", System.Convert.ToSingle(musicMute));  // 1 for mute, 0 for unmute
 		#endif
     }
@@ -84,10 +77,8 @@ public class MainMenu : MonoBehaviour {
 
 		sfxMute = !sound;
 		PlayerPrefs.SetString("Mute sfx", sfxMute ? "on" : "off");
-		d.text += "\ntoggle sound mute:" + System.Convert.ToSingle(sfxMute);
 
 		#if !UNITY_EDITOR_LINUX
-			d.text += " ...";
             AkSoundEngine.SetRTPCValue("SFX_Mute", System.Convert.ToSingle(sfxMute));  // 1 for mute, 0 for unmute
 		#endif
     }
