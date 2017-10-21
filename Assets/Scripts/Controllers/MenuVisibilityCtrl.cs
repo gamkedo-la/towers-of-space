@@ -11,14 +11,12 @@ public class MenuVisibilityCtrl : MonoBehaviour
     bool onTowerSpot;
     bool awake = false;
 
-    GameObject _myGameObj;
     GameObject _invisibleBG;
 
     void Awake()
     {
 
         setupInvisibleBG();
-        _myGameObj = gameObject;
         if (!shouldStartVisible)
         {
             hide();
@@ -52,7 +50,7 @@ public class MenuVisibilityCtrl : MonoBehaviour
 
     public void hide()
     {
-        _myGameObj.SetActive(false);
+        gameObject.SetActive(false);
         _invisibleBG.SetActive(false);
         if (onTowerSpot && awake)
         {

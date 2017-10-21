@@ -113,15 +113,12 @@ public class UIController : MonoBehaviour
         {
             case "Creation":
                 creationPanel.GetComponent<MenuVisibilityCtrl>().hide();
-                creationPanel.SetActive(false); //Hides the panel
                 break;
             case "Options":
                 optionsPanel.GetComponent<MenuVisibilityCtrl>().hide();
-                optionsPanel.SetActive(false); //Hides the panel
                 break;
             case "Rubble":
                 rubblePanel.GetComponent<MenuVisibilityCtrl>().hide();
-                rubblePanel.SetActive(false); //Hides the panel
                 break;
         }
     }
